@@ -10,7 +10,7 @@
             --secondary-color: #e65100;
             --bg-color: #ffffff;
             --text-color: #212121;
-            --gray-light: #f5f5f5;
+            --gray-light: #f8f9fa;
             --border-color: #e0e0e0;
         }
 
@@ -19,65 +19,62 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            user-select: none; /* Disable text/image selection for security */
+            user-select: none;
             -webkit-user-select: none;
         }
 
-        body {
+        html, body {
+            width: 100%;
+            min-height: 100vh;
             background-color: var(--bg-color);
             color: var(--text-color);
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* Smooth Key Animations */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
+            from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulseGlow {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
         }
 
         header {
             background: var(--bg-color);
             border-bottom: 2px solid var(--border-color);
-            padding: 20px 40px;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            animation: fadeInDown 0.8s ease-in-out;
+            animation: fadeInDown 0.6s ease-in-out;
+            width: 100%;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             cursor: pointer;
         }
 
         .logo-container h1 {
-            font-size: 28px;
+            font-size: 24px;
             color: var(--primary-color);
             font-weight: bold;
         }
 
         nav a {
-            margin-left: 25px;
+            margin-left: 20px;
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
+            font-size: 15px;
             transition: color 0.3s;
         }
 
@@ -87,31 +84,32 @@
 
         .hero-section {
             text-align: center;
-            padding: 60px 20px;
-            animation: fadeInUp 1s ease-in-out;
+            padding: 50px 20px;
+            animation: fadeInUp 0.8s ease-in-out;
+            width: 100%;
         }
 
         .hero-section h2 {
-            font-size: 36px;
+            font-size: 32px;
             color: var(--secondary-color);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .hero-section p {
-            font-size: 18px;
+            font-size: 16px;
             color: #666;
         }
 
-        /* Notice Board */
         .notice-board {
-            max-width: 800px;
+            max-width: 900px;
             margin: 20px auto;
             background: var(--gray-light);
             border-left: 5px solid var(--primary-color);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            animation: fadeInUp 1.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            animation: fadeInUp 1s ease-in-out;
+            width: 90%;
         }
 
         .notice-board h3 {
@@ -119,84 +117,134 @@
             margin-bottom: 8px;
         }
 
-        /* Main Container Sections */
         .container {
-            max-width: 1100px;
-            margin: 40px auto;
+            max-width: 1000px;
+            margin: 30px auto;
             padding: 0 20px;
-            animation: fadeInUp 1.4s ease-in-out;
+            width: 100%;
+            min-height: 70vh;
         }
 
         .section-title {
-            font-size: 26px;
-            margin-bottom: 25px;
+            font-size: 24px;
+            margin-bottom: 20px;
             border-bottom: 3px solid var(--primary-color);
             display: inline-block;
             padding-bottom: 5px;
         }
 
-        /* Deity Grid / Bhajan Viewing */
+        .main-bhajan-card {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .main-bhajan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .main-bhajan-card h3 {
+            font-size: 28px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .bhajan-sub-views {
+            display: none;
+            animation: fadeInUp 0.5s ease-in-out;
+            width: 100%;
+        }
+
         .deity-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .deity-card {
             background: var(--gray-light);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
+            border-radius: 10px;
+            padding: 20px;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
 
         .deity-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
             background: #fff;
             border-color: var(--primary-color);
         }
 
-        .deity-card h4 {
-            font-size: 20px;
-            color: var(--text-color);
-        }
-
-        /* Index List View */
-        .index-list-box {
+        .index-table-container {
+            width: 100%;
+            overflow-x: auto;
             background: var(--gray-light);
-            padding: 20px;
-            border-radius: 10px;
-            max-height: 250px;
-            overflow-y: auto;
-            margin-bottom: 30px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
+            padding: 15px;
+            margin-top: 20px;
         }
 
-        .index-item {
-            padding: 10px 15px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 15px;
             border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: #ffe0b2;
+            color: var(--secondary-color);
+        }
+
+        .view-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
             cursor: pointer;
+            font-weight: bold;
             transition: background 0.2s;
         }
 
-        .index-item:hover {
-            background: #e0e0e0;
-            color: var(--primary-color);
+        .view-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .back-btn {
+            background: #607d8b;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 20px;
             font-weight: bold;
         }
 
-        /* E-Book & OTP Section */
         .ebook-section {
             background: var(--gray-light);
             padding: 30px;
             border-radius: 12px;
             text-align: center;
             border: 1px solid var(--border-color);
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         .btn {
@@ -214,10 +262,9 @@
 
         .btn:hover {
             background: var(--secondary-color);
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
 
-        /* Modal Popups */
         .modal {
             display: none;
             position: fixed;
@@ -233,46 +280,38 @@
             padding: 30px;
             border-radius: 10px;
             width: 90%;
-            max-width: 400px;
+            max-width: 450px;
             text-align: center;
             position: relative;
-            animation: fadeInDown 0.4s ease;
+            animation: fadeInDown 0.3s ease;
         }
 
-        .modal-content input {
+        .modal-content input, .modal-content textarea {
             width: 100%;
-            padding: 10px;
-            margin: 15px 0;
+            padding: 12px;
+            margin: 10px 0;
             border: 1px solid var(--border-color);
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .close-btn {
             position: absolute;
             top: 10px;
             right: 15px;
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
             color: #888;
         }
 
-        /* Protected Image Viewer */
-        .protected-img {
-            max-width: 100%;
-            border-radius: 8px;
-            pointer-events: none; /* Disables dragging and long press saving */
-            -webkit-touch-callout: none;
-        }
-
-        /* Footer */
         footer {
             text-align: center;
             padding: 25px;
             border-top: 2px solid var(--border-color);
-            margin-top: 60px;
+            margin-top: 50px;
             background: var(--gray-light);
             font-size: 15px;
+            width: 100%;
         }
 
         footer a {
@@ -294,60 +333,135 @@
             <h1>🙏 ಭಜನಾಭಕ್ತಿ</h1>
         </div>
         <nav>
-            <a href="#home">ಮುಖಪುಟ</a>
-            <a href="#bhajans">ಭಜನೆಗಳು</a>
-            <a href="#ebook">ಇ-ಪುಸ್ತಕ</a>
+            <a href="#home" onclick="showMainHome()">ಮುಖಪುಟ</a>
+            <a href="#ebook" onclick="openOtpModal()">ಇ-ಪುಸ್ತಕ</a>
             <a href="#contact">ಸಂಪರ್ಕಿಸಿ</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
-        <h2>ಶ್ರೀಕ್ಷೇತ್ರದ ದೈವಿಕ ಭಜನಾ ಸಂಜೆ</h2>
-        <p>ಭಕ್ತಿ ಮತ್ತು ಸಮರ್ಪಣೆಯ ಸುಂದರ ಸಂಗಮ</p>
-    </section>
+    <!-- Main Homepage View -->
+    <div id="homeMainView">
+        <section class="hero-section">
+            <h2>ಶ್ರೀಕ್ಷೇತ್ರದ ದೈವಿಕ ಭಜನಾ ಸಂಜೆ</h2>
+            <p>ಭಕ್ತಿ ಮತ್ತು ಸಮರ್ಪಣೆಯ ಸುಂದರ ಸಂಗಮ</p>
+        </section>
 
-    <!-- Dynamic Notice Board -->
-    <div class="notice-board" id="noticeBoard">
-        <h3>📢 ಪ್ರಮುಖ ಸೂಚನೆ / Notice Board</h3>
-        <p id="noticeText">ಎಲ್ಲಾ ಭಕ್ತರಿಗೆ ನಮಸ್ಕಾರ. ಹೊಸ ಭಜನೆಗಳು ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ. ಇ-ಪುಸ್ತಕ ಪಡೆಯಲು ಕೆಳಗಿನ ವಿಭಾಗವನ್ನು ನೋಡಿ.</p>
+        <!-- Notice Board -->
+        <div class="notice-board">
+            <h3>📢 ಪ್ರಮುಖ ಸೂಚನೆ / Notice Board</h3>
+            <p id="noticeText">ಎಲ್ಲಾ ಭಕ್ತರಿಗೆ ನಮಸ್ಕಾರ. ಹೊಸ ಭಜನೆಗಳು ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ. ಕೆಳಗಿನ ಭಜನಾ ವೀಕ್ಷಣೆ ಬಳಸಿ.</p>
+        </div>
+
+        <!-- Main Bhajan Viewing Option on Homepage -->
+        <div class="container">
+            <div class="main-bhajan-card" onclick="openBhajanHub()">
+                <h3>📖 ಭಜನಾ ವೀಕ್ಷಣೆ ವಿಭಾಗ</h3>
+                <p style="color: #555; margin-top: 8px;">ದೇವರ ಚಿತ್ರಗಳ ಮೂಲಕ ಅಥವಾ ಇನ್‌ಡೆಕ್ಸ್ ಪುಟದ ಮೂಲಕ ಭಜನೆಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Bhajan Viewing Section -->
-    <div class="container" id="bhajans">
-        <h3 class="section-title">ಪವಿತ್ರ ಭಜನೆಗಳು (ದೇವಾವಾರು ವಿಭಾಗ)</h3>
+    <!-- Inside Bhajan Hub View -->
+    <div class="container bhajan-sub-views" id="bhajanHubView">
+        <button class="back-btn" onclick="showMainHome()">&larr; ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ</button>
+        <h3 class="section-title">ಭಜನಾ ವೀಕ್ಷಣೆ - ಆಯ್ಕೆಗಳು</h3>
         
-        <!-- Way 1: Deity Cards -->
-        <div class="deity-grid">
-            <div class="deity-card" onclick="openBhajanPage('ಗಣೇಶ ಭಜನೆಗಳು')">
-                <h4>🐘 ಶ್ರೀ ಗಣೇಶ ಭಜನೆಗಳು</h4>
-            </div>
-            <div class="deity-card" onclick="openBhajanPage('ರಾಮ ಭಜನೆಗಳು')">
-                <h4>🏹 ಶ್ರೀ ರಾಮ ಭಜನೆಗಳು</h4>
-            </div>
-            <div class="deity-card" onclick="openBhajanPage('ಕೃಷ್ಣ ಭಜನೆಗಳು')">
-                <h4>🪈 ಶ್ರೀ ಕೃಷ್ಣ ಭಜನೆಗಳು</h4>
-            </div>
-            <div class="deity-card" onclick="openBhajanPage('ಶಿವ ಭಜನೆಗಳು')">
-                <h4>🔱 ಶ್ರೀ ಶಿವ ಭಜನೆಗಳು</h4>
+        <!-- Way 1: Deity Wise View -->
+        <div style="margin-bottom: 30px;">
+            <h4 style="color: var(--secondary-color); margin-bottom: 15px;">೧. ದೇವರ ಚಿತ್ರಗಳ ಮೂಲಕ ಭಜನೆ ಆಯ್ಕೆ</h4>
+            <div class="deity-grid">
+                <div class="deity-card" onclick="openDeityList('ಶ್ರೀ ಗಣೇಶ ಭಜನೆಗಳು')">
+                    <h4>🐘 ಶ್ರೀ ಗಣೇಶ ಭಜನೆಗಳು</h4>
+                </div>
+                <div class="deity-card" onclick="openDeityList('ಶ್ರೀ ರಾಮ ಭಜನೆಗಳು')">
+                    <h4>🏹 ಶ್ರೀ ರಾಮ ಭಜನೆಗಳು</h4>
+                </div>
+                <div class="deity-card" onclick="openDeityList('ಶ್ರೀ ಕೃಷ್ಣ ಭಜನೆಗಳು')">
+                    <h4>🪈 ಶ್ರೀ ಕೃಷ್ಣ ಭಜನೆಗಳು</h4>
+                </div>
+                <div class="deity-card" onclick="openDeityList('ಶ್ರೀ ಶಿವ ಭಜನೆಗಳು')">
+                    <h4>🔱 ಶ್ರೀ ಶಿವ ಭಜನೆಗಳು</h4>
+                </div>
             </div>
         </div>
 
-        <h3 class="section-title">ಅಥವಾ ಇನ್‌ಡೆಕ್ಸ್ ಮೂಲಕ ಹುಡುಕಿ (Index Page List)</h3>
-        <!-- Way 2: Index Scrolling List -->
-        <div class="index-list-box">
-            <div class="index-item" onclick="openBhajanPage('ಗಣೇಶ ಸ್ತುತಿ - ಪ್ರಥಮ ವಂದನೆ')">೧. ಗಣೇಶ ಸ್ತುತಿ - ಪ್ರಥಮ ವಂದನೆ</div>
-            <div class="index-item" onclick="openBhajanPage('ಶ್ರೀ ರಾಮಚಂದ್ರನ ದಿವ್ಯ ನಾಾಮ')">೨. ಶ್ರೀ ರಾಮಚಂದ್ರನ ದಿವ್ಯ ನಾಮ</div>
-            <div class="index-item" onclick="openBhajanPage('ಕೃಷ್ಣಾ ಮುಕುಂದಾ ಮುರಾರಿ')">೩. ಕೃಷ್ಣಾ ಮುಕುಂದಾ ಮುರಾರಿ</div>
-            <div class="index-item" onclick="openBhajanPage('ಹರ ಹರ ಮಹಾದೇವ ಶಂಭೋ')">೪. ಹರ ಹರ ಮಹಾದೇವ ಶಂಭೋ</div>
+        <!-- Way 2: Index Page View -->
+        <div>
+            <h4 style="color: var(--secondary-color); margin-bottom: 15px;">೨. ಇನ್‌ಡೆಕ್ಸ್ ಪುಟದ ಮೂಲಕ ಹುಡುಕಿ (Index Page)</h4>
+            <div class="index-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ಕ್ರಮ ಸಂಖ್ಯೆ</th>
+                            <th>ಭಜನೆ ಹೆಸರು</th>
+                            <th>ದೇವರು</th>
+                            <th>ಕ್ರಿಯೆ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="indexTableBody">
+                        <tr>
+                            <td>೧</td>
+                            <td>ಗಣೇಶ ಸ್ತುತಿ - ಪ್ರಥಮ ವಂದನೆ</td>
+                            <td>ಶ್ರೀ ಗಣೇಶ</td>
+                            <td><button class="view-btn" onclick="openBhajanDetail('ಗಣೇಶ ಸ್ತುತಿ - ಪ್ರಥಮ ವಂದನೆ', 'ಫೋಟೋ/ಅಕ್ಷರ ರೂಪದ ಭಜನೆ ಇಲ್ಲಿರುತ್ತದೆ', '')">ವೀಕ್ಷಿಸಿ</button></td>
+                        </tr>
+                        <tr>
+                            <td>೨</td>
+                            <td>ಶ್ರೀ ರಾಮಚಂದ್ರನ ದಿವ್ಯ ನಾಮ</td>
+                            <td>ಶ್ರೀ ರಾಮ</td>
+                            <td><button class="view-btn" onclick="openBhajanDetail('ಶ್ರೀ ರಾಮಚಂದ್ರನ ದಿವ್ಯ ನಾಮ', 'ಶ್ರೀ ರಾಮ ಭಜನಾ ಸಾಹಿತ್ಯ ಇಲ್ಲಿದೆ', '')">ವೀಕ್ಷಿಸಿ</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <!-- E-Book & OTP Section -->
+    <!-- Deity Specific Bhajan List View -->
+    <div class="container bhajan-sub-views" id="deityListView">
+        <button class="back-btn" onclick="openBhajanHub()">&larr; ಹಿಂದಕ್ಕೆ ಹೋಗಿ</button>
+        <h3 class="section-title" id="deityTitle">ದೇವರ ಭಜನಾ ಪಟ್ಟಿ</h3>
+        <div class="index-table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ಕ್ರಮ ಸಂಖ್ಯೆ</th>
+                        <th>ಭಜನೆ ಹೆಸರು</th>
+                        <th>ಕ್ರಿಯೆ</th>
+                    </tr>
+                </thead>
+                <tbody id="deityTableBody">
+                    <!-- Dynamic Rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Final Bhajan Display Page with Photo/Text & Embedded YouTube Player -->
+    <div class="container bhajan-sub-views" id="bhajanDisplayView" style="text-align: center;">
+        <button class="back-btn" onclick="openBhajanHub()">&larr; ಹಿಂದಕ್ಕೆ ಹೋಗಿ</button>
+        <h2 id="displayBhajanTitle" style="color: var(--secondary-color); margin-bottom: 20px;">ಭಜನೆ ಶೀರ್ಷಿಕೆ</h2>
+        <div style="background: var(--gray-light); padding: 30px; border-radius: 10px; max-width: 700px; margin: 0 auto; border: 1px solid var(--border-color);">
+            
+            <!-- Bhajan Content (Photo or Text) -->
+            <div id="displayBhajanContent" style="background: #fff; padding: 20px; border-radius: 6px; color: #333; font-size: 16px; margin-bottom: 20px; border: 1px solid var(--border-color);">
+                [ ಭಜನೆ ಫೋಟೋ ಅಥವಾ ಅಕ್ಷರಗಳ ರೂಪದ ಸಾಹಿತ್ಯ ]
+            </div>
+
+            <!-- Embedded YouTube Player Container -->
+            <div id="youtubeContainer" style="margin-bottom: 20px; display:none;">
+                <iframe id="youtubeIframe" width="100%" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+            </div>
+
+            <p style="font-size: 13px; color: #d32f2f;">⚠️ ಈ ಚಿತ್ರವನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಅನುಮತಿಯಿಲ್ಲ (ಪ್ರೊಟೆಕ್ಟೆಡ್).</p>
+        </div>
+    </div>
+
+    <!-- E-Book Section -->
     <div class="container" id="ebook">
         <div class="ebook-section">
             <h3 class="section-title">ಭಜನೆ ಇ-ಪುಸ್ತಕ ಮತ್ತು ಬುಕ್ ಆರ್ಡರ್</h3>
-            <p style="margin-bottom: 15px; color: #555;">ಈ ವಿಭಾಗವನ್ನು ಪ್ರವೇಶಿಸಲು ಮೊಬೈಲ್ ನಂಬರ್ ಒಟಿಪಿ ಲಾಗಿನ್ ಕಡ್ಡಾಯವಾಗಿದೆ (ಗೌಪ್ಯತೆಗಾಗಿ).</p>
+            <p style="margin-bottom: 15px; color: #555;">ಈ ವಿಭಾಗವನ್ನು ಪ್ರವೇಶಿಸಲು ಮೊಬೈಲ್ ನಂಬರ್ ಒಟಿಪಿ ಲಾಗಿನ್ ಕಡ್ಡಾಯವಾಗಿದೆ.</p>
             <button class="btn" onclick="openOtpModal()">ಇ-ಪುಸ್ತಕ ವಿಭಾಗ ಪ್ರವೇಶಿಸಿ</button>
         </div>
     </div>
@@ -358,7 +472,7 @@
         <p style="font-size: 16px; line-height: 1.6;">
             <strong>ಭಜನಾ ಮಂಡಳಿ, ದಕ್ಷಿಣ ಕನ್ನಡ</strong><br>
             ಯಾವುದೇ ಗೊಂದಲವಿದ್ದರೆ ಅಥವಾ ಹೊಸ ಭಜನೆ ಸೇರಿಸಲು ಸಂಪರ್ಕಿಸಿ: <br>
-            📞 ಫೋನ್ / ವಾಟ್ಸಾಪ್: <strong>+91 XXXXXXXXXX</strong>
+            📞 ಫೋನ್ / ವಾಟ್ಸಾಪ್: <strong>8951630221</strong>
         </p>
     </div>
 
@@ -371,39 +485,22 @@
         </p>
     </footer>
 
-    <!-- Modal for Bhajan Display (Same Output for both ways) -->
-    <div class="modal" id="bhajanModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('bhajanModal')">&times;</span>
-            <h3 id="modalBhajanTitle" style="color: var(--primary-color); margin-bottom: 15px;">ಭಜನೆ ವಿವರ</h3>
-            <!-- Protected Image/Text Container -->
-            <div style="background: var(--gray-light); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                <p id="modalBhajanDesc" style="margin-bottom: 10px; font-weight: 500;">ಭಜನೆಯ ಸಾಹಿತ್ಯ / ಪೋಸ್ಟರ್ ಇಲ್ಲಿದೆ</p>
-                <!-- Protected Image Example (Long press disabled via CSS & JS) -->
-                <div style="background:#ddd; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; color:#555;">
-                    [ ಭಜನೆ ಫೋಟೋ / ಸಾಹಿತ್ಯ ]
-                </div>
-            </div>
-            <p style="font-size: 13px; color: #d32f2f;">⚠️ ಈ ಚಿತ್ರವನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಅನುಮತಿಯಿಲ್ಲ.</p>
-        </div>
-    </div>
-
     <!-- Modal for OTP Login -->
     <div class="modal" id="otpModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('otpModal')">&times;</span>
             <h3 style="color: var(--primary-color); margin-bottom: 10px;">ಮೊಬೈಲ್ ಒಟಿಪಿ ಪರಿಶೀಲನೆ</h3>
-            <p style="font-size: 14px; color: #666;">ಸುರಕ್ಷಿತ ಹಾಗೂ ನಂಬಿಕಾರ್ಹ ವೆಬ್‌ಸೈಟ್</p>
-            <input type="text" id="mobileInput" placeholder="ಮೊಬೈಲ್ ನಂಬರ್ ನಮೂದಿಸಿ" maxlength="10">
-            <button class="btn" onclick="sendOtp()" style="width:100%; margin: 5px 0;">ಒಟಿಪಿ ಕಳುಹಿಸಿ</button>
+            <p style="font-size: 13px; color: #666;">ಸುರಕ್ಷಿತ ಹಾಗೂ ನಂಬಿಕಾರ್ಹ ವೆಬ್‌ಸೈಟ್</p>
+            <input type="text" id="mobileInput" placeholder="10 ಅಂಕಿಯ ಮೊಬೈಲ್ ನಂಬರ್ (8951630221)" maxlength="10">
+            <button class="btn" onclick="sendOtp()" style="width:100%; margin: 5px 0;">ಒಟಿಪಿ ಕಳುಹಿಸಿ (SMS)</button>
             <div id="otpBox" style="display:none; margin-top: 10px;">
-                <input type="text" id="otpInput" placeholder="4 ಅಂಕಿಯ ಒಟಿಪಿ ಹಾಕಿ (ಉದಾ: 1234)" maxlength="4">
+                <input type="text" id="otpInput" placeholder="ಒಟಿಪಿ ನಮೂದಿಸಿ (ಡೆಮೋ: 8951)" maxlength="4">
                 <button class="btn" onclick="verifyOtp()" style="width:100%; margin: 5px 0; background: #2e7d32;">ಲಾಗಿನ್ ಆಗಿ</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal for PDF & Book Order Dashboard (After OTP) -->
+    <!-- Modal for Secure Dashboard (PDF & Book Order with Direct WhatsApp to 8951630221) -->
     <div class="modal" id="secureDashboardModal">
         <div class="modal-content" style="max-width: 450px;">
             <span class="close-btn" onclick="closeModal('secureDashboardModal')">&times;</span>
@@ -411,58 +508,130 @@
             
             <div style="margin-bottom: 20px; text-align: left;">
                 <h4 style="color: var(--secondary-color); font-size: 16px;">1. ಪಿಡಿಎಫ್ ಡೌನ್‌ಲೋಡ್</h4>
-                <p style="font-size: 13px; color: #555; margin-bottom: 8px;">ಪಿಡಿಎಫ್ ಪಡೆಯಲು ನೇರವಾಗಿ ವಾಟ್ಸಾಪ್‌ಗೆ ಸಂಪರ್ಕಿಸಿ.</p>
-                <button class="btn" onclick="window.open('https://wa.me/?text=ನನಗೆ%20ಭಜನಾಭಕ್ತಿ%20PDF%20ಬೇಕಾಗಿದೆ', '_blank')" style="font-size: 14px; padding: 8px 15px;">PDF ಡೌನ್‌ಲೋಡ್ (WhatsApp)</button>
+                <p style="font-size: 13px; color: #555; margin-bottom: 8px;">ಪಿಡಿಎಫ್ ಪಡೆಯಲು ನೇರವಾಗಿ ವಾಟ್ಸಾಪ್‌ಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ.</p>
+                <button class="btn" onclick="window.open('https://wa.me/918951630221?text=ನನಗೆ%20ಭಜನಾಭಕ್ತಿ%20PDF%20ಬೇಕಾಗಿದೆ', '_blank')" style="font-size: 14px; padding: 8px 15px;">PDF ಡೌನ್‌ಲೋಡ್ (WhatsApp)</button>
             </div>
 
             <div style="text-align: left;">
                 <h4 style="color: var(--secondary-color); font-size: 16px;">2. ಹಾರ್ಡ್ ಕಾಪಿ ಬುಕ್ ಆರ್ಡರ್</h4>
                 <p style="font-size: 13px; color: #d32f2f; margin-bottom: 8px;">* ಈ ಶುಲ್ಕವು ಪುಟಗಳ ಮುದ್ರಣ ಮತ್ತು ಪ್ರಿಂಟಿಂಗ್ ಮೇಲೆ ಅನ್ವಯಿಸಿರುತ್ತದೆ (ಕನಿಷ್ಠ ₹75 ರಿಂದ ಗರಿಷ್ಠ ₹100).</p>
-                <button class="btn" onclick="window.open('https://wa.me/?text=ನನಗೆ%20ಭಜನಾಭಕ್ತಿ%20ಹಾರ್ಡ್%20ಕಾಪಿ%20ಬುಕ್%20ಬೇಕಾಗಿದೆ', '_blank')" style="font-size: 14px; padding: 8px 15px; background: #2e7d32;">ಪುಸ್ತಕ ಆರ್ಡರ್ ಮಾಡಿ (WhatsApp)</button>
+                <button class="btn" onclick="window.open('https://wa.me/918951630221?text=ನನಗೆ%20ಭಜನಾಭಕ್ತಿ%20ಹಾರ್ಡ್%20ಕಾಪಿ%20ಬುಕ್%20ಬೇಕಾಗಿದೆ', '_blank')" style="font-size: 14px; padding: 8px 15px; background: #2e7d32;">ಪುಸ್ತಕ ಆರ್ಡರ್ ಮಾಡಿ (WhatsApp)</button>
             </div>
         </div>
     </div>
 
-    <!-- Secret Admin Passcode Modal -->
+    <!-- Secret Admin Passcode Modal (Includes Add New Bhajan & Notice Edit) -->
     <div class="modal" id="adminModal">
-        <div class="modal-content">
+        <div class="modal-content" style="max-width: 420px; text-align: left;">
             <span class="close-btn" onclick="closeModal('adminModal')">&times;</span>
-            <h3 style="color: var(--primary-color); margin-bottom: 15px;">🕵️‍♂️ ಸೀಕ್ರೆಟ್ ಅಡ್ಮಿನ್ ಲಾಗಿನ್</h3>
-            <input type="password" id="adminPass" placeholder="ಅಡ್ಮಿನ್ ಪಾಸ್‌ಕೋಡ್ ನಮೂದಿಸಿ">
-            <button class="btn" onclick="checkAdminPass()" style="width:100%;">ಪ್ರವೇಶಿಸಿ</button>
+            <h3 style="color: var(--primary-color); margin-bottom: 15px; text-align: center;">🕵️‍♂️ ಅಡ್ಮಿನ್ ಕಂಟ್ರೋಲ್ ಪ್ಯಾನಲ್</h3>
+            <div id="adminLoginDiv">
+                <input type="password" id="adminPass" placeholder="ಅಡ್ಮಿನ್ ಪಾಸ್‌ಕೋಡ್ ನಮೂದಿಸಿ">
+                <button class="btn" onclick="checkAdminPass()" style="width:100%;">ಪ್ರವೇಶಿಸಿ</button>
+            </div>
+            
+            <div id="adminActionsDiv" style="display:none;">
+                <h4 style="color: var(--secondary-color); margin-bottom: 10px;">ಹೊಸ ಭಜನೆ ಸೇರಿಸಿ (Add New Bhajan)</h4>
+                <input type="text" id="newBhajanName" placeholder="ಭಜನೆ ಹೆಸರು">
+                <input type="text" id="newBhajanDeity" placeholder="ಯಾವ ದೇವರು (ಉದಾ: ಶ್ರೀ ಗಣೇಶ)">
+                <textarea id="newBhajanText" placeholder="ಭಜನೆ ಸಾಹಿತ್ಯ ಅಥವಾ GitHub ಫೋಟೋ ಲಿಂಕ್ ಹಾಕಿ" rows="3"></textarea>
+                <input type="text" id="newYoutubeLink" placeholder="ಯೂಟ್ಯೂಬ್ ವೀಡಿಯೊ ಲಿಂಕ್ (ಐಚ್ಛಿಕ)">
+                <button class="btn" onclick="addNewBhajan()" style="width:100%; background: #2e7d32;">ಭಜನೆ ಸೇーブ ಮಾಡಿ</button>
+                
+                <hr style="margin: 15px 0;">
+                <button class="btn" onclick="editNotice()" style="width:100%; background: #1976d2;">ನೋಟಿಸ್ ಬೋರ್ಡ್ ಬದಲಾಯಿಸಿ</button>
+            </div>
         </div>
     </div>
 
     <script>
-        // Disable Right Click across website for copyright protection
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('dragstart', e => e.preventDefault());
 
-        // Disable Long Press / Dragging on images
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-        });
-
-        // Secret Logo Triple Tap Feature
         let tapCount = 0;
         let tapTimer = null;
         document.getElementById('secretLogo').addEventListener('click', function() {
             tapCount++;
             clearTimeout(tapTimer);
-            tapTimer = setTimeout(() => {
-                tapCount = 0;
-            }, 600);
-
+            tapTimer = setTimeout(() => { tapCount = 0; }, 600);
             if (tapCount === 3) {
                 tapCount = 0;
                 document.getElementById('adminModal').style.display = 'flex';
             }
         });
 
-        function openBhajanPage(title) {
-            document.getElementById('modalBhajanTitle').innerText = title;
-            document.getElementById('bhajanModal').style.display = 'flex';
+        function hideAllViews() {
+            document.getElementById('homeMainView').style.display = 'none';
+            document.getElementById('bhajanHubView').style.display = 'none';
+            document.getElementById('deityListView').style.display = 'none';
+            document.getElementById('bhajanDisplayView').style.display = 'none';
+        }
+
+        function showMainHome() {
+            hideAllViews();
+            document.getElementById('homeMainView').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function openBhajanHub() {
+            hideAllViews();
+            document.getElementById('bhajanHubView').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        let allBhajansList = [
+            {name: 'ಗಣೇಶ ಸ್ತುತಿ - ಪ್ರಥಮ ವಂದನೆ', deity: 'ಶ್ರೀ ಗಣೇಶ', content: 'ಪ್ರಥಮ ವಂದನೆ ಗಣಪತಿಗೆ...', youtube: ''},
+            {name: 'ಶ್ರೀ ರಾಮಚಂದ್ರನ ದಿವ್ಯ ನಾಮ', deity: 'ಶ್ರೀ ರಾಮ', content: 'ಶ್ರೀ ರಾಮ ರಾಮ ಜಯ ರಾಮ...', youtube: ''}
+        ];
+
+        function openDeityList(deityName) {
+            hideAllViews();
+            document.getElementById('deityTitle').innerText = deityName;
+            let tbody = document.getElementById('deityTableBody');
+            tbody.innerHTML = '';
+            
+            let filtered = allBhajansList.filter(b => b.deity === deityName);
+            if(filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">ಈ ದೇವರಿಗೆ ಸಂಬಂಧಿಸಿದ ಭಜನೆಗಳು ಇಲ್ಲ.</td></tr>`;
+            } else {
+                filtered.forEach((b, index) => {
+                    let row = `<tr><td>${index+1}</td><td>${b.name}</td><td><button class="view-btn" onclick="openBhajanDetail('${b.name}', '${b.content}', '${b.youtube}')">ವೀಕ್ಷಿಸಿ</button></td></tr>`;
+                    tbody.innerHTML += row;
+                });
+            }
+
+            document.getElementById('deityListView').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function openBhajanDetail(title, content, youtubeLink) {
+            hideAllViews();
+            document.getElementById('displayBhajanTitle').innerText = title;
+            
+            let contentDiv = document.getElementById('displayBhajanContent');
+            if(content.startsWith('http') || content.includes('.jpg') || content.includes('.png')) {
+                contentDiv.innerHTML = `<img src="${content}" alt="Bhajan Image" style="max-width:100%; border-radius:6px; pointer-events:none;">`;
+            } else {
+                contentDiv.innerHTML = `<p style="white-space: pre-line; line-height: 1.8;">${content}</p>`;
+            }
+
+            let ytContainer = document.getElementById('youtubeContainer');
+            let ytIframe = document.getElementById('youtubeIframe');
+            if(youtubeLink && youtubeLink.includes('watch?v=')) {
+                let videoId = youtubeLink.split('watch?v=')[1].split('&')[0];
+                ytIframe.src = `https://www.youtube.com/embed/${videoId}`;
+                ytContainer.style.display = 'block';
+            } else if(youtubeLink && youtubeLink.includes('youtu.be/')) {
+                let videoId = youtubeLink.split('youtu.be/')[1].split('?')[0];
+                ytIframe.src = `https://www.youtube.com/embed/${videoId}`;
+                ytContainer.style.display = 'block';
+            } else {
+                ytIframe.src = '';
+                ytContainer.style.display = 'none';
+            }
+
+            document.getElementById('bhajanDisplayView').style.display = 'block';
+            window.scrollTo(0, 0);
         }
 
         function openOtpModal() {
@@ -476,7 +645,7 @@
         function sendOtp() {
             let num = document.getElementById('mobileInput').value;
             if(num.length === 10) {
-                alert('ಒಟಿಪಿಯನ್ನು SMS ಮೂಲಕ ಕಳುಹಿಸಲಾಗಿದೆ! (ಡೆಮೋ ಒಟಿಪಿ: 1234)');
+                alert('8951630221 ನಂಬರಿಗೆ SMS ಮೂಲಕ ಒಟಿಪಿ ಕಳುಹಿಸಲಾಗಿದೆ! (ಡೆಮೋ ಒಟಿಪಿ: 8951)');
                 document.getElementById('otpBox').style.display = 'block';
             } else {
                 alert('ದಯವಿಟ್ಟು ಸರಿಯಾದ 10 ಅಂಕಿಯ ಮೊಬೈಲ್ ನಂಬರ್ ನಮೂದಿಸಿ.');
@@ -485,25 +654,55 @@
 
         function verifyOtp() {
             let otp = document.getElementById('otpInput').value;
-            if(otp === '1234') {
+            if(otp === '8951') {
                 closeModal('otpModal');
                 document.getElementById('secureDashboardModal').style.display = 'flex';
             } else {
-                alert('ತಪ್ಪಾದ ಒಟಿಪಿ! ದಯವಿಟ್ಟು ಸರಿಯಾದ ಒಟಿಪಿ ನಮೂದಿಸಿ.');
+                alert('ತಪ್ಪಾದ ಒಟಿಪಿ! ದಯವಿಟ್ಟು ಸರಿಯಾದ ಡೆಮೋ ಒಟಿಪಿ (8951) ನಮೂದಿಸಿ.');
             }
         }
 
         function checkAdminPass() {
             let pass = document.getElementById('adminPass').value;
-            if(pass === '12345') { // You can change admin password here
-                alert('ಅಡ್ಮಿನ್ ಲಾಗಿನ್ ಯಶಸ್ವಿಯಾಗಿದೆ! ನೀವು ಈಗ ನೋಟಿಸ್ ಅಥವಾ ಕಂಟೆಂಟ್ ಬದಲಾಯಿಸಬಹುದು.');
-                let newNotice = prompt('ಹೊಸ ಸೂಚನೆ / ನೋಟಿಸ್ ಬೋರ್ಡ್ ಸಂದೇಶವನ್ನು ಇಲ್ಲಿ ನಮೂದಿಸಿ:');
-                if(newNotice) {
-                    document.getElementById('noticeText').innerText = newNotice;
-                }
-                closeModal('adminModal');
+            if(pass === '12345') {
+                document.getElementById('adminLoginDiv').style.display = 'none';
+                document.getElementById('adminActionsDiv').style.display = 'block';
             } else {
-                alert('தಪ್ಪಾದ ಪಾಸ್‌ಕೋಡ್!');
+                alert('ತಪ್ಪಾದ ಪಾಸ್‌ಕೋಡ್!');
+            }
+        }
+
+        function addNewBhajan() {
+            let name = document.getElementById('newBhajanName').value;
+            let deity = document.getElementById('newBhajanDeity').value;
+            let content = document.getElementById('newBhajanText').value;
+            let yt = document.getElementById('newYoutubeLink').value;
+
+            if(name && deity && content) {
+                allBhajansList.push({name: name, deity: deity, content: content, youtube: yt});
+                
+                // Update Index Table
+                let indexTbody = document.getElementById('indexTableBody');
+                let newRow = `<tr><td>${indexTbody.rows.length + 1}</td><td>${name}</td><td>${deity}</td><td><button class="view-btn" onclick="openBhajanDetail('${name}', '${content}', '${yt}')">ವೀಕ್ಷಿಸಿ</button></td></tr>`;
+                indexTbody.innerHTML += newRow;
+
+                alert('ಹೊಸ ಭಜನೆ ಯಶಸ್ವಿಯಾಗಿ ಸೇರಿಸಲಾಗಿದೆ!');
+                closeModal('adminModal');
+                document.getElementById('newBhajanName').value = '';
+                document.getElementById('newBhajanDeity').value = '';
+                document.getElementById('newBhajanText').value = '';
+                document.getElementById('newYoutubeLink').value = '';
+            } else {
+                alert('ದಯವಿಟ್ಟು ಎಲ್ಲಾ ಅಗತ್ಯ ಮಾಹಿತಿಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ.');
+            }
+        }
+
+        function editNotice() {
+            let newNotice = prompt('ಹೊಸ ಸೂಚನೆ / ನೋಟಿಸ್ ಬೋರ್ಡ್ ಸಂದೇಶವನ್ನು ಇಲ್ಲಿ ನಮೂದಿಸಿ:');
+            if(newNotice) {
+                document.getElementById('noticeText').innerText = newNotice;
+                alert('ನೋಟಿಸ್ ಯಶಸ್ವಿಯಾಗಿ ಅಪ್‌ಡೇಟ್ ಆಗಿದೆ!');
+                closeModal('adminModal');
             }
         }
     </script>
