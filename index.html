@@ -2,236 +2,401 @@
 <html lang="kn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#100b07">
-<title>BG OFFICIAL | ಭಜನಾ ಪುಸ್ತಕ 2026–2027</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BG OFFICIAL | ಭಜನಾ ಪುಸ್ತಕ</title>
+
 <style>
-:root{--bg:#100b07;--gold:#f2c766;--gold2:#fff0b5;--saffron:#f28a32;--cream:#fff8e9;--muted:#d0c2ab;--panel:#20170f}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--cream);font-family:system-ui,-apple-system,"Noto Sans Kannada",sans-serif;line-height:1.6}
-body.locked{overflow:hidden}
-a{color:inherit}
-button,input,select,textarea{font:inherit}
-header{position:sticky;top:0;z-index:20;background:#100b07ed;backdrop-filter:blur(12px);border-bottom:1px solid #f2c76640}
-.nav{max-width:1120px;margin:auto;padding:13px 20px;display:flex;justify-content:space-between;align-items:center;gap:15px}
-.brand{font-weight:900;color:var(--gold2);letter-spacing:1px;text-decoration:none}
-.navlinks{display:flex;gap:18px;flex-wrap:wrap}.navlinks a{font-size:.9rem;text-decoration:none;color:var(--muted)}
-.hero{max-width:1120px;margin:auto;padding:48px 20px 65px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;min-height:78vh}
-.eyebrow{color:var(--gold);font-size:.82rem;font-weight:800;letter-spacing:2px}
-h1{font-size:clamp(2.2rem,6vw,4.2rem);line-height:1.15;margin:12px 0;color:var(--gold2)}
-.lead{font-size:1.07rem;color:var(--muted);max-width:550px}
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.pill{border:1px solid #f2c76666;border-radius:999px;padding:5px 12px;color:var(--gold2);font-size:.88rem}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.btn{border:0;border-radius:12px;padding:12px 19px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
-.primary{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#241507}
-.secondary{border:1px solid #f2c76680;color:var(--gold2);background:#ffffff08}
-.stage{height:430px;display:grid;place-items:center;perspective:1100px;position:relative;overflow:hidden;touch-action:pan-y}
-.glow{position:absolute;width:270px;height:320px;background:#e88b24;filter:blur(85px);opacity:.23;border-radius:50%}
-.book{position:relative;width:235px;height:335px;transform-style:preserve-3d;transform:rotateY(-18deg);cursor:grab;filter:drop-shadow(18px 25px 20px #0009);touch-action:pan-y;user-select:none}
-.book.auto{animation:bookTurn 8s ease-in-out infinite}
-.book.dragging{animation-play-state:paused;cursor:grabbing}
-.cover{position:absolute;inset:0;background:linear-gradient(145deg,#572512,#170b06 65%,#71390e);border:2px solid var(--gold);border-radius:5px 12px 12px 5px;box-shadow:inset 0 0 0 7px #d6a64b22,inset 0 0 0 9px #d6a64b88;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:23px;backface-visibility:hidden}
-.cover:before{content:"";position:absolute;inset:15px;border:1px solid #e9c875aa;border-radius:4px;pointer-events:none}
-.om{font-size:3.2rem;color:var(--gold2);text-shadow:0 0 18px #ffcb56;line-height:1.2}
-.cover h2{font-size:1.42rem;line-height:1.45;color:var(--gold2);margin:14px 0 8px}
-.cover p{color:#f4daa0;margin:0;font-size:.88rem}
-.year{color:var(--gold);font-weight:900;letter-spacing:2px;margin-top:20px}
-.pages{position:absolute;top:7px;bottom:7px;right:-12px;width:14px;transform:rotateY(90deg);transform-origin:left;background:repeating-linear-gradient(0deg,#f6e9cc 0,#f6e9cc 2px,#cdb58a 3px,#f6e9cc 4px)}
-.spine{position:absolute;left:-10px;top:0;bottom:0;width:12px;background:linear-gradient(90deg,#6e3614,#d6a64b,#4a200e);transform:rotateY(-90deg);transform-origin:right}
-.back{position:absolute;inset:0;transform:translateZ(-12px) rotateY(180deg);background:linear-gradient(145deg,#32140a,#120b07);border:2px solid var(--gold);border-radius:8px}
-.hint{position:absolute;bottom:10px;color:var(--muted);font-size:.85rem;text-align:center}
-@keyframes bookTurn{0%,100%{transform:rotateY(-24deg) rotateX(2deg)}50%{transform:rotateY(24deg) rotateX(-2deg)}}
-section{padding:62px 20px}.wrap{max-width:950px;margin:auto}
-.section-title{text-align:center;color:var(--gold2);font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 8px}
-.section-sub{text-align:center;color:var(--muted);margin:0 auto 30px;max-width:650px}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.card{background:linear-gradient(145deg,#281d12,#17110c);border:1px solid #f2c76640;border-radius:18px;padding:25px}
-.card h3{color:var(--gold2);margin:0 0 7px}.price{font-size:2rem;color:var(--gold);font-weight:900;margin:8px 0}.card p{color:var(--muted);margin:0}
-form{max-width:820px;margin:auto;background:#1b140e;border:1px solid #f2c76650;border-radius:20px;padding:clamp(18px,4vw,32px)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
-.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}
-label{font-weight:700;color:#f5dfad;font-size:.94rem}
-input,select,textarea{width:100%;padding:12px 13px;border-radius:10px;border:1px solid #715b3a;background:#100d09;color:var(--cream);outline:none}
-input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px #f2c76618}
-input[type=number]{max-width:180px}
-.total{margin:20px 0;padding:18px;border-radius:14px;background:#100d09;border:1px solid #f2c76650;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.total strong{font-size:1.7rem;color:var(--gold2)}
-.small{font-size:.88rem;color:var(--muted)}
-.form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-footer{text-align:center;padding:28px 20px;border-top:1px solid #f2c76630;color:var(--muted);font-size:.9rem}
-#bgIntro{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;overflow:hidden;background:radial-gradient(circle,#492508 0%,#160d06 45%,#050505 100%);transition:opacity .8s ease,visibility .8s ease}
-#bgIntro::before{content:"";position:absolute;width:min(66vw,270px);height:min(66vw,270px);border:2px solid #ffd56a;border-radius:50%;box-shadow:0 0 25px #ffb52e,inset 0 0 25px #ffb52e;animation:ringSpin 5s linear infinite}
-#bgIntro::after{content:"✦  ✧  ✦  ✧  ✦";position:absolute;color:#ffcc66;font-size:20px;letter-spacing:10px;animation:sparkle 1.4s infinite alternate}
-.bgLogo{z-index:2;font-family:Georgia,serif;font-size:clamp(35px,9vw,70px);font-weight:900;letter-spacing:3px;text-align:center;color:#ffe8a3;text-shadow:0 0 10px #ffb52e,0 0 25px #ff8c00,0 0 55px #ff6a00;animation:logoReveal 1.4s both}
-.bgTagline{z-index:2;margin-top:18px;color:#ffb84d;letter-spacing:3px;font-size:clamp(9px,2.6vw,12px);text-align:center;animation:logoReveal 1.4s .4s both}
-.bgLight{position:absolute;width:180%;height:3px;background:linear-gradient(90deg,transparent,#fff0a8,#ff8800,transparent);box-shadow:0 0 25px #ffae32;animation:lightSweep 2.2s ease-in-out infinite}
-#bgIntro.hide{opacity:0;visibility:hidden;pointer-events:none}
-@keyframes ringSpin{to{transform:rotate(360deg)}}@keyframes logoReveal{from{opacity:0;transform:scale(.45) translateY(25px);filter:blur(12px)}to{opacity:1;transform:scale(1);filter:blur(0)}}@keyframes sparkle{from{opacity:.2;transform:scale(.8)}to{opacity:1;transform:scale(1.2)}}@keyframes lightSweep{0%{transform:translateY(-180px) rotate(-25deg)}100%{transform:translateY(180px) rotate(-25deg)}}
-@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:35px;gap:10px}.hero-copy{text-align:center}.lead{margin-inline:auto}.actions,.pills{justify-content:center}.stage{height:390px}.book{transform:scale(.9)}.navlinks{gap:10px}.navlinks a{font-size:.8rem}}
-@media(max-width:520px){.cards,.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.nav{padding:10px 14px}.navlinks{max-width:60%;justify-content:flex-end}.total{align-items:flex-start;flex-direction:column}.stage{height:370px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#100b07;
+  color:#fff4d5;
+}
+header{
+  padding:18px;
+  text-align:center;
+  color:#ffd875;
+  font-size:25px;
+  font-weight:bold;
+  border-bottom:1px solid #d6a64b;
+}
+#intro{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:radial-gradient(circle,#542d0b,#080604 75%);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  animation:exit 1s ease 3s forwards;
+}
+#intro h1{
+  color:#ffe9a1;
+  font-size:clamp(35px,9vw,65px);
+  text-align:center;
+  text-shadow:0 0 15px gold,0 0 40px orange;
+  animation:zoom 1.5s ease;
+}
+.ring{
+  position:absolute;
+  width:260px;
+  height:260px;
+  border:2px solid gold;
+  border-radius:50%;
+  box-shadow:0 0 30px orange,inset 0 0 30px gold;
+  animation:spin 5s linear infinite;
+}
+.tagline{
+  color:#ffca65;
+  letter-spacing:4px;
+  text-align:center;
+  font-size:12px;
+  z-index:2;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes zoom{
+  from{opacity:0;transform:scale(.3);filter:blur(10px)}
+  to{opacity:1;transform:scale(1);filter:blur(0)}
+}
+@keyframes exit{to{opacity:0;visibility:hidden;pointer-events:none}}
+.hero{
+  text-align:center;
+  padding:35px 15px;
+}
+h2{color:#ffd875}
+.hero p{color:#e5d6b7;line-height:1.8}
+.book-area{
+  perspective:1000px;
+  height:360px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  touch-action:pan-y;
+}
+.book{
+  width:220px;
+  height:310px;
+  position:relative;
+  transform-style:preserve-3d;
+  animation:rotateBook 7s ease-in-out infinite;
+  cursor:grab;
+}
+.book.drag{animation-play-state:paused}
+.cover{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(140deg,#652d0d,#160b05,#8a4a12);
+  border:3px solid #f6cf6c;
+  box-shadow:inset 0 0 0 8px #d7a94955,0 20px 35px #000;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:18px;
+  border-radius:7px;
+}
+.cover h2{font-size:27px;color:#ffe9a1}
+.om{font-size:50px;color:gold}
+.cover p{color:#f8dba0}
+.cover small{color:gold;margin-top:20px}
+@keyframes rotateBook{
+  0%,100%{transform:rotateY(-20deg) rotateX(2deg)}
+  50%{transform:rotateY(20deg) rotateX(-2deg)}
+}
+section{padding:35px 16px}
+.prices{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  max-width:700px;
+  margin:auto;
+}
+.card{
+  border:1px solid #d6a64b;
+  background:#21170e;
+  padding:22px;
+  text-align:center;
+  border-radius:15px;
+}
+.price{font-size:32px;color:#ffd875;font-weight:bold}
+form{
+  max-width:650px;
+  margin:auto;
+  padding:22px;
+  background:#21170e;
+  border:1px solid #d6a64b;
+  border-radius:15px;
+}
+label{display:block;margin-top:14px;color:#ffdf91}
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border:1px solid #8d6c37;
+  border-radius:8px;
+  background:#100b07;
+  color:white;
+  font-size:16px;
+}
+.total{
+  padding:16px;
+  margin-top:20px;
+  background:#100b07;
+  color:#ffd875;
+  font-size:24px;
+  text-align:center;
+}
+button,.btn{
+  display:inline-block;
+  padding:13px 18px;
+  margin-top:18px;
+  border:0;
+  border-radius:8px;
+  background:linear-gradient(120deg,#ffe7a0,#d6a23e);
+  color:#211204;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+  text-decoration:none;
+}
+button{width:100%}
+footer{
+  text-align:center;
+  padding:25px;
+  border-top:1px solid #d6a64b;
+  color:#d6c29d;
+}
 </style>
 </head>
-<body class="locked">
-<div id="bgIntro" aria-label="BG OFFICIAL ಪರಿಚಯ">
-  <div class="bgLight"></div>
-  <div class="bgLogo">BG OFFICIAL</div>
-  <div class="bgTagline">✦ DEVOTIONAL • DIVINE • OFFICIAL ✦</div>
+
+<body>
+
+<div id="intro">
+  <div class="ring"></div>
+  <h1>BG OFFICIAL</h1>
+  <div class="tagline">✦ DEVOTIONAL • DIVINE • OFFICIAL ✦</div>
 </div>
 
-<header>
-  <nav class="nav">
-    <a class="brand" href="#home">BG OFFICIAL</a>
-    <div class="navlinks">
-      <a href="#book">ಪುಸ್ತಕ</a><a href="#prices">ಬೆಲೆ</a><a href="#order">ಆರ್ಡರ್</a>
-    </div>
-  </nav>
-</header>
+<header>✦ BG OFFICIAL ✦</header>
 
 <main>
-<section class="hero" id="home">
-  <div class="hero-copy">
-    <div class="eyebrow">ಭಕ್ತಿ • ಸಂಪ್ರದಾಯ • ಸಂಗೀತ</div>
-    <h1>ಭಜನಾ ಪುಸ್ತಕ<br>2026–2027</h1>
-    <p class="lead">ಭಜನೆ ಮತ್ತು ಭಕ್ತಿಗೀತೆಗಳಿಗಾಗಿ ನಿಮ್ಮ ಭಜನಾ ಪುಸ್ತಕ. ನಿಮ್ಮ ಅಗತ್ಯಕ್ಕೆ ತಕ್ಕ ಗಾತ್ರವನ್ನು ಆಯ್ಕೆಮಾಡಿ, ಆರ್ಡರ್ ವಿವರಗಳನ್ನು WhatsApp ಮೂಲಕ ಕಳುಹಿಸಿ.</p>
-    <div class="pills"><span class="pill">✨ ಆಕರ್ಷಕ ವಿನ್ಯಾಸ</span><span class="pill">🙏 ಭಕ್ತಿಭಾವದ ಉಡುಗೊರೆ</span></div>
-    <div class="actions"><a class="btn primary" href="#order">ಈಗಲೇ ಆರ್ಡರ್ ಮಾಡಿ</a><a class="btn secondary" href="#prices">ಬೆಲೆ ನೋಡಿ</a></div>
-  </div>
-  <div class="stage" id="book">
-    <div class="glow"></div>
-    <div class="book auto" id="book3d" role="img" aria-label="ಭಜನಾ ಪುಸ್ತಕದ 3D ಮಾದರಿ">
-      <div class="back"></div><div class="spine"></div>
+<section class="hero">
+  <h1>ಭಜನಾ ಪುಸ್ತಕ 2026–2027</h1>
+  <p>
+    🙏 ಭಕ್ತಿಯೇ ಶಕ್ತಿ 🙏<br>
+    ಭಜನೆ ಮತ್ತು ಭಕ್ತಿಗೀತೆಗಳಿಗಾಗಿ ವಿಶೇಷ ಪುಸ್ತಕ.
+  </p>
+  <a class="btn" href="#order">ಈಗಲೇ ಆರ್ಡರ್ ಮಾಡಿ</a>
+</section>
+
+<section>
+  <h2 style="text-align:center">📖 ನಮ್ಮ ಭಜನಾ ಪುಸ್ತಕ</h2>
+  <div class="book-area">
+    <div class="book" id="book">
       <div class="cover">
         <div class="om">ॐ</div>
         <h2>ಭಜನಾ ಪುಸ್ತಕ</h2>
         <p>ಭಕ್ತಿಗೀತೆಗಳ ಸಂಗ್ರಹ</p>
-        <div class="year">2026 – 2027</div>
+        <small>2026 – 2027</small>
       </div>
-      <div class="pages"></div>
     </div>
-    <div class="hint">ಪುಸ್ತಕವನ್ನು ಬೆರಳಿನಿಂದ ಅಥವಾ ಮೌಸ್‌ನಿಂದ ಎಳೆದು ತಿರುಗಿಸಿ</div>
   </div>
+  <p style="text-align:center;color:#d6c29d">
+    ಪುಸ್ತಕವನ್ನು ಬೆರಳಿನಿಂದ ಅಥವಾ ಮೌಸ್‌ನಿಂದ ಎಳೆಯಿರಿ.
+  </p>
 </section>
 
-<section id="prices">
-  <div class="wrap">
-    <h2 class="section-title">ಪುಸ್ತಕದ ಗಾತ್ರ ಮತ್ತು ಬೆಲೆ</h2>
-    <p class="section-sub">ಒಂದೇ ಆರ್ಡರ್‌ನಲ್ಲಿ ಎರಡೂ ಗಾತ್ರಗಳನ್ನು ಆಯ್ಕೆಮಾಡಬಹುದು.</p>
-    <div class="cards">
-      <article class="card"><h3>ಅರ್ಧ A4 ಹಾಳೆ</h3><p>ಸುಲಭವಾಗಿ ಹಿಡಿದುಕೊಂಡು ಬಳಸಬಹುದಾದ ಗಾತ್ರ.</p><div class="price">₹200</div><p>ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ</p></article>
-      <article class="card"><h3>ಪೂರ್ಣ A4 ಹಾಳೆ</h3><p>ದೊಡ್ಡ ಅಕ್ಷರಗಳು ಮತ್ತು ಸುಲಭ ಓದಿಗೆ ಸೂಕ್ತ.</p><div class="price">₹300</div><p>ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ</p></article>
+<section>
+  <h2 style="text-align:center">ಪುಸ್ತಕದ ಬೆಲೆ</h2>
+  <div class="prices">
+    <div class="card">
+      <h3>ಅರ್ಧ A4 ಹಾಳೆ</h3>
+      <div class="price">₹200</div>
+      <p>ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ</p>
+    </div>
+    <div class="card">
+      <h3>ಪೂರ್ಣ A4 ಹಾಳೆ</h3>
+      <div class="price">₹300</div>
+      <p>ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ</p>
     </div>
   </div>
 </section>
 
 <section id="order">
-  <div class="wrap">
-    <h2 class="section-title">ಆರ್ಡರ್ / ನೋಂದಣಿ</h2>
-    <p class="section-sub">ನಿಮ್ಮ ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ. WhatsApp ತೆರೆಯುತ್ತದೆ; ಆರ್ಡರ್ ಕಳುಹಿಸಲು ಅಲ್ಲಿ Send ಒತ್ತಿ.</p>
-    <form id="orderForm">
-      <div class="grid">
-        <div class="field"><label for="name">ಪೂರ್ಣ ಹೆಸರು *</label><input id="name" name="name" required autocomplete="name" placeholder="ನಿಮ್ಮ ಹೆಸರು"></div>
-        <div class="field"><label for="mobile">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *</label><input id="mobile" name="mobile" type="tel" required inputmode="numeric" pattern="[0-9 +()-]{10,16}" autocomplete="tel" placeholder="ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"></div>
-        <div class="field full"><label for="address">ಪೂರ್ಣ ವಿಳಾಸ *</label><textarea id="address" name="address" rows="3" required autocomplete="street-address" placeholder="ಮನೆ ಸಂಖ್ಯೆ, ರಸ್ತೆ, ಊರು ಇತ್ಯಾದಿ"></textarea></div>
-        <div class="field"><label for="city">ನಗರ / ಗ್ರಾಮ *</label><input id="city" name="city" required placeholder="ನಗರ ಅಥವಾ ಗ್ರಾಮದ ಹೆಸರು"></div>
-        <div class="field"><label for="district">ಜಿಲ್ಲೆ *</label><select id="district" name="district" required><option value="">ಜಿಲ್ಲೆ ಆಯ್ಕೆಮಾಡಿ</option></select></div>
-        <div class="field"><label for="pin">ಪಿನ್ ಕೋಡ್ *</label><input id="pin" name="pin" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="6 ಅಂಕಿಯ ಪಿನ್ ಕೋಡ್"></div>
-        <div class="field"><label for="half">ಅರ್ಧ A4 ಪುಸ್ತಕ (₹200)</label><input id="half" name="half" type="number" min="0" step="1" value="0"></div>
-        <div class="field"><label for="full">ಪೂರ್ಣ A4 ಪುಸ್ತಕ (₹300)</label><input id="full" name="full" type="number" min="0" step="1" value="0"></div>
-        <div class="field full"><label for="notes">ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ (ಐಚ್ಛಿಕ)</label><textarea id="notes" name="notes" rows="2" placeholder="ಯಾವುದಾದರೂ ಸೂಚನೆ ಇದ್ದರೆ ಇಲ್ಲಿ ಬರೆಯಿರಿ"></textarea></div>
-      </div>
-      <div class="total"><span>ಒಟ್ಟು ಮೊತ್ತ</span><strong id="total">₹0</strong><span class="small" id="qtySummary">0 ಪುಸ್ತಕಗಳು</span></div>
-      <p class="small">ಸೂಚನೆ: ಈ ಪುಟವು ಆರ್ಡರ್‌ಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಡೇಟಾಬೇಸ್‌ನಲ್ಲಿ ಉಳಿಸುವುದಿಲ್ಲ. ವಿವರಗಳು WhatsApp ಸಂದೇಶವಾಗಿ ಸಿದ್ಧವಾಗುತ್ತವೆ.</p>
-      <div class="form-actions"><button class="btn primary" type="submit">WhatsApp ಮೂಲಕ ಆರ್ಡರ್ ಮಾಡಿ</button><button class="btn secondary" type="reset">ಫಾರ್ಮ್ ತೆರವುಗೊಳಿಸಿ</button></div>
-      <p class="small" id="status" role="status" aria-live="polite"></p>
-    </form>
-  </div>
+  <h2 style="text-align:center">ಆರ್ಡರ್ / ನೋಂದಣಿ</h2>
+
+  <form id="orderForm">
+    <label>ಪೂರ್ಣ ಹೆಸರು *</label>
+    <input id="name" required placeholder="ನಿಮ್ಮ ಹೆಸರು">
+
+    <label>ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *</label>
+    <input id="mobile" type="tel" required
+      pattern="[0-9 +()-]{10,16}" placeholder="ಮೊಬೈಲ್ ಸಂಖ್ಯೆ">
+
+    <label>ಪೂರ್ಣ ವಿಳಾಸ *</label>
+    <textarea id="address" required rows="3"
+      placeholder="ಮನೆ ಸಂಖ್ಯೆ, ರಸ್ತೆ, ಊರು"></textarea>
+
+    <label>ನಗರ / ಗ್ರಾಮ *</label>
+    <input id="city" required placeholder="ನಗರ ಅಥವಾ ಗ್ರಾಮದ ಹೆಸರು">
+
+    <label>ಕರ್ನಾಟಕ ಜಿಲ್ಲೆ *</label>
+    <select id="district" required>
+      <option value="">ಜಿಲ್ಲೆ ಆಯ್ಕೆಮಾಡಿ</option>
+      <option>ಬಾಗಲಕೋಟೆ</option>
+      <option>ಬಳ್ಳಾರಿ</option>
+      <option>ಬೆಳಗಾವಿ</option>
+      <option>ಬೆಂಗಳೂರು ಗ್ರಾಮಾಂತರ</option>
+      <option>ಬೆಂಗಳೂರು ದಕ್ಷಿಣ</option>
+      <option>ಬೆಂಗಳೂರು ನಗರ</option>
+      <option>ಬೀದರ್</option>
+      <option>ಚಾಮರಾಜನಗರ</option>
+      <option>ಚಿಕ್ಕಬಳ್ಳಾಪುರ</option>
+      <option>ಚಿಕ್ಕಮಗಳೂರು</option>
+      <option>ಚಿತ್ರದುರ್ಗ</option>
+      <option>ದಕ್ಷಿಣ ಕನ್ನಡ</option>
+      <option>ದಾವಣಗೆರೆ</option>
+      <option>ಧಾರವಾಡ</option>
+      <option>ಗದಗ</option>
+      <option>ಹಾಸನ</option>
+      <option>ಹಾವೇರಿ</option>
+      <option>ಕಲಬುರಗಿ</option>
+      <option>ಕೊಡಗು</option>
+      <option>ಕೋಲಾರ</option>
+      <option>ಕೊಪ್ಪಳ</option>
+      <option>ಮಂಡ್ಯ</option>
+      <option>ಮೈಸೂರು</option>
+      <option>ರಾಯಚೂರು</option>
+      <option>ರಾಮನಗರ</option>
+      <option>ಶಿವಮೊಗ್ಗ</option>
+      <option>ತುಮಕೂರು</option>
+      <option>ಉಡುಪಿ</option>
+      <option>ಉತ್ತರ ಕನ್ನಡ</option>
+      <option>ವಿಜಯನಗರ</option>
+      <option>ಯಾದಗಿರಿ</option>
+    </select>
+
+    <label>ಪಿನ್ ಕೋಡ್ *</label>
+    <input id="pin" required inputmode="numeric"
+      pattern="[0-9]{6}" maxlength="6" placeholder="6 ಅಂಕಿಯ ಪಿನ್ ಕೋಡ್">
+
+    <label>ಅರ್ಧ A4 ಪುಸ್ತಕ — ₹200</label>
+    <input id="half" type="number" min="0" step="1" value="0">
+
+    <label>ಪೂರ್ಣ A4 ಪುಸ್ತಕ — ₹300</label>
+    <input id="full" type="number" min="0" step="1" value="0">
+
+    <div class="total">
+      ಒಟ್ಟು: <span id="total">₹0</span>
+    </div>
+
+    <label>ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ (ಐಚ್ಛಿಕ)</label>
+    <textarea id="notes" rows="2" placeholder="ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ"></textarea>
+
+    <button type="submit">WhatsApp ಮೂಲಕ ಆರ್ಡರ್ ಮಾಡಿ</button>
+    <p id="status" style="color:#ffd875"></p>
+  </form>
 </section>
 </main>
 
-<footer>© 2026–2027 BG OFFICIAL · ಭಜನಾ ಪುಸ್ತಕ</footer>
+<footer>
+  © 2026–2027 BG OFFICIAL<br>
+  ಭಕ್ತಿ • ಸಂಪ್ರದಾಯ • ಸಂಗೀತ
+</footer>
 
 <script>
-(function(){
-  const intro=document.getElementById('bgIntro');
-  const unlock=()=>{intro.classList.add('hide');document.body.classList.remove('locked');};
-  window.addEventListener('load',()=>setTimeout(unlock,3500));
-  setTimeout(unlock,6000);
+const intro = document.getElementById("intro");
+setTimeout(() => intro.remove(), 4100);
 
-  const districts=[
-    'ಬಾಗಲಕೋಟೆ','ಬಳ್ಳಾರಿ','ಬೆಳಗಾವಿ','ಬೆಂಗಳೂರು ಗ್ರಾಮಾಂತರ','ಬೆಂಗಳೂರು ದಕ್ಷಿಣ','ಬೆಂಗಳೂರು ನಗರ','ಬೀದರ್','ಚಾಮರಾಜನಗರ','ಚಿಕ್ಕಬಳ್ಳಾಪುರ','ಚಿಕ್ಕಮಗಳೂರು','ಚಿತ್ರದುರ್ಗ','ದಕ್ಷಿಣ ಕನ್ನಡ','ದಾವಣಗೆರೆ','ಧಾರವಾಡ','ಗದಗ','ಹಾಸನ','ಹಾವೇರಿ','ಕಲಬುರಗಿ','ಕೊಡಗು','ಕೋಲಾರ','ಕೊಪ್ಪಳ','ಮಂಡ್ಯ','ಮೈಸೂರು','ರಾಯಚೂರು','ರಾಮನಗರ','ಶಿವಮೊಗ್ಗ','ತುಮಕೂರು','ಉಡುಪಿ','ಉತ್ತರ ಕನ್ನಡ','ವಿಜಯನಗರ','ಯಾದಗಿರಿ'
-  ];
-  const districtSelect=document.getElementById('district');
-  districts.forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=d;districtSelect.appendChild(o);});
+const half = document.getElementById("half");
+const full = document.getElementById("full");
+const total = document.getElementById("total");
 
-  const half=document.getElementById('half'),full=document.getElementById('full');
-  const total=document.getElementById('total'),qtySummary=document.getElementById('qtySummary');
-  function number(el){return Math.max(0,Math.floor(Number(el.value)||0));}
-  function updateTotal(){
-    const h=number(half),f=number(full);
-    total.textContent='₹'+(h*200+f*300).toLocaleString('en-IN');
-    qtySummary.textContent=(h+f)+' ಪುಸ್ತಕಗಳು';
+function qty(el){
+  return Math.max(0, Math.floor(Number(el.value) || 0));
+}
+function calculate(){
+  total.textContent = "₹" + (qty(half)*200 + qty(full)*300).toLocaleString("en-IN");
+}
+half.addEventListener("input", calculate);
+full.addEventListener("input", calculate);
+
+const book = document.getElementById("book");
+let dragging = false;
+let lastX = 0;
+let rotation = -20;
+
+book.addEventListener("pointerdown", e => {
+  dragging = true;
+  lastX = e.clientX;
+  book.classList.add("drag");
+  book.setPointerCapture(e.pointerId);
+});
+book.addEventListener("pointermove", e => {
+  if (!dragging) return;
+  rotation += (e.clientX-lastX)*0.8;
+  lastX = e.clientX;
+  book.style.transform = "rotateY("+rotation+"deg)";
+});
+function stopDrag(){
+  if (!dragging) return;
+  dragging = false;
+  book.classList.remove("drag");
+  book.style.animation = "none";
+}
+book.addEventListener("pointerup", stopDrag);
+book.addEventListener("pointercancel", stopDrag);
+
+document.getElementById("orderForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const h = qty(half);
+  const f = qty(full);
+  if (h+f === 0) {
+    document.getElementById("status").textContent =
+      "ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಪುಸ್ತಕದ ಪ್ರಮಾಣ ನಮೂದಿಸಿ.";
+    return;
   }
-  half.addEventListener('input',updateTotal);full.addEventListener('input',updateTotal);
-  document.getElementById('orderForm').addEventListener('reset',()=>setTimeout(updateTotal,0));
-  updateTotal();
 
-  const book=document.getElementById('book3d');
-  let startX=0,startY=0,rotation=-18,dragging=false;
-  book.addEventListener('pointerdown',e=>{
-    dragging=true;startX=e.clientX;startY=e.clientY;
-    book.classList.add('dragging');book.setPointerCapture(e.pointerId);
-  });
-  book.addEventListener('pointermove',e=>{
-    if(!dragging)return;
-    rotation+=(e.clientX-startX)*0.8;startX=e.clientX;startY=e.clientY;
-    book.style.transform='rotateY('+rotation+'deg) rotateX(2deg)';
-  });
-  function stopDrag(){if(dragging){dragging=false;book.classList.remove('dragging');book.classList.remove('auto');}}
-  book.addEventListener('pointerup',stopDrag);book.addEventListener('pointercancel',stopDrag);
-  book.addEventListener('dblclick',()=>{book.classList.toggle('auto');if(!book.classList.contains('auto'))book.style.transform='rotateY('+rotation+'deg)';});
+  const name = document.getElementById("name").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const city = document.getElementById("city").value.trim();
+  const district = document.getElementById("district").value;
+  const pin = document.getElementById("pin").value.trim();
+  const notes = document.getElementById("notes").value.trim();
+  const sum = h*200 + f*300;
 
-  document.getElementById('orderForm').addEventListener('submit',e=>{
-    e.preventDefault();
-    const h=number(half),f=number(full),sum=h*200+f*300;
-    const status=document.getElementById('status');
-    if(h+f===0){status.textContent='ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಪುಸ್ತಕದ ಪ್ರಮಾಣ ನಮೂದಿಸಿ.';return;}
-    const data={
-      name:document.getElementById('name').value.trim(),
-      mobile:document.getElementById('mobile').value.trim(),
-      address:document.getElementById('address').value.trim(),
-      city:document.getElementById('city').value.trim(),
-      district:districtSelect.value,
-      pin:document.getElementById('pin').value.trim(),
-      notes:document.getElementById('notes').value.trim()
-    };
-    const lines=[
-      '🙏 *ಭಜನಾ ಪುಸ್ತಕ 2026–2027 ಆರ್ಡರ್*',
-      '',
-      '*ಗ್ರಾಹಕರ ವಿವರಗಳು*',
-      'ಹೆಸರು: '+data.name,
-      'ಮೊಬೈಲ್: '+data.mobile,
-      'ವಿಳಾಸ: '+data.address,
-      'ನಗರ/ಗ್ರಾಮ: '+data.city,
-      'ಜಿಲ್ಲೆ: '+data.district,
-      'ಪಿನ್ ಕೋಡ್: '+data.pin,
-      '',
-      '*ಪುಸ್ತಕದ ವಿವರಗಳು*',
-      'ಅರ್ಧ A4 (₹200): '+h+' ಪುಸ್ತಕ(ಗಳು) = ₹'+(h*200),
-      'ಪೂರ್ಣ A4 (₹300): '+f+' ಪುಸ್ತಕ(ಗಳು) = ₹'+(f*300),
-      '*ಒಟ್ಟು ಪ್ರಮಾಣ: '+(h+f)+' ಪುಸ್ತಕಗಳು*',
-      '*ಒಟ್ಟು ಮೊತ್ತ: ₹'+sum.toLocaleString('en-IN')+'*',
-      data.notes?'ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: '+data.notes:'',
-      '',
-      'ದಯವಿಟ್ಟು ನನ್ನ ಆರ್ಡರ್ ದೃಢೀಕರಿಸಿ.'
-    ].filter(Boolean);
-    const url='https://wa.me/918951630221?text='+encodeURIComponent(lines.join('\n'));
-    status.textContent='WhatsApp ತೆರೆಯಲಾಗುತ್ತಿದೆ…';
-    window.open(url,'_blank','noopener,noreferrer');
-  });
-})();
+  const message =
+`🙏 *BG OFFICIAL - ಭಜನಾ ಪುಸ್ತಕ 2026–2027 ಆರ್ಡರ್*
+
+*ಗ್ರಾಹಕರ ವಿವರಗಳು*
+ಹೆಸರು: ${name}
+ಮೊಬೈಲ್: ${mobile}
+ವಿಳಾಸ: ${address}
+ನಗರ / ಗ್ರಾಮ: ${city}
+ಜಿಲ್ಲೆ: ${district}
+ಪಿನ್ ಕೋಡ್: ${pin}
+
+*ಪುಸ್ತಕದ ವಿವರಗಳು*
+ಅರ್ಧ A4 (₹200): ${h} × ₹200 = ₹${h*200}
+ಪೂರ್ಣ A4 (₹300): ${f} × ₹300 = ₹${f*300}
+ಒಟ್ಟು ಪುಸ್ತಕಗಳು: ${h+f}
+*ಒಟ್ಟು ಮೊತ್ತ: ₹${sum}*
+${notes ? "ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: "+notes : ""}
+
+ದಯವಿಟ್ಟು ನನ್ನ ಆರ್ಡರ್ ದೃಢೀಕರಿಸಿ.`;
+
+  document.getElementById("status").textContent =
+    "WhatsApp ತೆರೆಯಲಾಗುತ್ತಿದೆ. ಅಲ್ಲಿ Send ಒತ್ತಿ.";
+  const url = "https://wa.me/918951630221?text=" +
+    encodeURIComponent(message);
+  window.open(url, "_blank");
+});
 </script>
 </body>
 </html>
