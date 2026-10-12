@@ -35,16 +35,13 @@ button, input, select, textarea {
     font: inherit;
 }
 
-/* =========================
-   BG OFFICIAL INTRO ANIMATION
-========================= */
+/* INTRO ANIMATION */
 
 #intro {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background:
-        radial-gradient(circle at center, #562600, #190900 55%, #050200);
+    background: radial-gradient(circle at center, #562600, #190900 55%, #050200);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,9 +140,7 @@ button, input, select, textarea {
     }
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header {
     text-align: center;
@@ -168,9 +163,7 @@ header p {
     font-size: 14px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
     text-align: center;
@@ -192,9 +185,7 @@ header p {
     color: var(--cream);
 }
 
-/* =========================
-   GOD PHOTO SPACE
-========================= */
+/* GOD PHOTO */
 
 .god-section {
     width: min(90%, 370px);
@@ -209,8 +200,10 @@ header p {
 .god-photo {
     display: block;
     width: 100%;
-    height: 290px;
+    height: auto;
+    max-height: 500px;
     object-fit: contain;
+    object-position: center;
     border-radius: 12px;
     background: #211000;
 }
@@ -228,9 +221,7 @@ header p {
     margin-top: 7px;
 }
 
-/* =========================
-   3D BOOK
-========================= */
+/* 3D BOOK */
 
 .book-stage {
     width: 260px;
@@ -240,6 +231,7 @@ header p {
     display: flex;
     align-items: center;
     justify-content: center;
+    touch-action: pan-y;
 }
 
 .book {
@@ -247,10 +239,10 @@ header p {
     width: 190px;
     height: 270px;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transform: rotateY(-20deg);
     transition: transform .08s linear;
     cursor: grab;
-    touch-action: pan-y;
     filter: drop-shadow(12px 15px 12px #000);
 }
 
@@ -258,7 +250,7 @@ header p {
     cursor: grabbing;
 }
 
-/* Front cover */
+/* FRONT COVER */
 
 .book-cover {
     position: absolute;
@@ -267,18 +259,23 @@ header p {
     border: 3px solid #ffdf86;
     border-radius: 4px 10px 10px 4px;
     background: #451300;
-    transform: translateZ(2px);
+    transform: rotateY(0deg) translateZ(2px);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .book-cover-image {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: fill;
+    object-position: center;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
 }
 
-/* Back cover */
+/* BACK COVER */
 
 .book-back {
     position: absolute;
@@ -289,16 +286,21 @@ header p {
     background: #451300;
     transform: rotateY(180deg) translateZ(2px);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .book-back-image {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: fill;
+    object-position: center;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
 }
 
-/* Book spine */
+/* BOOK SPINE */
 
 .book-spine {
     position: absolute;
@@ -312,7 +314,7 @@ header p {
     transform-origin: left center;
 }
 
-/* Book pages */
+/* BOOK PAGES */
 
 .book-pages {
     position: absolute;
@@ -331,9 +333,7 @@ header p {
     transform-origin: left center;
 }
 
-/* =========================
-   CONTENT AND PRICES
-========================= */
+/* CONTENT AND PRICES */
 
 .content {
     padding: 42px 15px;
@@ -383,9 +383,7 @@ header p {
     font-size: 13px;
 }
 
-/* =========================
-   ORDER FORM
-========================= */
+/* ORDER FORM */
 
 .order-section {
     padding: 40px 14px;
@@ -513,10 +511,6 @@ footer {
         padding: 17px 12px;
     }
 
-    .god-photo {
-        height: 260px;
-    }
-
     .book-stage {
         transform: scale(.95);
     }
@@ -527,6 +521,7 @@ footer {
 <body>
 
 <!-- ಆರಂಭಿಕ ಅನಿಮೇಷನ್ -->
+
 <div id="intro">
     <div class="intro-ring"></div>
     <div style="position:relative;z-index:1">
@@ -554,6 +549,7 @@ footer {
     </p>
 
     <!-- ದೇವರ ಫೋಟೋ -->
+
     <div class="god-section">
 
         <img
@@ -571,9 +567,11 @@ footer {
 
         <div class="god-caption">🙏 ಶ್ರೀ ದೇವರ ಆಶೀರ್ವಾದ 🙏</div>
         <div class="god-note">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸೇವೆ</div>
+
     </div>
 
     <!-- 3D ಪುಸ್ತಕ -->
+
     <div class="book-stage">
         <div class="book" id="book">
 
@@ -581,6 +579,7 @@ footer {
             <div class="book-pages"></div>
 
             <!-- Front Page -->
+
             <div class="book-cover">
                 <img
                     src="1_20261008_062933_0000.png"
@@ -590,7 +589,8 @@ footer {
                 >
             </div>
 
-            <!-- Last Page / Back Cover -->
+            <!-- Back Page -->
+
             <div class="book-back">
                 <img
                     src="90_20261007_213051_0089.png"
@@ -609,6 +609,7 @@ footer {
 </section>
 
 <section class="content">
+
     <h2 class="section-title">📚 ಪುಸ್ತಕದ ವಿವರಗಳು ಮತ್ತು ಬೆಲೆಗಳು</h2>
 
     <div class="price-grid">
@@ -634,11 +635,13 @@ footer {
         </div>
 
     </div>
+
 </section>
 
 <section class="order-section" id="order">
 
     <div class="order-box">
+
         <h2>🛒 ಪುಸ್ತಕ ಆರ್ಡರ್ ಫಾರ್ಮ್</h2>
 
         <form id="orderForm">
@@ -702,6 +705,7 @@ footer {
             </select>
 
             <!-- A4 HALF PRODUCT -->
+
             <div class="product-box">
 
                 <h3>📗 ಪುಸ್ತಕ 1 — A4 Half</h3>
@@ -733,6 +737,7 @@ footer {
             </div>
 
             <!-- A4 PRODUCT -->
+
             <div class="product-box">
 
                 <h3>📘 ಪುಸ್ತಕ 2 — A4</h3>
@@ -788,6 +793,7 @@ footer {
             </button>
 
         </form>
+
     </div>
 
 </section>
@@ -802,9 +808,7 @@ footer {
 
 <script>
 
-/* =========================
-   GOD PHOTO FALLBACK
-========================= */
+/* GOD PHOTO FALLBACK */
 
 const godPhoto = document.getElementById("godPhoto");
 
@@ -813,9 +817,7 @@ godPhoto.addEventListener("error", function() {
     document.getElementById("photoPlaceholder").style.display = "flex";
 });
 
-/* =========================
-   PRICES AND CALCULATIONS
-========================= */
+/* PRICES AND CALCULATIONS */
 
 const halfBinding = document.getElementById("halfBinding");
 const fullBinding = document.getElementById("fullBinding");
@@ -866,9 +868,7 @@ fullBinding.addEventListener("change", updateTotal);
 halfQty.addEventListener("input", updateTotal);
 fullQty.addEventListener("input", updateTotal);
 
-/* =========================
-   WHATSAPP ORDER
-========================= */
+/* WHATSAPP ORDER */
 
 document.getElementById("orderForm").addEventListener("submit", function(event) {
 
@@ -881,8 +881,8 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
     const district = document.getElementById("district").value;
     const notes = document.getElementById("notes").value.trim();
 
-    const hq = Math.floor(Number(halfQty.value) || 0);
-    const fq = Math.floor(Number(fullQty.value) || 0);
+    const hq = Number(halfQty.value) || 0;
+    const fq = Number(fullQty.value) || 0;
 
     if (
         !Number.isInteger(hq) ||
@@ -953,25 +953,18 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
 
     message += "\nದಯವಿಟ್ಟು ನನ್ನ ಆರ್ಡರ್ ದೃಢೀಕರಿಸಿ. ಧನ್ಯವಾದಗಳು! 🙏";
 
-    /* WhatsApp ಆರ್ಡರ್ ಸ್ವೀಕರಿಸುವ ಸಂಖ್ಯೆ */
     const whatsappNumber = "918951630221";
 
     const whatsappURL =
         "https://wa.me/" + whatsappNumber +
         "?text=" + encodeURIComponent(message);
 
-    const whatsappWindow = window.open(whatsappURL, "_blank");
-
-    if (!whatsappWindow) {
-        window.location.href = whatsappURL;
-    }
+    window.location.href = whatsappURL;
 });
 
 updateTotal();
 
-/* =========================
-   DRAGGABLE 3D BOOK
-========================= */
+/* DRAGGABLE 3D BOOK */
 
 const book = document.getElementById("book");
 
