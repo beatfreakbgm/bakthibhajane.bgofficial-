@@ -617,7 +617,7 @@ footer {
             <p>ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ</p>
             <p>ಪುಸ್ತಕದ ಗಾತ್ರ: A4 Half</p>
             <p class="pages">ಒಟ್ಟು ಪುಟಗಳು:100</p>
-            <p>ರಟ್ಟು ಬೈಂಡಿಂಗ್: ₹200</p>
+            <p>ಪಿನ್ ಬೈಂಡಿಂಗ್: ₹200</p>
             <p>ಗಮ್ ಬೈಂಡಿಂಗ್: ₹210</p>
             <div class="price">₹200 ರಿಂದ</div>
         </div>
@@ -627,7 +627,7 @@ footer {
             <p>ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ</p>
             <p>ಪುಸ್ತಕದ ಗಾತ್ರ: A4</p>
             <p class="pages">ಒಟ್ಟು ಪುಟಗಳು:100</p>
-            <p>ರಟ್ಟು ಬೈಂಡಿಂಗ್: ₹300</p>
+            <p>ಪಿನ್ ಬೈಂಡಿಂಗ್: ₹300</p>
             <p>ಗಮ್ ಬೈಂಡಿಂಗ್: ₹310</p>
             <div class="price">₹300 ರಿಂದ</div>
         </div>
@@ -716,7 +716,7 @@ footer {
 
                 <label for="halfBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ</label>
                 <select id="halfBinding">
-                    <option value="rattu">ರಟ್ಟು ಬೈಂಡಿಂಗ್ — ₹200</option>
+                    <option value="rattu">ಪಿನ್ ಬೈಂಡಿಂಗ್ — ₹200</option>
                     <option value="gum">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹210</option>
                 </select>
 
@@ -748,7 +748,7 @@ footer {
 
                 <label for="fullBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ</label>
                 <select id="fullBinding">
-                    <option value="rattu">ರಟ್ಟು ಬೈಂಡಿಂಗ್ — ₹300</option>
+                    <option value="rattu">ಪಿನ್ ಬೈಂಡಿಂಗ್ — ₹300</option>
                     <option value="gum">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹310</option>
                 </select>
 
@@ -906,10 +906,10 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
     const totalBooks = hq + fq;
 
     const halfBindingText =
-        halfBinding.value === "gum" ? "ಗಮ್ ಬೈಂಡಿಂಗ್" : "ರಟ್ಟು ಬೈಂಡಿಂಗ್";
+        halfBinding.value === "gum" ? "ಗಮ್ ಬೈಂಡಿಂಗ್" : "ಪಿನ್ ಬೈಂಡಿಂಗ್";
 
     const fullBindingText =
-        fullBinding.value === "gum" ? "ಗಮ್ ಬೈಂಡಿಂಗ್" : "ರಟ್ಟು ಬೈಂಡಿಂಗ್";
+        fullBinding.value === "gum" ? "ಗಮ್ ಬೈಂಡಿಂಗ್" : "ಪಿನ್ ಬೈಂಡಿಂಗ್";
 
     let message = "🙏 *BG OFFICIAL — ಭಜನಾ ಪುಸ್ತಕ ಆರ್ಡರ್* 🙏\n\n";
 
