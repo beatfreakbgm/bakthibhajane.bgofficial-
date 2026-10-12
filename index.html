@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>BG OFFICIAL | ಭಜನಾ ಪುಸ್ತಕ 2026–2027</title>
 
 <style>
@@ -14,9 +15,13 @@
 
 :root {
     --gold: #ffd76a;
-    --saffron: #ff8c00;
-    --dark: #100900;
-    --cream: #fff4d5;
+    --orange: #ff8c00;
+    --dark: #100700;
+    --cream: #fff3d5;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -26,23 +31,135 @@ body {
     overflow-x: hidden;
 }
 
-html {
-    scroll-behavior: smooth;
+button, input, select, textarea {
+    font: inherit;
 }
 
-header {
-    padding: 18px 15px;
+/* =========================
+   BG OFFICIAL INTRO ANIMATION
+========================= */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background:
+        radial-gradient(circle at center, #562600, #190900 55%, #050200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
-    background: linear-gradient(135deg, #1c0c00, #472000, #170900);
+    animation: introFade 1s ease 4.1s forwards;
+}
+
+.intro-ring {
+    width: 190px;
+    height: 190px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 25px #ff9d00, inset 0 0 25px #ff9d0044;
+    animation: ringSpin 4s linear infinite;
+}
+
+.intro-ring::before,
+.intro-ring::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px dashed #ffcc66;
+    border-radius: 50%;
+}
+
+.intro-ring::after {
+    inset: 25px;
+    border-style: solid;
+    border-color: #ff9d0088;
+}
+
+.intro-om {
+    color: var(--gold);
+    font-size: 45px;
+    margin-bottom: 16px;
+    animation: glow 1.2s infinite alternate;
+}
+
+.intro-title {
+    color: var(--gold);
+    font-size: clamp(32px, 8vw, 55px);
+    letter-spacing: 5px;
+    font-weight: 900;
+    opacity: 0;
+    transform: scale(.5);
+    text-shadow: 0 0 20px #ff8c00;
+    animation: titleIn 1.2s ease .5s forwards;
+}
+
+.intro-subtitle {
+    color: var(--cream);
+    font-size: 16px;
+    margin-top: 15px;
+    opacity: 0;
+    animation: subtitleIn 1s ease 1.5s forwards;
+}
+
+.intro-line {
+    width: 0;
+    height: 3px;
+    background: var(--gold);
+    margin-top: 22px;
+    box-shadow: 0 0 12px var(--orange);
+    animation: lineIn 1.5s ease 1.8s forwards;
+}
+
+@keyframes ringSpin {
+    from { transform: rotate(0deg) scale(.8); }
+    to { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #ff9800; }
+    to { text-shadow: 0 0 30px #ffb300, 0 0 50px #ff6f00; }
+}
+
+@keyframes titleIn {
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes subtitleIn {
+    to { opacity: 1; }
+}
+
+@keyframes lineIn {
+    to { width: min(260px, 75vw); }
+}
+
+@keyframes introFade {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    text-align: center;
+    padding: 20px 12px;
+    background: linear-gradient(135deg, #1b0b00, #482000, #160800);
     border-bottom: 2px solid var(--gold);
 }
 
 .logo {
     color: var(--gold);
-    font-size: clamp(28px, 7vw, 45px);
+    font-size: clamp(29px, 7vw, 44px);
     font-weight: 900;
     letter-spacing: 3px;
-    text-shadow: 0 0 18px #ff8c00;
+    text-shadow: 0 0 15px #ff8c00;
 }
 
 header p {
@@ -51,85 +168,90 @@ header p {
     font-size: 14px;
 }
 
+/* =========================
+   HERO
+========================= */
+
 .hero {
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 16px;
     text-align: center;
+    padding: 45px 15px;
     background:
-        radial-gradient(ellipse at top, #613000 0%, transparent 60%),
-        linear-gradient(180deg, #1d0c00, #090500);
+        radial-gradient(ellipse at top, #633000, transparent 65%),
+        linear-gradient(#1c0b00, #0a0400);
 }
 
 .hero h1 {
-    font-size: clamp(27px, 7vw, 48px);
     color: var(--gold);
-    margin-bottom: 12px;
-    text-shadow: 0 0 18px #ff8800;
+    font-size: clamp(27px, 7vw, 43px);
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px #ff8c00;
 }
 
 .hero p {
-    max-width: 600px;
     line-height: 1.8;
     color: var(--cream);
 }
 
-/* ದೇವರ ಫೋಟೋ ಹಾಕಲು ಪ್ರತ್ಯೇಕ ಜಾಗ */
+/* =========================
+   GOD PHOTO SPACE
+========================= */
+
 .god-section {
-    width: min(90%, 380px);
+    width: min(90%, 370px);
     margin: 28px auto;
     padding: 12px;
     border: 2px solid var(--gold);
-    border-radius: 22px;
-    background: linear-gradient(145deg, #422000, #160a00);
+    border-radius: 20px;
+    background: linear-gradient(145deg, #472000, #160800);
     box-shadow: 0 0 25px #ff980044;
 }
 
 .god-photo {
+    display: block;
     width: 100%;
     height: 290px;
     object-fit: contain;
-    border-radius: 14px;
-    display: block;
+    border-radius: 12px;
     background: #211000;
 }
 
 .god-caption {
-    color: var(--gold);
     margin-top: 12px;
-    font-size: 17px;
+    color: var(--gold);
     font-weight: bold;
+    font-size: 17px;
 }
 
-.photo-note {
+.god-note {
     color: #e7cfa1;
     font-size: 12px;
-    margin-top: 6px;
+    margin-top: 7px;
 }
 
-/* 3D ಪುಸ್ತಕ */
+/* =========================
+   3D BOOK
+========================= */
+
 .book-stage {
-    perspective: 1000px;
     width: 230px;
-    height: 310px;
-    margin: 30px auto;
+    height: 315px;
+    margin: 25px auto;
+    perspective: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .book {
-    width: 195px;
-    height: 275px;
     position: relative;
+    width: 190px;
+    height: 270px;
     transform-style: preserve-3d;
-    transform: rotateY(-18deg) rotateX(3deg);
-    transition: transform 0.2s ease;
+    transform: rotateY(-20deg);
+    transition: transform .15s ease;
     cursor: grab;
-    filter: drop-shadow(12px 15px 14px #000);
+    touch-action: pan-y;
+    filter: drop-shadow(12px 15px 12px #000);
 }
 
 .book-cover {
@@ -137,14 +259,13 @@ header p {
     inset: 0;
     border: 4px double #ffdf86;
     border-radius: 4px 12px 12px 4px;
-    background:
-        radial-gradient(circle at center, #a34a00, #451300 75%);
+    background: radial-gradient(circle, #a34a00, #451300 75%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 12px;
+    justify-content: center;
     text-align: center;
+    padding: 12px;
     backface-visibility: hidden;
 }
 
@@ -159,54 +280,56 @@ header p {
 .book-cover h2 {
     color: #ffe7a3;
     font-size: 23px;
-    line-height: 1.5;
-    text-shadow: 0 2px 5px black;
+    line-height: 1.6;
 }
 
 .book-cover p {
     color: #fff1c4;
-    margin-top: 15px;
-    font-size: 12px;
+    margin-top: 12px;
+    font-size: 13px;
 }
 
 .book-spine {
     position: absolute;
-    width: 24px;
-    height: 275px;
-    left: -22px;
+    left: -20px;
     top: 0;
-    transform: rotateY(-90deg);
-    transform-origin: right;
+    width: 22px;
+    height: 270px;
     background: linear-gradient(90deg, #321000, #a14b00, #411500);
     border: 1px solid #e7bf61;
+    transform: rotateY(-90deg);
+    transform-origin: right;
 }
 
 .book-pages {
     position: absolute;
-    width: 18px;
-    height: 267px;
     right: -15px;
     top: 4px;
-    transform: rotateY(90deg);
-    transform-origin: left;
+    width: 17px;
+    height: 262px;
     background: repeating-linear-gradient(
         to bottom,
-        #fff7dc 0px,
+        #fff7dc 0,
         #fff7dc 3px,
         #d7c59d 4px
     );
+    transform: rotateY(90deg);
+    transform-origin: left;
 }
 
-/* ಸಾಮಾನ್ಯ ವಿಭಾಗಗಳು */
-section.content {
-    padding: 45px 16px;
+/* =========================
+   CONTENT AND PRICES
+========================= */
+
+.content {
+    padding: 42px 15px;
     text-align: center;
 }
 
 .section-title {
     color: var(--gold);
-    font-size: 28px;
-    margin-bottom: 25px;
+    font-size: 27px;
+    margin-bottom: 23px;
 }
 
 .price-grid {
@@ -218,48 +341,56 @@ section.content {
 }
 
 .price-card {
-    padding: 25px 18px;
+    padding: 23px 17px;
     border: 1px solid #a76c19;
-    border-radius: 18px;
+    border-radius: 17px;
     background: linear-gradient(145deg, #2e1700, #120900);
-    box-shadow: 0 8px 20px #0005;
 }
 
 .price-card h3 {
     color: var(--gold);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
-.price {
-    font-size: 29px;
+.price-card .price {
     color: white;
+    font-size: 29px;
     font-weight: bold;
 }
 
 .price-card p {
+    margin-top: 12px;
+    line-height: 1.8;
     color: #e9d8b6;
-    margin-top: 10px;
-    line-height: 1.7;
 }
 
+.price-card .pages {
+    color: #ffd76a;
+    font-size: 13px;
+}
+
+/* =========================
+   ORDER FORM
+========================= */
+
 .order-section {
-    padding: 45px 15px;
+    padding: 40px 14px;
     background: linear-gradient(180deg, #180a00, #291300);
 }
 
 .order-box {
     max-width: 720px;
     margin: auto;
-    padding: 24px 18px;
+    padding: 23px 17px;
     border: 1px solid #a76c19;
     border-radius: 20px;
     background: #160b02;
 }
 
 .order-box h2 {
-    text-align: center;
     color: var(--gold);
-    margin-bottom: 22px;
+    text-align: center;
+    margin-bottom: 24px;
 }
 
 label {
@@ -298,15 +429,23 @@ input:focus, select:focus, textarea:focus {
     margin-bottom: 12px;
 }
 
-.product-box .base-price {
-    color: #e6c99b;
-    font-size: 13px;
-    margin-top: 8px;
+.book-detail {
+    margin: 8px 0;
+    color: #ffe9bd;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.product-price {
+    color: #ffd76a;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 12px;
 }
 
 .total-box {
-    margin-top: 25px;
-    padding: 20px;
+    margin-top: 24px;
+    padding: 18px;
     border: 1px solid var(--gold);
     border-radius: 12px;
     background: #352000;
@@ -315,17 +454,16 @@ input:focus, select:focus, textarea:focus {
 
 .total-box p {
     color: #ffedc1;
-    margin: 8px 0;
+    margin: 9px 0;
 }
 
 .total-amount {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
     color: var(--gold);
 }
 
 .whatsapp-btn {
-    display: block;
     width: 100%;
     border: none;
     border-radius: 10px;
@@ -336,44 +474,50 @@ input:focus, select:focus, textarea:focus {
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .whatsapp-btn:hover {
     background: #43e681;
-    transform: translateY(-2px);
 }
 
 footer {
     text-align: center;
-    padding: 25px 15px;
+    padding: 25px 14px;
     color: #cbb48b;
     background: #090400;
     border-top: 1px solid #5c390e;
+    line-height: 1.9;
     font-size: 13px;
-    line-height: 1.8;
 }
 
-@media (max-width: 480px) {
+@media(max-width: 480px) {
     .hero {
-        min-height: auto;
-        padding-top: 45px;
-        padding-bottom: 35px;
-    }
-
-    .book-stage {
-        transform: scale(0.9);
-        margin: 10px auto;
+        padding-top: 35px;
     }
 
     .order-box {
-        padding: 18px 13px;
+        padding: 17px 12px;
+    }
+
+    .god-photo {
+        height: 260px;
     }
 }
 </style>
 </head>
 
 <body>
+
+<!-- ಆರಂಭಿಕ ಅನಿಮೇಷನ್ -->
+<div id="intro">
+    <div class="intro-ring"></div>
+    <div style="position:relative;z-index:1">
+        <div class="intro-om">🙏</div>
+        <div class="intro-title">BG OFFICIAL</div>
+        <div class="intro-subtitle">ಭಜನಾ ಪುಸ್ತಕ 2026–2027</div>
+        <div class="intro-line"></div>
+    </div>
+</div>
 
 <header>
     <div class="logo">BG OFFICIAL</div>
@@ -383,6 +527,7 @@ footer {
 <main>
 
 <section class="hero">
+
     <h1>🙏 ಭಜನಾ ಪುಸ್ತಕ 🙏</h1>
 
     <p>
@@ -390,81 +535,82 @@ footer {
         ನಿಮ್ಮ ಭಜನಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಸುಂದರವಾದ ಭಜನಾ ಪುಸ್ತಕ.
     </p>
 
-    <!-- ದೇವರ ಫೋಟೋವನ್ನು ಇಲ್ಲಿ ಹಾಕಬಹುದು.
-         ನಿಮ್ಮ ಫೋಟೋದ ಫೈಲ್ ಹೆಸರನ್ನು god-photo.jpg ಎಂದು ಇಡಿ.
-         ಆ ಫೋಟೋವನ್ನು index.html ಇರುವ ಅದೇ ಫೋಲ್ಡರ್‌ನಲ್ಲಿ ಇಡಿ. -->
+    <!-- ದೇವರ ಫೋಟೋವನ್ನು god-photo.jpg ಎಂದು ಹೆಸರಿಸಿ
+         index.html ಇರುವ ಅದೇ ಫೋಲ್ಡರ್‌ನಲ್ಲಿ ಇರಿಸಿ -->
     <div class="god-section">
+
         <img
             class="god-photo"
+            id="godPhoto"
             src="god-photo.jpg"
             alt="ದೇವರ ಫೋಟೋ"
-            onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex';"
         >
 
         <div id="photoPlaceholder"
-             style="height:290px;display:none;align-items:center;justify-content:center;flex-direction:column;color:#ffd76a;border:1px dashed #bd8c35;border-radius:12px;">
-            <div style="font-size:60px;">🙏</div>
-            <div style="font-size:18px;font-weight:bold;margin-top:10px;">
-                ದೇವರ ಫೋಟೋ
-            </div>
-            <div style="font-size:12px;margin-top:8px;color:#e7cfa1;">
-                god-photo.jpg ಫೋಟೋ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ
-            </div>
+             style="height:250px;display:none;align-items:center;justify-content:center;flex-direction:column;color:#ffd76a">
+            <div style="font-size:60px">🙏</div>
+            <div>ದೇವರ ಫೋಟೋವನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಿ</div>
         </div>
 
         <div class="god-caption">🙏 ಶ್ರೀ ದೇವರ ಆಶೀರ್ವಾದ 🙏</div>
-        <div class="photo-note">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸೇವೆ</div>
+        <div class="god-note">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸೇವೆ</div>
     </div>
 
     <div class="book-stage">
         <div class="book" id="book">
             <div class="book-spine"></div>
             <div class="book-pages"></div>
+
             <div class="book-cover">
-                <div style="font-size:35px;">🙏</div>
-                <h2>ಭಜನಾ<br>ಪುಸ್ತಕ</h2>
+                <div style="font-size:35px">🙏</div>
+                <h2>BG OFFICIAL<br>ಭಜನಾ ಪುಸ್ತಕ</h2>
                 <p>2026–2027</p>
-                <p style="font-weight:bold;color:#ffd76a;">BG OFFICIAL</p>
             </div>
         </div>
     </div>
 
-    <p>ನಿಮ್ಮ ಪುಸ್ತಕವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ ಇಂದೇ ಆರ್ಡರ್ ಮಾಡಿ.</p>
+    <p>ನಿಮ್ಮ ಪುಸ್ತಕದ ಗಾತ್ರ ಮತ್ತು ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆಮಾಡಿ ಆರ್ಡರ್ ಮಾಡಿ.</p>
+
 </section>
 
 <section class="content">
-    <h2 class="section-title">📚 ಪುಸ್ತಕದ ಬೆಲೆಗಳು</h2>
+    <h2 class="section-title">📚 ಪುಸ್ತಕದ ವಿವರಗಳು ಮತ್ತು ಬೆಲೆಗಳು</h2>
 
     <div class="price-grid">
+
         <div class="price-card">
-            <h3>ಅರ್ಧ A4 ಪುಸ್ತಕ</h3>
-            <div class="price">₹200</div>
-            <p>
-                ರಟ್ಟು ಬೈಂಡಿಂಗ್: ₹200<br>
-                ಗಮ್ ಬೈಂಡಿಂಗ್: ₹210
-            </p>
+            <h3>📗 A4 Half ಪುಸ್ತಕ</h3>
+            <p>ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ</p>
+            <p>ಪುಸ್ತಕದ ಗಾತ್ರ: A4 Half</p>
+            <p class="pages">ಒಟ್ಟು ಪುಟಗಳು: ನಂತರ ತಿಳಿಸಲಾಗುವುದು</p>
+            <p>ರಟ್ಟು ಬೈಂಡಿಂಗ್: ₹200</p>
+            <p>ಗಮ್ ಬೈಂಡಿಂಗ್: ₹210</p>
+            <div class="price">₹200 ರಿಂದ</div>
         </div>
 
         <div class="price-card">
-            <h3>ಪೂರ್ಣ A4 ಪುಸ್ತಕ</h3>
-            <div class="price">₹300</div>
-            <p>
-                ರಟ್ಟು ಬೈಂಡಿಂಗ್: ₹300<br>
-                ಗಮ್ ಬೈಂಡಿಂಗ್: ₹310
-            </p>
+            <h3>📘 A4 ಪುಸ್ತಕ</h3>
+            <p>ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ</p>
+            <p>ಪುಸ್ತಕದ ಗಾತ್ರ: A4</p>
+            <p class="pages">ಒಟ್ಟು ಪುಟಗಳು: ನಂತರ ತಿಳಿಸಲಾಗುವುದು</p>
+            <p>ರಟ್ಟು ಬೈಂಡಿಂಗ್: ₹300</p>
+            <p>ಗಮ್ ಬೈಂಡಿಂಗ್: ₹310</p>
+            <div class="price">₹300 ರಿಂದ</div>
         </div>
+
     </div>
 </section>
 
 <section class="order-section" id="order">
+
     <div class="order-box">
-        <h2>🛒 ಪುಸ್ತಕ ಆರ್ಡರ್ ಮಾಡಿ</h2>
+        <h2>🛒 ಪುಸ್ತಕ ಆರ್ಡರ್ ಫಾರ್ಮ್</h2>
 
         <form id="orderForm">
 
             <label for="customerName">ನಿಮ್ಮ ಹೆಸರು *</label>
             <input id="customerName" type="text"
-                   placeholder="ಪೂರ್ಣ ಹೆಸರು ನಮೂದಿಸಿ" required>
+                   placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು" required>
 
             <label for="mobile">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *</label>
             <input id="mobile" type="tel"
@@ -476,7 +622,7 @@ footer {
 
             <label for="address">ಪೂರ್ಣ ವಿಳಾಸ *</label>
             <textarea id="address" rows="3"
-                      placeholder="ಮನೆ ಸಂಖ್ಯೆ, ರಸ್ತೆ, ಊರು ಇತ್ಯಾದಿ"
+                      placeholder="ಮನೆ, ರಸ್ತೆ ಮತ್ತು ವಿಳಾಸ"
                       required></textarea>
 
             <label for="city">ಗ್ರಾಮ / ನಗರ *</label>
@@ -520,18 +666,18 @@ footer {
                 <option>Yadgir</option>
             </select>
 
-            <label for="pincode">ಪಿನ್ ಕೋಡ್ *</label>
-            <input id="pincode" type="text"
-                   inputmode="numeric"
-                   maxlength="6"
-                   pattern="[0-9]{6}"
-                   placeholder="6 ಅಂಕಿಗಳ ಪಿನ್ ಕೋಡ್"
-                   required>
-
+            <!-- A4 HALF PRODUCT -->
             <div class="product-box">
-                <h3>📗 ಅರ್ಧ A4 ಪುಸ್ತಕ</h3>
 
-                <label for="halfBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆಮಾಡಿ</label>
+                <h3>📗 ಪುಸ್ತಕ 1 — A4 Half</h3>
+
+                <div class="book-detail">
+                    ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ<br>
+                    ಗಾತ್ರ: A4 Half<br>
+                    ಪುಟಗಳ ಸಂಖ್ಯೆ: ನಂತರ ತಿಳಿಸಲಾಗುವುದು
+                </div>
+
+                <label for="halfBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ</label>
                 <select id="halfBinding">
                     <option value="rattu">ರಟ್ಟು ಬೈಂಡಿಂಗ್ — ₹200</option>
                     <option value="gum">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹210</option>
@@ -541,15 +687,28 @@ footer {
                 <input id="halfQty" type="number"
                        min="0" max="500" value="0">
 
-                <div class="base-price">
-                    ರಟ್ಟು ಬೈಂಡಿಂಗ್ ₹200; ಗಮ್ ಬೈಂಡಿಂಗ್ ₹210 ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ.
+                <div class="product-price" id="halfPriceLabel">
+                    ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹200
                 </div>
+
+                <p class="book-detail">
+                    ಗಮ್ ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ ಮಾಡಿದರೆ ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹10 ಹೆಚ್ಚುವರಿ.
+                </p>
+
             </div>
 
+            <!-- A4 PRODUCT -->
             <div class="product-box">
-                <h3>📘 ಪೂರ್ಣ A4 ಪುಸ್ತಕ</h3>
 
-                <label for="fullBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆಮಾಡಿ</label>
+                <h3>📘 ಪುಸ್ತಕ 2 — A4</h3>
+
+                <div class="book-detail">
+                    ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ<br>
+                    ಗಾತ್ರ: A4<br>
+                    ಪುಟಗಳ ಸಂಖ್ಯೆ: ನಂತರ ತಿಳಿಸಲಾಗುವುದು
+                </div>
+
+                <label for="fullBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ</label>
                 <select id="fullBinding">
                     <option value="rattu">ರಟ್ಟು ಬೈಂಡಿಂಗ್ — ₹300</option>
                     <option value="gum">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹310</option>
@@ -559,34 +718,43 @@ footer {
                 <input id="fullQty" type="number"
                        min="0" max="500" value="0">
 
-                <div class="base-price">
-                    ರಟ್ಟು ಬೈಂಡಿಂಗ್ ₹300; ಗಮ್ ಬೈಂಡಿಂಗ್ ₹310 ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ.
+                <div class="product-price" id="fullPriceLabel">
+                    ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹300
                 </div>
+
+                <p class="book-detail">
+                    ಗಮ್ ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ ಮಾಡಿದರೆ ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹10 ಹೆಚ್ಚುವರಿ.
+                </p>
+
             </div>
 
-            <label for="notes">ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ (ಐಚ್ಛಿಕ)</label>
-            <textarea id="notes" rows="2"
-                      placeholder="ಇಲ್ಲಿ ಮಾಹಿತಿ ನಮೂದಿಸಿ"></textarea>
+            <label for="notes">ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ</label>
+            <textarea id="notes" rows="3"
+                      placeholder="ಇಲ್ಲಿ ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ ಬರೆಯಬಹುದು"></textarea>
 
             <div class="total-box">
-                <p>ಅರ್ಧ A4 ಪುಸ್ತಕದ ಮೊತ್ತ</p>
+
+                <p>A4 Half ಪುಸ್ತಕದ ಮೊತ್ತ</p>
                 <div id="halfTotal" class="total-amount">₹0</div>
 
-                <p style="margin-top:18px;">ಪೂರ್ಣ A4 ಪುಸ್ತಕದ ಮೊತ್ತ</p>
+                <p style="margin-top:17px">A4 ಪುಸ್ತಕದ ಮೊತ್ತ</p>
                 <div id="fullTotal" class="total-amount">₹0</div>
 
-                <p style="margin-top:18px;">ಒಟ್ಟು ಪುಸ್ತಕಗಳು</p>
+                <p style="margin-top:17px">ಒಟ್ಟು ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆ</p>
                 <div id="totalQty" class="total-amount">0</div>
 
-                <p style="margin-top:18px;">ಒಟ್ಟು ಮೊತ್ತ</p>
+                <p style="margin-top:17px">ಒಟ್ಟು ಹಣ</p>
                 <div id="grandTotal" class="total-amount">₹0</div>
+
             </div>
 
-            <button class="whatsapp-btn" type="submit">
+            <button type="submit" class="whatsapp-btn">
                 📲 WhatsApp ಮೂಲಕ ಆರ್ಡರ್ ಮಾಡಿ
             </button>
+
         </form>
     </div>
+
 </section>
 
 </main>
@@ -598,6 +766,22 @@ footer {
 </footer>
 
 <script>
+
+/* =========================
+   GOD PHOTO FALLBACK
+========================= */
+
+const godPhoto = document.getElementById("godPhoto");
+
+godPhoto.addEventListener("error", function() {
+    this.style.display = "none";
+    document.getElementById("photoPlaceholder").style.display = "flex";
+});
+
+/* =========================
+   PRICES AND CALCULATIONS
+========================= */
+
 const halfBinding = document.getElementById("halfBinding");
 const fullBinding = document.getElementById("fullBinding");
 const halfQty = document.getElementById("halfQty");
@@ -612,13 +796,22 @@ function getFullPrice() {
 }
 
 function updateTotal() {
-    let hq = Math.max(0, Number(halfQty.value) || 0);
-    let fq = Math.max(0, Number(fullQty.value) || 0);
 
-    const halfAmount = hq * getHalfPrice();
-    const fullAmount = fq * getFullPrice();
-    const totalAmount = halfAmount + fullAmount;
-    const quantity = hq + fq;
+    const hq = Math.max(0, Number(halfQty.value) || 0);
+    const fq = Math.max(0, Number(fullQty.value) || 0);
+
+    const hp = getHalfPrice();
+    const fp = getFullPrice();
+
+    const halfAmount = hq * hp;
+    const fullAmount = fq * fp;
+    const grandTotal = halfAmount + fullAmount;
+
+    document.getElementById("halfPriceLabel").textContent =
+        "ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹" + hp;
+
+    document.getElementById("fullPriceLabel").textContent =
+        "ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹" + fp;
 
     document.getElementById("halfTotal").textContent =
         "₹" + halfAmount.toLocaleString("en-IN");
@@ -627,10 +820,10 @@ function updateTotal() {
         "₹" + fullAmount.toLocaleString("en-IN");
 
     document.getElementById("totalQty").textContent =
-        quantity.toLocaleString("en-IN");
+        (hq + fq).toLocaleString("en-IN");
 
     document.getElementById("grandTotal").textContent =
-        "₹" + totalAmount.toLocaleString("en-IN");
+        "₹" + grandTotal.toLocaleString("en-IN");
 }
 
 halfBinding.addEventListener("change", updateTotal);
@@ -638,7 +831,12 @@ fullBinding.addEventListener("change", updateTotal);
 halfQty.addEventListener("input", updateTotal);
 fullQty.addEventListener("input", updateTotal);
 
+/* =========================
+   WHATSAPP ORDER
+========================= */
+
 document.getElementById("orderForm").addEventListener("submit", function(event) {
+
     event.preventDefault();
 
     const name = document.getElementById("customerName").value.trim();
@@ -646,14 +844,13 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
     const address = document.getElementById("address").value.trim();
     const city = document.getElementById("city").value.trim();
     const district = document.getElementById("district").value;
-    const pincode = document.getElementById("pincode").value.trim();
     const notes = document.getElementById("notes").value.trim();
 
     const hq = Number(halfQty.value) || 0;
     const fq = Number(fullQty.value) || 0;
 
     if (hq < 0 || fq < 0 || hq > 500 || fq > 500) {
-        alert("ದಯವಿಟ್ಟು ಸರಿಯಾದ ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.");
+        alert("ದಯವಿಟ್ಟು ಪುಸ್ತಕಗಳ ಸರಿಯಾದ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.");
         return;
     }
 
@@ -662,10 +859,11 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
         return;
     }
 
-    const halfPrice = getHalfPrice();
-    const fullPrice = getFullPrice();
-    const halfAmount = hq * halfPrice;
-    const fullAmount = fq * fullPrice;
+    const hp = getHalfPrice();
+    const fp = getFullPrice();
+
+    const halfAmount = hq * hp;
+    const fullAmount = fq * fp;
     const total = halfAmount + fullAmount;
     const totalBooks = hq + fq;
 
@@ -675,34 +873,39 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
     const fullBindingText =
         fullBinding.value === "gum" ? "ಗಮ್ ಬೈಂಡಿಂಗ್" : "ರಟ್ಟು ಬೈಂಡಿಂಗ್";
 
-    let message = "🙏 *BG OFFICIAL - ಭಜನಾ ಪುಸ್ತಕ ಆರ್ಡರ್* 🙏\n\n";
+    let message = "🙏 *BG OFFICIAL — ಭಜನಾ ಪುಸ್ತಕ ಆರ್ಡರ್* 🙏\n\n";
 
-    message += "👤 *ಗ್ರಾಹಕರ ವಿವರಗಳು*\n";
+    message += "*ಗ್ರಾಹಕರ ವಿವರಗಳು*\n";
     message += "ಹೆಸರು: " + name + "\n";
     message += "ಮೊಬೈಲ್: " + mobile + "\n";
     message += "ವಿಳಾಸ: " + address + "\n";
     message += "ಗ್ರಾಮ/ನಗರ: " + city + "\n";
-    message += "ಜಿಲ್ಲೆ: " + district + "\n";
-    message += "ಪಿನ್ ಕೋಡ್: " + pincode + "\n\n";
+    message += "ಜಿಲ್ಲೆ: " + district + "\n\n";
 
-    message += "📚 *ಪುಸ್ತಕದ ವಿವರಗಳು*\n";
+    message += "*ಪುಸ್ತಕದ ವಿವರಗಳು*\n";
 
     if (hq > 0) {
-        message += "\nಅರ್ಧ A4 ಪುಸ್ತಕ\n";
+        message += "\nಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ\n";
+        message += "ಗಾತ್ರ: A4 Half\n";
+        message += "ಪುಟಗಳ ಸಂಖ್ಯೆ: ನಂತರ ತಿಳಿಸಲಾಗುವುದು\n";
         message += "ಬೈಂಡಿಂಗ್: " + halfBindingText + "\n";
-        message += "ಬೆಲೆ: ₹" + halfPrice + " × " + hq + "\n";
-        message += "ಮೊತ್ತ: ₹" + halfAmount + "\n";
+        message += "ஒரு ಪುಸ್ತಕದ ಬೆಲೆ: ₹" + hp + "\n";
+        message += "புத்தகಗಳ ಸಂಖ್ಯೆ: " + hq + "\n";
+        message += "A4 Half ಮೊತ್ತ: ₹" + halfAmount + "\n";
     }
 
     if (fq > 0) {
-        message += "\nಪೂರ್ಣ A4 ಪುಸ್ತಕ\n";
+        message += "\nಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ\n";
+        message += "ಗಾತ್ರ: A4\n";
+        message += "ಪುಟಗಳ ಸಂಖ್ಯೆ: ನಂತರ ತಿಳಿಸಲಾಗುವುದು\n";
         message += "ಬೈಂಡಿಂಗ್: " + fullBindingText + "\n";
-        message += "ಬೆಲೆ: ₹" + fullPrice + " × " + fq + "\n";
-        message += "ಮೊತ್ತ: ₹" + fullAmount + "\n";
+        message += "ಒಂದು ಪುಸ್ತಕದ ಬೆಲೆ: ₹" + fp + "\n";
+        message += "ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆ: " + fq + "\n";
+        message += "A4 ಮೊತ್ತ: ₹" + fullAmount + "\n";
     }
 
     message += "\nಒಟ್ಟು ಪುಸ್ತಕಗಳು: " + totalBooks + "\n";
-    message += "💰 *ಒಟ್ಟು ಮೊತ್ತ: ₹" + total + "*\n";
+    message += "*ಒಟ್ಟು ಹಣ: ₹" + total + "*\n";
 
     if (notes) {
         message += "\nಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: " + notes + "\n";
@@ -710,25 +913,32 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
 
     message += "\nದಯವಿಟ್ಟು ನನ್ನ ಆರ್ಡರ್ ದೃಢೀಕರಿಸಿ. ಧನ್ಯವಾದಗಳು! 🙏";
 
+    /* WhatsApp ಸಂಖ್ಯೆ: 91 + 10 ಅಂಕಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ */
     const whatsappNumber = "918951630221";
+
     const whatsappURL =
-        "https://wa.me/" + whatsappNumber + "?text=" +
-        encodeURIComponent(message);
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(message);
 
     window.open(whatsappURL, "_blank");
 });
 
 updateTotal();
 
-/* ಪುಸ್ತಕವನ್ನು ಬೆರಳಿನಿಂದ ಅಥವಾ ಮೌಸ್‌ನಿಂದ ತಿರುಗಿಸುವ ವ್ಯವಸ್ಥೆ */
+/* =========================
+   DRAGGABLE 3D BOOK
+========================= */
+
 const book = document.getElementById("book");
+
 let dragging = false;
 let startX = 0;
-let rotateY = -18;
+let rotateY = -20;
 
 book.addEventListener("pointerdown", function(event) {
     dragging = true;
     startX = event.clientX;
+    book.style.cursor = "grabbing";
     book.setPointerCapture(event.pointerId);
 });
 
@@ -736,20 +946,21 @@ book.addEventListener("pointermove", function(event) {
     if (!dragging) return;
 
     const difference = event.clientX - startX;
-    rotateY += difference * 0.6;
+
+    rotateY += difference * 0.7;
     startX = event.clientX;
 
-    book.style.transform =
-        "rotateY(" + rotateY + "deg) rotateX(3deg)";
+    book.style.transform = "rotateY(" + rotateY + "deg)";
 });
 
-book.addEventListener("pointerup", function() {
+function stopDragging() {
     dragging = false;
-});
+    book.style.cursor = "grab";
+}
 
-book.addEventListener("pointercancel", function() {
-    dragging = false;
-});
+book.addEventListener("pointerup", stopDragging);
+book.addEventListener("pointercancel", stopDragging);
+
 </script>
 
 </body>
