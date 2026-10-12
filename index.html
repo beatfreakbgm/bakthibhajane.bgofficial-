@@ -233,10 +233,10 @@ header p {
 ========================= */
 
 .book-stage {
-    width: 230px;
-    height: 315px;
+    width: 260px;
+    height: 330px;
     margin: 25px auto;
-    perspective: 1000px;
+    perspective: 1100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -248,58 +248,71 @@ header p {
     height: 270px;
     transform-style: preserve-3d;
     transform: rotateY(-20deg);
-    transition: transform .15s ease;
+    transition: transform .08s linear;
     cursor: grab;
     touch-action: pan-y;
     filter: drop-shadow(12px 15px 12px #000);
 }
 
+.book:active {
+    cursor: grabbing;
+}
+
+/* Front cover */
+
 .book-cover {
     position: absolute;
     inset: 0;
-    border: 4px double #ffdf86;
-    border-radius: 4px 12px 12px 4px;
-    background: radial-gradient(circle, #a34a00, #451300 75%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 12px;
+    overflow: hidden;
+    border: 3px solid #ffdf86;
+    border-radius: 4px 10px 10px 4px;
+    background: #451300;
+    transform: translateZ(2px);
     backface-visibility: hidden;
 }
 
-.book-cover::before {
-    content: "";
+.book-cover-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Back cover */
+
+.book-back {
     position: absolute;
-    inset: 8px;
-    border: 1px solid #f5d17b;
-    pointer-events: none;
+    inset: 0;
+    overflow: hidden;
+    border: 3px solid #ffdf86;
+    border-radius: 10px 4px 4px 10px;
+    background: #451300;
+    transform: rotateY(180deg) translateZ(2px);
+    backface-visibility: hidden;
 }
 
-.book-cover h2 {
-    color: #ffe7a3;
-    font-size: 23px;
-    line-height: 1.6;
+.book-back-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
 }
 
-.book-cover p {
-    color: #fff1c4;
-    margin-top: 12px;
-    font-size: 13px;
-}
+/* Book spine */
 
 .book-spine {
     position: absolute;
-    left: -20px;
+    left: -2px;
     top: 0;
     width: 22px;
     height: 270px;
     background: linear-gradient(90deg, #321000, #a14b00, #411500);
     border: 1px solid #e7bf61;
-    transform: rotateY(-90deg);
-    transform-origin: right;
+    transform: rotateY(-90deg) translateZ(11px);
+    transform-origin: left center;
 }
+
+/* Book pages */
 
 .book-pages {
     position: absolute;
@@ -313,8 +326,9 @@ header p {
         #fff7dc 3px,
         #d7c59d 4px
     );
-    transform: rotateY(90deg);
-    transform-origin: left;
+    border: 1px solid #b7a174;
+    transform: rotateY(90deg) translateZ(4px);
+    transform-origin: left center;
 }
 
 /* =========================
@@ -502,6 +516,10 @@ footer {
     .god-photo {
         height: 260px;
     }
+
+    .book-stage {
+        transform: scale(.95);
+    }
 }
 </style>
 </head>
@@ -535,40 +553,57 @@ footer {
         ನಿಮ್ಮ ಭಜನಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಸುಂದರವಾದ ಭಜನಾ ಪುಸ್ತಕ.
     </p>
 
-    <!-- ದೇವರ ಫೋಟೋವನ್ನು god-photo.jpg ಎಂದು ಹೆಸರಿಸಿ
-         index.html ಇರುವ ಅದೇ ಫೋಲ್ಡರ್‌ನಲ್ಲಿ ಇರಿಸಿ -->
+    <!-- ದೇವರ ಫೋಟೋ -->
     <div class="god-section">
 
         <img
             class="god-photo"
             id="godPhoto"
-            src="god-photo.jpg"
+            src="IMG-20260216-WA0026.jpg"
             alt="ದೇವರ ಫೋಟೋ"
         >
 
         <div id="photoPlaceholder"
              style="height:250px;display:none;align-items:center;justify-content:center;flex-direction:column;color:#ffd76a">
             <div style="font-size:60px">🙏</div>
-            <div>ದೇವರ ಫೋಟೋವನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಿ</div>
+            <div>ದೇವರ ಫೋಟೋ ಲೋಡ್ ಆಗಲಿಲ್ಲ</div>
         </div>
 
         <div class="god-caption">🙏 ಶ್ರೀ ದೇವರ ಆಶೀರ್ವಾದ 🙏</div>
         <div class="god-note">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸೇವೆ</div>
     </div>
 
+    <!-- 3D ಪುಸ್ತಕ -->
     <div class="book-stage">
         <div class="book" id="book">
+
             <div class="book-spine"></div>
             <div class="book-pages"></div>
 
+            <!-- Front Page -->
             <div class="book-cover">
-                <div style="font-size:35px">🙏</div>
-                <h2>BG OFFICIAL<br>ಭಜನಾ ಪುಸ್ತಕ</h2>
-                <p>2026–2027</p>
+                <img
+                    src="1_20261008_062933_0000.png"
+                    alt="BG OFFICIAL ಪುಸ್ತಕದ ಮುಂಭಾಗ"
+                    class="book-cover-image"
+                    draggable="false"
+                >
             </div>
+
+            <!-- Last Page / Back Cover -->
+            <div class="book-back">
+                <img
+                    src="90_20261007_213051_0089.png"
+                    alt="BG OFFICIAL ಪುಸ್ತಕದ ಹಿಂಭಾಗ"
+                    class="book-back-image"
+                    draggable="false"
+                >
+            </div>
+
         </div>
     </div>
 
+    <p>ಪುಸ್ತಕವನ್ನು ಬೆರಳಿನಿಂದ ಅಥವಾ ಮೌಸ್‌ನಿಂದ ಎಳೆದು ತಿರುಗಿಸಿ ನೋಡಿ.</p>
     <p>ನಿಮ್ಮ ಪುಸ್ತಕದ ಗಾತ್ರ ಮತ್ತು ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆಮಾಡಿ ಆರ್ಡರ್ ಮಾಡಿ.</p>
 
 </section>
@@ -685,7 +720,7 @@ footer {
 
                 <label for="halfQty">ಎಷ್ಟು ಪುಸ್ತಕ ಬೇಕು?</label>
                 <input id="halfQty" type="number"
-                       min="0" max="500" value="0">
+                       min="0" max="500" step="1" value="0">
 
                 <div class="product-price" id="halfPriceLabel">
                     ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹200
@@ -716,7 +751,7 @@ footer {
 
                 <label for="fullQty">ಎಷ್ಟು ಪುಸ್ತಕ ಬೇಕು?</label>
                 <input id="fullQty" type="number"
-                       min="0" max="500" value="0">
+                       min="0" max="500" step="1" value="0">
 
                 <div class="product-price" id="fullPriceLabel">
                     ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹300
@@ -797,8 +832,8 @@ function getFullPrice() {
 
 function updateTotal() {
 
-    const hq = Math.max(0, Number(halfQty.value) || 0);
-    const fq = Math.max(0, Number(fullQty.value) || 0);
+    const hq = Math.max(0, Math.floor(Number(halfQty.value) || 0));
+    const fq = Math.max(0, Math.floor(Number(fullQty.value) || 0));
 
     const hp = getHalfPrice();
     const fp = getFullPrice();
@@ -846,11 +881,16 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
     const district = document.getElementById("district").value;
     const notes = document.getElementById("notes").value.trim();
 
-    const hq = Number(halfQty.value) || 0;
-    const fq = Number(fullQty.value) || 0;
+    const hq = Math.floor(Number(halfQty.value) || 0);
+    const fq = Math.floor(Number(fullQty.value) || 0);
 
-    if (hq < 0 || fq < 0 || hq > 500 || fq > 500) {
-        alert("ದಯವಿಟ್ಟು ಪುಸ್ತಕಗಳ ಸರಿಯಾದ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.");
+    if (
+        !Number.isInteger(hq) ||
+        !Number.isInteger(fq) ||
+        hq < 0 || fq < 0 ||
+        hq > 500 || fq > 500
+    ) {
+        alert("ದಯವಿಟ್ಟು 0 ರಿಂದ 500 ಒಳಗಿನ ಸರಿಯಾದ ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.");
         return;
     }
 
@@ -889,8 +929,8 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
         message += "ಗಾತ್ರ: A4 Half\n";
         message += "ಪುಟಗಳ ಸಂಖ್ಯೆ: ನಂತರ ತಿಳಿಸಲಾಗುವುದು\n";
         message += "ಬೈಂಡಿಂಗ್: " + halfBindingText + "\n";
-        message += "ஒரு ಪುಸ್ತಕದ ಬೆಲೆ: ₹" + hp + "\n";
-        message += "புத்தகಗಳ ಸಂಖ್ಯೆ: " + hq + "\n";
+        message += "ಒಂದು ಪುಸ್ತಕದ ಬೆಲೆ: ₹" + hp + "\n";
+        message += "ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆ: " + hq + "\n";
         message += "A4 Half ಮೊತ್ತ: ₹" + halfAmount + "\n";
     }
 
@@ -913,14 +953,18 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
 
     message += "\nದಯವಿಟ್ಟು ನನ್ನ ಆರ್ಡರ್ ದೃಢೀಕರಿಸಿ. ಧನ್ಯವಾದಗಳು! 🙏";
 
-    /* WhatsApp ಸಂಖ್ಯೆ: 91 + 10 ಅಂಕಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ */
+    /* WhatsApp ಆರ್ಡರ್ ಸ್ವೀಕರಿಸುವ ಸಂಖ್ಯೆ */
     const whatsappNumber = "918951630221";
 
     const whatsappURL =
         "https://wa.me/" + whatsappNumber +
         "?text=" + encodeURIComponent(message);
 
-    window.open(whatsappURL, "_blank");
+    const whatsappWindow = window.open(whatsappURL, "_blank");
+
+    if (!whatsappWindow) {
+        window.location.href = whatsappURL;
+    }
 });
 
 updateTotal();
@@ -939,7 +983,10 @@ book.addEventListener("pointerdown", function(event) {
     dragging = true;
     startX = event.clientX;
     book.style.cursor = "grabbing";
-    book.setPointerCapture(event.pointerId);
+
+    if (book.setPointerCapture) {
+        book.setPointerCapture(event.pointerId);
+    }
 });
 
 book.addEventListener("pointermove", function(event) {
@@ -960,6 +1007,7 @@ function stopDragging() {
 
 book.addEventListener("pointerup", stopDragging);
 book.addEventListener("pointercancel", stopDragging);
+book.addEventListener("lostpointercapture", stopDragging);
 
 </script>
 
