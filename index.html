@@ -5,817 +5,812 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>BG OFFICIAL | ಭಜನಾ ಪುಸ್ತಕ 2026–2027</title>
+<meta name="theme-color" content="#100700">
+<meta name="description" content="BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ 2026–2027. ಪುಸ್ತಕದ ವಿವರಗಳು, PDF ಓದುವಿಕೆ ಮತ್ತು WhatsApp ಆರ್ಡರ್.">
+
+<!-- PDF ಮತ್ತು 3D PAGE FLIP LIBRARIES -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+ --gold:#ffd76a;
+ --orange:#ff8c00;
+ --dark:#100700;
+ --cream:#fff3d5;
 }
 
-:root {
-    --gold: #ffd76a;
-    --orange: #ff8c00;
-    --dark: #100700;
-    --cream: #fff3d5;
+html{scroll-behavior:smooth}
+
+body{
+ font-family:Arial,sans-serif;
+ background:var(--dark);
+ color:white;
+ overflow-x:hidden;
 }
 
-html {
-    scroll-behavior: smooth;
+button,input,select,textarea{font:inherit}
+
+/* INTRO */
+
+#intro{
+ position:fixed;
+ inset:0;
+ z-index:9999;
+ background:radial-gradient(circle at center,#562600,#190900 55%,#050200);
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ text-align:center;
+ animation:introFade 1s ease 4.1s forwards;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: var(--dark);
-    color: white;
-    overflow-x: hidden;
+.intro-ring{
+ width:190px;
+ height:190px;
+ border:2px solid var(--gold);
+ border-radius:50%;
+ position:absolute;
+ box-shadow:0 0 25px #ff9d00,inset 0 0 25px #ff9d0044;
+ animation:ringSpin 4s linear infinite;
 }
 
-button, input, select, textarea {
-    font: inherit;
+.intro-ring:before,.intro-ring:after{
+ content:"";
+ position:absolute;
+ inset:12px;
+ border:1px dashed #ffcc66;
+ border-radius:50%;
 }
 
-/* INTRO ANIMATION */
-
-#intro {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: radial-gradient(circle at center, #562600, #190900 55%, #050200);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    animation: introFade 1s ease 4.1s forwards;
+.intro-ring:after{
+ inset:25px;
+ border-style:solid;
+ border-color:#ff9d0088;
 }
 
-.intro-ring {
-    width: 190px;
-    height: 190px;
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    position: absolute;
-    box-shadow: 0 0 25px #ff9d00, inset 0 0 25px #ff9d0044;
-    animation: ringSpin 4s linear infinite;
+.intro-om{
+ color:var(--gold);
+ font-size:45px;
+ margin-bottom:16px;
+ animation:glow 1.2s infinite alternate;
 }
 
-.intro-ring::before,
-.intro-ring::after {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border: 1px dashed #ffcc66;
-    border-radius: 50%;
+.intro-title{
+ color:var(--gold);
+ font-size:clamp(32px,8vw,55px);
+ letter-spacing:5px;
+ font-weight:900;
+ opacity:0;
+ transform:scale(.5);
+ text-shadow:0 0 20px #ff8c00;
+ animation:titleIn 1.2s ease .5s forwards;
 }
 
-.intro-ring::after {
-    inset: 25px;
-    border-style: solid;
-    border-color: #ff9d0088;
+.intro-subtitle{
+ color:var(--cream);
+ font-size:16px;
+ margin-top:15px;
+ opacity:0;
+ animation:subtitleIn 1s ease 1.5s forwards;
 }
 
-.intro-om {
-    color: var(--gold);
-    font-size: 45px;
-    margin-bottom: 16px;
-    animation: glow 1.2s infinite alternate;
+.intro-line{
+ width:0;
+ height:3px;
+ background:var(--gold);
+ margin-top:22px;
+ box-shadow:0 0 12px var(--orange);
+ animation:lineIn 1.5s ease 1.8s forwards;
 }
 
-.intro-title {
-    color: var(--gold);
-    font-size: clamp(32px, 8vw, 55px);
-    letter-spacing: 5px;
-    font-weight: 900;
-    opacity: 0;
-    transform: scale(.5);
-    text-shadow: 0 0 20px #ff8c00;
-    animation: titleIn 1.2s ease .5s forwards;
+@keyframes ringSpin{
+ from{transform:rotate(0deg) scale(.8)}
+ to{transform:rotate(360deg) scale(1)}
 }
 
-.intro-subtitle {
-    color: var(--cream);
-    font-size: 16px;
-    margin-top: 15px;
-    opacity: 0;
-    animation: subtitleIn 1s ease 1.5s forwards;
+@keyframes glow{
+ from{text-shadow:0 0 5px #ff9800}
+ to{text-shadow:0 0 30px #ffb300,0 0 50px #ff6f00}
 }
 
-.intro-line {
-    width: 0;
-    height: 3px;
-    background: var(--gold);
-    margin-top: 22px;
-    box-shadow: 0 0 12px var(--orange);
-    animation: lineIn 1.5s ease 1.8s forwards;
-}
+@keyframes titleIn{to{opacity:1;transform:scale(1)}}
+@keyframes subtitleIn{to{opacity:1}}
+@keyframes lineIn{to{width:min(260px,75vw)}}
 
-@keyframes ringSpin {
-    from { transform: rotate(0deg) scale(.8); }
-    to { transform: rotate(360deg) scale(1); }
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 5px #ff9800; }
-    to { text-shadow: 0 0 30px #ffb300, 0 0 50px #ff6f00; }
-}
-
-@keyframes titleIn {
-    to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes subtitleIn {
-    to { opacity: 1; }
-}
-
-@keyframes lineIn {
-    to { width: min(260px, 75vw); }
-}
-
-@keyframes introFade {
-    to {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
+@keyframes introFade{
+ to{opacity:0;visibility:hidden;pointer-events:none}
 }
 
 /* HEADER */
 
-header {
-    text-align: center;
-    padding: 20px 12px;
-    background: linear-gradient(135deg, #1b0b00, #482000, #160800);
-    border-bottom: 2px solid var(--gold);
+header{
+ text-align:center;
+ padding:20px 12px;
+ background:linear-gradient(135deg,#1b0b00,#482000,#160800);
+ border-bottom:2px solid var(--gold);
 }
 
-.logo {
-    color: var(--gold);
-    font-size: clamp(29px, 7vw, 44px);
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-shadow: 0 0 15px #ff8c00;
+.logo{
+ color:var(--gold);
+ font-size:clamp(29px,7vw,44px);
+ font-weight:900;
+ letter-spacing:3px;
+ text-shadow:0 0 15px #ff8c00;
 }
 
-header p {
-    color: var(--cream);
-    margin-top: 8px;
-    font-size: 14px;
-}
+header p{color:var(--cream);margin-top:8px;font-size:14px}
 
 /* HERO */
 
-.hero {
-    text-align: center;
-    padding: 45px 15px;
-    background:
-        radial-gradient(ellipse at top, #633000, transparent 65%),
-        linear-gradient(#1c0b00, #0a0400);
+.hero{
+ text-align:center;
+ padding:45px 15px;
+ background:radial-gradient(ellipse at top,#633000,transparent 65%),
+ linear-gradient(#1c0b00,#0a0400);
 }
 
-.hero h1 {
-    color: var(--gold);
-    font-size: clamp(27px, 7vw, 43px);
-    margin-bottom: 15px;
-    text-shadow: 0 0 15px #ff8c00;
+.hero h1{
+ color:var(--gold);
+ font-size:clamp(27px,7vw,43px);
+ margin-bottom:15px;
+ text-shadow:0 0 15px #ff8c00;
 }
 
-.hero p {
-    line-height: 1.8;
-    color: var(--cream);
-}
+.hero p{line-height:1.8;color:var(--cream)}
 
 /* GOD PHOTO */
 
-.god-section {
-    width: min(90%, 370px);
-    margin: 28px auto;
-    padding: 12px;
-    border: 2px solid var(--gold);
-    border-radius: 20px;
-    background: linear-gradient(145deg, #472000, #160800);
-    box-shadow: 0 0 25px #ff980044;
+.god-section{
+ width:min(90%,370px);
+ margin:28px auto;
+ padding:12px;
+ border:2px solid var(--gold);
+ border-radius:20px;
+ background:linear-gradient(145deg,#472000,#160800);
+ box-shadow:0 0 25px #ff980044;
 }
 
-.god-photo {
-    display: block;
-    width: 100%;
-    height: 290px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 12px;
-    background: #211000;
+.god-photo{
+ display:block;
+ width:100%;
+ height:290px;
+ object-fit:cover;
+ object-position:center;
+ border-radius:12px;
+ background:#211000;
 }
 
-.god-caption {
-    margin-top: 12px;
-    color: var(--gold);
-    font-weight: bold;
-    font-size: 15px;
-    white-space: nowrap;
-    text-align: center;
+.god-caption{
+ margin-top:12px;
+ color:var(--gold);
+ font-weight:bold;
+ font-size:15px;
+ text-align:center;
 }
 
-.god-note {
-    color: #e7cfa1;
-    font-size: 12px;
-    margin-top: 7px;
-}
+.god-note{color:#e7cfa1;font-size:12px;margin-top:7px}
 
 /* 3D BOOK */
 
-.book-stage {
-    width: 260px;
-    height: 330px;
-    margin: 25px auto;
-    perspective: 1100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    touch-action: pan-y;
+.book-stage{
+ width:260px;
+ height:330px;
+ margin:25px auto;
+ perspective:1100px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ touch-action:pan-y;
 }
 
-.book {
-    position: relative;
-    width: 190px;
-    height: 270px;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    transform: rotateY(-20deg);
-    transition: transform .08s linear;
-    cursor: grab;
-    filter: drop-shadow(12px 15px 12px #000);
+.book{
+ position:relative;
+ width:190px;
+ height:270px;
+ transform-style:preserve-3d;
+ -webkit-transform-style:preserve-3d;
+ transform:rotateY(-20deg);
+ transition:transform .08s linear;
+ cursor:grab;
+ filter:drop-shadow(12px 15px 12px #000);
 }
 
-.book:active {
-    cursor: grabbing;
+.book:active{cursor:grabbing}
+
+.book-cover,.book-back{
+ position:absolute;
+ inset:0;
+ overflow:hidden;
+ border:3px solid #ffdf86;
+ background:#451300;
+ backface-visibility:hidden;
+ -webkit-backface-visibility:hidden;
 }
 
-/* FRONT COVER */
-
-.book-cover {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    border: 3px solid #ffdf86;
-    border-radius: 4px 10px 10px 4px;
-    background: #451300;
-    transform: rotateY(0deg) translateZ(2px);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+.book-cover{
+ border-radius:4px 10px 10px 4px;
+ transform:translateZ(2px);
 }
 
-.book-cover-image {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: fill;
-    object-position: center;
-    user-select: none;
-    -webkit-user-drag: none;
-    pointer-events: none;
+.book-back{
+ border-radius:10px 4px 4px 10px;
+ transform:rotateY(180deg) translateZ(2px);
 }
 
-/* Back cover */
-.book-back {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    border: 3px solid #ffdf86;
-    border-radius: 10px 4px 4px 10px;
-    background: #451300;
-    transform: rotateY(180deg) translateZ(2px);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+.book-cover-image,.book-back-image{
+ width:100%;
+ height:100%;
+ display:block;
+ object-fit:fill;
+ user-select:none;
+ -webkit-user-drag:none;
+ pointer-events:none;
 }
 
-.book-back-image {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: fill;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+.book-spine{
+ position:absolute;
+ left:-2px;
+ top:0;
+ width:22px;
+ height:270px;
+ background:linear-gradient(90deg,#321000,#a14b00,#411500);
+ border:1px solid #e7bf61;
+ transform:rotateY(-90deg) translateZ(11px);
+ transform-origin:left center;
 }
 
-/* BOOK SPINE */
-
-.book-spine {
-    position: absolute;
-    left: -2px;
-    top: 0;
-    width: 22px;
-    height: 270px;
-    background: linear-gradient(90deg, #321000, #a14b00, #411500);
-    border: 1px solid #e7bf61;
-    transform: rotateY(-90deg) translateZ(11px);
-    transform-origin: left center;
+.book-pages{
+ position:absolute;
+ right:-15px;
+ top:4px;
+ width:17px;
+ height:262px;
+ background:repeating-linear-gradient(to bottom,#fff7dc 0,#fff7dc 3px,#d7c59d 4px);
+ border:1px solid #b7a174;
+ transform:rotateY(90deg) translateZ(4px);
+ transform-origin:left center;
 }
 
-/* BOOK PAGES */
+/* READ BOOK BUTTON */
 
-.book-pages {
-    position: absolute;
-    right: -15px;
-    top: 4px;
-    width: 17px;
-    height: 262px;
-    background: repeating-linear-gradient(
-        to bottom,
-        #fff7dc 0,
-        #fff7dc 3px,
-        #d7c59d 4px
-    );
-    border: 1px solid #b7a174;
-    transform: rotateY(90deg) translateZ(4px);
-    transform-origin: left center;
+.read-book-btn{
+ display:block;
+ margin:25px auto;
+ padding:15px 24px;
+ background:linear-gradient(135deg,#8b2500,#d97706);
+ color:white;
+ border:2px solid var(--gold);
+ border-radius:12px;
+ font-weight:bold;
+ font-size:17px;
+ cursor:pointer;
+ box-shadow:0 5px 20px #0005;
 }
+
+.read-book-btn:hover{transform:scale(1.03)}
 
 /* CONTENT AND PRICES */
 
-.content {
-    padding: 42px 15px;
-    text-align: center;
+.content{padding:42px 15px;text-align:center}
+
+.section-title{
+ color:var(--gold);
+ font-size:27px;
+ margin-bottom:23px;
 }
 
-.section-title {
-    color: var(--gold);
-    font-size: 27px;
-    margin-bottom: 23px;
+.price-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:18px;
+ max-width:750px;
+ margin:auto;
 }
 
-.price-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 18px;
-    max-width: 750px;
-    margin: auto;
+.price-card{
+ padding:23px 17px;
+ border:1px solid #a76c19;
+ border-radius:17px;
+ background:linear-gradient(145deg,#2e1700,#120900);
 }
 
-.price-card {
-    padding: 23px 17px;
-    border: 1px solid #a76c19;
-    border-radius: 17px;
-    background: linear-gradient(145deg, #2e1700, #120900);
-}
-
-.price-card h3 {
-    color: var(--gold);
-    margin-bottom: 12px;
-}
-
-.price-card .price {
-    color: white;
-    font-size: 29px;
-    font-weight: bold;
-}
-
-.price-card p {
-    margin-top: 12px;
-    line-height: 1.8;
-    color: #e9d8b6;
-}
-
-.price-card .pages {
-    color: #ffd76a;
-    font-size: 13px;
-}
+.price-card h3{color:var(--gold);margin-bottom:12px}
+.price-card .price{color:white;font-size:29px;font-weight:bold}
+.price-card p{margin-top:12px;line-height:1.8;color:#e9d8b6}
+.price-card .pages{color:#ffd76a;font-size:13px}
 
 /* ORDER FORM */
 
-.order-section {
-    padding: 40px 14px;
-    background: linear-gradient(180deg, #180a00, #291300);
+.order-section{
+ padding:40px 14px;
+ background:linear-gradient(180deg,#180a00,#291300);
 }
 
-.order-box {
-    max-width: 720px;
-    margin: auto;
-    padding: 23px 17px;
-    border: 1px solid #a76c19;
-    border-radius: 20px;
-    background: #160b02;
+.order-box{
+ max-width:720px;
+ margin:auto;
+ padding:23px 17px;
+ border:1px solid #a76c19;
+ border-radius:20px;
+ background:#160b02;
 }
 
-.order-box h2 {
-    color: var(--gold);
-    text-align: center;
-    margin-bottom: 24px;
+.order-box h2{
+ color:var(--gold);
+ text-align:center;
+ margin-bottom:24px;
 }
 
-label {
-    display: block;
-    margin: 15px 0 7px;
-    color: #ffe4a4;
-    font-size: 14px;
+label{
+ display:block;
+ margin:15px 0 7px;
+ color:#ffe4a4;
+ font-size:14px;
 }
 
-input, select, textarea {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #80521a;
-    border-radius: 9px;
-    background: #fff9ed;
-    color: #201000;
-    font-size: 15px;
-    outline: none;
+input,select,textarea{
+ width:100%;
+ padding:13px;
+ border:1px solid #80521a;
+ border-radius:9px;
+ background:#fff9ed;
+ color:#201000;
+ font-size:15px;
+ outline:none;
 }
 
-input:focus, select:focus, textarea:focus {
-    border-color: #ffc54d;
-    box-shadow: 0 0 5px #ffbf39;
+input:focus,select:focus,textarea:focus{
+ border-color:#ffc54d;
+ box-shadow:0 0 5px #ffbf39;
 }
 
-.product-box {
-    border: 1px solid #664015;
-    padding: 16px;
-    margin-top: 20px;
-    border-radius: 13px;
-    background: #241202;
+.product-box{
+ border:1px solid #664015;
+ padding:16px;
+ margin-top:20px;
+ border-radius:13px;
+ background:#241202;
 }
 
-.product-box h3 {
-    color: var(--gold);
-    margin-bottom: 12px;
+.product-box h3{color:var(--gold);margin-bottom:12px}
+
+.book-detail{
+ margin:8px 0;
+ color:#ffe9bd;
+ font-size:14px;
+ line-height:1.8;
 }
 
-.book-detail {
-    margin: 8px 0;
-    color: #ffe9bd;
-    font-size: 14px;
-    line-height: 1.8;
+.product-price{
+ color:#ffd76a;
+ font-weight:bold;
+ font-size:20px;
+ margin-top:12px;
 }
 
-.product-price {
-    color: #ffd76a;
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 12px;
+.total-box{
+ margin-top:24px;
+ padding:18px;
+ border:1px solid var(--gold);
+ border-radius:12px;
+ background:#352000;
+ text-align:center;
 }
 
-.total-box {
-    margin-top: 24px;
-    padding: 18px;
-    border: 1px solid var(--gold);
-    border-radius: 12px;
-    background: #352000;
-    text-align: center;
+.total-box p{color:#ffedc1;margin:9px 0}
+
+.total-amount{
+ font-size:26px;
+ font-weight:bold;
+ color:var(--gold);
 }
 
-.total-box p {
-    color: #ffedc1;
-    margin: 9px 0;
+.whatsapp-btn{
+ width:100%;
+ border:none;
+ border-radius:10px;
+ padding:16px;
+ margin-top:22px;
+ background:#20c768;
+ color:#061b0c;
+ font-size:17px;
+ font-weight:bold;
+ cursor:pointer;
 }
 
-.total-amount {
-    font-size: 26px;
-    font-weight: bold;
-    color: var(--gold);
+.whatsapp-btn:hover{background:#43e681}
+
+footer{
+ text-align:center;
+ padding:25px 14px;
+ color:#cbb48b;
+ background:#090400;
+ border-top:1px solid #5c390e;
+ line-height:1.9;
+ font-size:13px;
 }
 
-.whatsapp-btn {
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    padding: 16px;
-    margin-top: 22px;
-    background: #20c768;
-    color: #061b0c;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
+/* PDF FLIPBOOK VIEWER */
+
+#bgoFlipModal{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:100000;
+ background:#100700;
+ padding:10px;
+ overflow:auto;
 }
 
-.whatsapp-btn:hover {
-    background: #43e681;
+#bgoFlipModal.open{
+ display:flex;
+ flex-direction:column;
+ align-items:center;
 }
 
-footer {
-    text-align: center;
-    padding: 25px 14px;
-    color: #cbb48b;
-    background: #090400;
-    border-top: 1px solid #5c390e;
-    line-height: 1.9;
-    font-size: 13px;
+.bgo-reader-header{
+ width:100%;
+ max-width:1000px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ padding:12px;
+ color:var(--gold);
 }
 
-@media(max-width: 480px) {
-    .hero {
-        padding-top: 35px;
-    }
+.bgo-reader-header button,
+.bgo-reader-controls button{
+ padding:10px 14px;
+ border:1px solid var(--gold);
+ border-radius:8px;
+ background:#542000;
+ color:white;
+ cursor:pointer;
+}
 
-    .order-box {
-        padding: 17px 12px;
-    }
+#bgoReaderStatus{
+ color:var(--gold);
+ text-align:center;
+ padding:15px;
+}
 
-    .book-stage {
-        transform: scale(.95);
-    }
+#bgoFlipBook{
+ margin:15px auto;
+ max-width:100%;
+}
+
+#bgoFlipBook .page{
+ background:white;
+ position:relative;
+ overflow:hidden;
+}
+
+#bgoFlipBook canvas{
+ display:block;
+ width:100%;
+ height:100%;
+ object-fit:contain;
+}
+
+.bgo-watermark{
+ position:absolute;
+ top:50%;
+ left:0;
+ right:0;
+ text-align:center;
+ transform:rotate(-30deg);
+ color:rgba(120,50,0,.20);
+ font-weight:bold;
+ font-size:24px;
+ pointer-events:none;
+ user-select:none;
+}
+
+.bgo-reader-controls{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:12px;
+ padding:15px;
+ color:var(--gold);
+}
+
+@media(max-width:480px){
+ .hero{padding-top:35px}
+ .order-box{padding:17px 12px}
+ .book-stage{transform:scale(.95)}
+ #bgoFlipModal{padding:5px}
+ .bgo-watermark{font-size:16px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ಆರಂಭಿಕ ಅನಿಮೇಷನ್ -->
+<!-- INTRO ANIMATION -->
 
 <div id="intro">
-    <div class="intro-ring"></div>
-    <div style="position:relative;z-index:1">
-        <div class="intro-om">🙏</div>
-        <div class="intro-title">BG OFFICIAL</div>
-        <div class="intro-subtitle">ಭಜನಾ ಪುಸ್ತಕ 2026–2027</div>
-        <div class="intro-line"></div>
-    </div>
+ <div class="intro-ring"></div>
+ <div style="position:relative;z-index:1">
+  <div class="intro-om">🙏</div>
+  <div class="intro-title">BG OFFICIAL</div>
+  <div class="intro-subtitle">ಭಜನಾ ಪುಸ್ತಕ 2026–2027</div>
+  <div class="intro-line"></div>
+ </div>
 </div>
 
 <header>
-    <div class="logo">BG OFFICIAL</div>
-    <p>ಭಜನಾ ಪುಸ್ತಕ 2026–2027</p>
+ <div class="logo">BG OFFICIAL</div>
+ <p>ಭಜನಾ ಪುಸ್ತಕ 2026–2027</p>
 </header>
 
 <main>
 
 <section class="hero">
 
-    <h1>🙏 ಭಜನಾ ಪುಸ್ತಕ 🙏</h1>
+ <h1>🙏 ಭಜನಾ ಪುಸ್ತಕ 🙏</h1>
 
-    <p>
-        ಭಕ್ತಿಯೇ ಜೀವನದ ಬೆಳಕು.<br>
-        ನಿಮ್ಮ ಭಜನಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಸುಂದರವಾದ ಭಜನಾ ಪುಸ್ತಕ.
-    </p>
+ <p>
+  ಭಕ್ತಿಯೇ ಜೀವನದ ಬೆಳಕು.<br>
+  ನಿಮ್ಮ ಭಜನಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಸುಂದರವಾದ ಭಜನಾ ಪುಸ್ತಕ.
+ </p>
 
-    <!-- ದೇವರ ಫೋಟೋ -->
+ <div class="god-section">
+  <img
+   class="god-photo"
+   id="godPhoto"
+   src="IMG-20260216-WA0026.jpg"
+   alt="ದೇವರ ಫೋಟೋ"
+  >
 
-    <div class="god-section">
+  <div id="photoPlaceholder"
+   style="height:250px;display:none;align-items:center;justify-content:center;flex-direction:column;color:#ffd76a">
+   <div style="font-size:60px">🙏</div>
+   <div>ದೇವರ ಫೋಟೋ ಲೋಡ್ ಆಗಲಿಲ್ಲ</div>
+  </div>
 
-        <img
-            class="god-photo"
-            id="godPhoto"
-            src="IMG-20260216-WA0026.jpg"
-            alt="ದೇವರ ಫೋಟೋ"
-        >
+  <div class="god-caption">🙏 ಶ್ರೀ ಮತ್ತೂರು ಪಂಚಲಿಂಗೇಶ್ವರಯ ನಮಃ 🙏</div>
+  <div class="god-note">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸೇವೆ</div>
+ </div>
 
-        <div id="photoPlaceholder"
-             style="height:250px;display:none;align-items:center;justify-content:center;flex-direction:column;color:#ffd76a">
-            <div style="font-size:60px">🙏</div>
-            <div>ದೇವರ ಫೋಟೋ ಲೋಡ್ ಆಗಲಿಲ್ಲ</div>
-        </div>
+ <!-- 3D BOOK -->
 
-        <div class="god-caption">🙏 ಶ್ರೀ ಮತ್ತೂರು ಪಂಚಲಿಂಗೇಶ್ವರಯ ನಮಃ 🙏</div>
-        <div class="god-note">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸೇವೆ</div>
+ <div class="book-stage">
+  <div class="book" id="book">
+   <div class="book-spine"></div>
+   <div class="book-pages"></div>
 
-    </div>
+   <div class="book-cover">
+    <img
+     src="1_20261008_062933_0000.png"
+     alt="BG OFFICIAL ಪುಸ್ತಕದ ಮುಂಭಾಗ"
+     class="book-cover-image"
+     draggable="false"
+    >
+   </div>
 
-    <!-- 3D ಪುಸ್ತಕ -->
+   <div class="book-back">
+    <img
+     src="90_20261007_213051_0089.png"
+     alt="BG OFFICIAL ಪುಸ್ತಕದ ಹಿಂಭಾಗ"
+     class="book-back-image"
+     draggable="false"
+    >
+   </div>
+  </div>
+ </div>
 
-    <div class="book-stage">
-        <div class="book" id="book">
+ <p>ಪುಸ್ತಕವನ್ನು ಬೆರಳಿನಿಂದ ಅಥವಾ ಮೌಸ್‌ನಿಂದ ಎಳೆದು ತಿರುಗಿಸಿ ನೋಡಿ.</p>
+ <p>ನಿಮ್ಮ ಪುಸ್ತಕದ ಗಾತ್ರ ಮತ್ತು ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆಮಾಡಿ ಆರ್ಡರ್ ಮಾಡಿ.</p>
 
-            <div class="book-spine"></div>
-            <div class="book-pages"></div>
-
-            <!-- Front Page -->
-
-            <div class="book-cover">
-                <img
-                    src="1_20261008_062933_0000.png"
-                    alt="BG OFFICIAL ಪುಸ್ತಕದ ಮುಂಭಾಗ"
-                    class="book-cover-image"
-                    draggable="false"
-                >
-            </div>
-
-            <!-- Back Page -->
-
-            <div class="book-back">
-                <img
-                    src="90_20261007_213051_0089.png"
-                    alt="BG OFFICIAL ಪುಸ್ತಕದ ಹಿಂಭಾಗ"
-                    class="book-back-image"
-                    draggable="false"
-                >
-            </div>
-
-        </div>
-    </div>
-
-    <p>ಪುಸ್ತಕವನ್ನು ಬೆರಳಿನಿಂದ ಅಥವಾ ಮೌಸ್‌ನಿಂದ ಎಳೆದು ತಿರುಗಿಸಿ ನೋಡಿ.</p>
-    <p>ನಿಮ್ಮ ಪುಸ್ತಕದ ಗಾತ್ರ ಮತ್ತು ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆಮಾಡಿ ಆರ್ಡರ್ ಮಾಡಿ.</p>
+ <button type="button" class="read-book-btn" onclick="bgoOpenBook()">
+  📖 ಭಜನಾ ಪುಸ್ತಕ ಓದಿ
+ </button>
 
 </section>
 
 <section class="content">
 
-    <h2 class="section-title">📚 ಪುಸ್ತಕದ ವಿವರಗಳು ಮತ್ತು ಬೆಲೆಗಳು</h2>
+ <h2 class="section-title">📚 ಪುಸ್ತಕದ ವಿವರಗಳು ಮತ್ತು ಬೆಲೆಗಳು</h2>
 
-    <div class="price-grid">
+ <div class="price-grid">
 
-        <div class="price-card">
-            <h3>📗 A4 Half ಪುಸ್ತಕ</h3>
-            <p>ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ</p>
-            <p>ಪುಸ್ತಕದ ಗಾತ್ರ: A4 Half</p>
-            <p class="pages">ಒಟ್ಟು ಪುಟಗಳು:100</p>
-            <p>ಪಿನ್ ಬೈಂಡಿಂಗ್: ₹200</p>
-            <p>ಗಮ್ ಬೈಂಡಿಂಗ್: ₹210</p>
-            <div class="price">₹200 ರಿಂದ</div>
-        </div>
+  <div class="price-card">
+   <h3>📗 A4 Half ಪುಸ್ತಕ</h3>
+   <p>ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ</p>
+   <p>ಪುಸ್ತಕದ ಗಾತ್ರ: A4 Half</p>
+   <p class="pages">ಒಟ್ಟು ಪುಟಗಳು: 100</p>
+   <p>ಪಿನ್ ಬೈಂಡಿಂಗ್: ₹200</p>
+   <p>ಗಮ್ ಬೈಂಡಿಂಗ್: ₹210</p>
+   <div class="price">₹200 ರಿಂದ</div>
+  </div>
 
-        <div class="price-card">
-            <h3>📘 A4 ಪುಸ್ತಕ</h3>
-            <p>ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ</p>
-            <p>ಪುಸ್ತಕದ ಗಾತ್ರ: A4</p>
-            <p class="pages">ಒಟ್ಟು ಪುಟಗಳು:100</p>
-            <p>ಪಿನ್ ಬೈಂಡಿಂಗ್: ₹300</p>
-            <p>ಗಮ್ ಬೈಂಡಿಂಗ್: ₹310</p>
-            <div class="price">₹300 ರಿಂದ</div>
-        </div>
+  <div class="price-card">
+   <h3>📘 A4 ಪುಸ್ತಕ</h3>
+   <p>ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ</p>
+   <p>ಪುಸ್ತಕದ ಗಾತ್ರ: A4</p>
+   <p class="pages">ಒಟ್ಟು ಪುಟಗಳು: 100</p>
+   <p>ಪಿನ್ ಬೈಂಡಿಂಗ್: ₹300</p>
+   <p>ಗಮ್ ಬೈಂಡಿಂಗ್: ₹310</p>
+   <div class="price">₹300 ರಿಂದ</div>
+  </div>
 
-    </div>
-
+ </div>
 </section>
 
 <section class="order-section" id="order">
+ <div class="order-box">
 
-    <div class="order-box">
+  <h2>🛒 ಪುಸ್ತಕ ಆರ್ಡರ್ ಫಾರ್ಮ್</h2>
 
-        <h2>🛒 ಪುಸ್ತಕ ಆರ್ಡರ್ ಫಾರ್ಮ್</h2>
+  <form id="orderForm">
 
-        <form id="orderForm">
+   <label for="customerName">ನಿಮ್ಮ ಹೆಸರು *</label>
+   <input id="customerName" type="text" placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು" required>
 
-            <label for="customerName">ನಿಮ್ಮ ಹೆಸರು *</label>
-            <input id="customerName" type="text"
-                   placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು" required>
+   <label for="mobile">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *</label>
+   <input id="mobile" type="tel" inputmode="numeric" maxlength="10"
+    pattern="[0-9]{10}" placeholder="10 ಅಂಕಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ" required>
 
-            <label for="mobile">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *</label>
-            <input id="mobile" type="tel"
-                   inputmode="numeric"
-                   maxlength="10"
-                   pattern="[0-9]{10}"
-                   placeholder="10 ಅಂಕಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
-                   required>
+   <label for="address">ಪೂರ್ಣ ವಿಳಾಸ *</label>
+   <textarea id="address" rows="3" placeholder="ಮನೆ, ರಸ್ತೆ ಮತ್ತು ವಿಳಾಸ" required></textarea>
 
-            <label for="address">ಪೂರ್ಣ ವಿಳಾಸ *</label>
-            <textarea id="address" rows="3"
-                      placeholder="ಮನೆ, ರಸ್ತೆ ಮತ್ತು ವಿಳಾಸ"
-                      required></textarea>
+   <label for="city">ಗ್ರಾಮ / ನಗರ *</label>
+   <input id="city" type="text" placeholder="ಗ್ರಾಮ ಅಥವಾ ನಗರದ ಹೆಸರು" required>
 
-            <label for="city">ಗ್ರಾಮ / ನಗರ *</label>
-            <input id="city" type="text"
-                   placeholder="ಗ್ರಾಮ ಅಥವಾ ನಗರದ ಹೆಸರು"
-                   required>
+   <label for="district">ಜಿಲ್ಲೆ *</label>
+   <select id="district" required>
+    <option value="">ಜಿಲ್ಲೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</option>
+    <option>Bagalkot</option>
+    <option>Ballari</option>
+    <option>Belagavi</option>
+    <option>Bengaluru Rural</option>
+    <option>Bengaluru Urban</option>
+    <option>Bidar</option>
+    <option>Chamarajanagar</option>
+    <option>Chikkaballapur</option>
+    <option>Chikkamagaluru</option>
+    <option>Chitradurga</option>
+    <option>Davangere</option>
+    <option>Dakshina Kannada</option>
+    <option>Dharwad</option>
+    <option>Gadag</option>
+    <option>Hassan</option>
+    <option>Haveri</option>
+    <option>Kalaburagi</option>
+    <option>Kodagu</option>
+    <option>Kolar</option>
+    <option>Koppal</option>
+    <option>Mandya</option>
+    <option>Mysuru</option>
+    <option>Raichur</option>
+    <option>Ramanagara</option>
+    <option>Shivamogga</option>
+    <option>Tumakuru</option>
+    <option>Udupi</option>
+    <option>Uttara Kannada</option>
+    <option>Vijayanagara</option>
+    <option>Vijayapura</option>
+    <option>Yadgir</option>
+   </select>
 
-            <label for="district">ಜಿಲ್ಲೆ *</label>
-            <select id="district" required>
-                <option value="">ಜಿಲ್ಲೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</option>
-                <option>Bagalkot</option>
-                <option>Ballari</option>
-                <option>Belagavi</option>
-                <option>Bengaluru Rural</option>
-                <option>Bengaluru Urban</option>
-                <option>Bidar</option>
-                <option>Chamarajanagar</option>
-                <option>Chikkaballapur</option>
-                <option>Chikkamagaluru</option>
-                <option>Chitradurga</option>
-                <option>Davangere</option>
-                <option>Dakshina Kannada</option>
-                <option>Dharwad</option>
-                <option>Gadag</option>
-                <option>Hassan</option>
-                <option>Haveri</option>
-                <option>Kalaburagi</option>
-                <option>Kodagu</option>
-                <option>Kolar</option>
-                <option>Koppal</option>
-                <option>Mandya</option>
-                <option>Mysuru</option>
-                <option>Raichur</option>
-                <option>Ramanagara</option>
-                <option>Shivamogga</option>
-                <option>Tumakuru</option>
-                <option>Udupi</option>
-                <option>Uttara Kannada</option>
-                <option>Vijayanagara</option>
-                <option>Vijayapura</option>
-                <option>Yadgir</option>
-            </select>
+   <div class="product-box">
+    <h3>📗 ಪುಸ್ತಕ 1 — A4 Half</h3>
 
-            <!-- A4 HALF PRODUCT -->
-
-            <div class="product-box">
-
-                <h3>📗 ಪುಸ್ತಕ 1 — A4 Half</h3>
-
-                <div class="book-detail">
-                    ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ<br>
-                    ಗಾತ್ರ: A4 Half<br>
-                    ಪುಟಗಳ ಸಂಖ್ಯೆ: 100
-                </div>
-
-                <label for="halfBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ</label>
-                <select id="halfBinding">
-                    <option value="rattu">ಪಿನ್ ಬೈಂಡಿಂಗ್ — ₹200</option>
-                    <option value="gum">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹210</option>
-                </select>
-
-                <label for="halfQty">ಎಷ್ಟು ಪುಸ್ತಕ ಬೇಕು?</label>
-                <input id="halfQty" type="number"
-                       min="0" max="500" step="1" value="0">
-
-                <div class="product-price" id="halfPriceLabel">
-                    ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹200
-                </div>
-
-                <p class="book-detail">
-                    ಗಮ್ ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ ಮಾಡಿದರೆ ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹10 ಹೆಚ್ಚುವರಿ.
-                </p>
-
-            </div>
-
-            <!-- A4 PRODUCT -->
-
-            <div class="product-box">
-
-                <h3>📘 ಪುಸ್ತಕ 2 — A4</h3>
-
-                <div class="book-detail">
-                    ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ<br>
-                    ಗಾತ್ರ: A4<br>
-                    ಪುಟಗಳ ಸಂಖ್ಯೆ:100
-                </div>
-
-                <label for="fullBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ</label>
-                <select id="fullBinding">
-                    <option value="rattu">ಪಿನ್ ಬೈಂಡಿಂಗ್ — ₹300</option>
-                    <option value="gum">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹310</option>
-                </select>
-
-                <label for="fullQty">ಎಷ್ಟು ಪುಸ್ತಕ ಬೇಕು?</label>
-                <input id="fullQty" type="number"
-                       min="0" max="500" step="1" value="0">
-
-                <div class="product-price" id="fullPriceLabel">
-                    ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹300
-                </div>
-
-                <p class="book-detail">
-                    ಗಮ್ ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ ಮಾಡಿದರೆ ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹10 ಹೆಚ್ಚುವರಿ.
-                </p>
-
-            </div>
-
-            <label for="notes">ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ</label>
-            <textarea id="notes" rows="3"
-                      placeholder="ಇಲ್ಲಿ ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ ಬರೆಯಬಹುದು"></textarea>
-
-            <div class="total-box">
-
-                <p>A4 Half ಪುಸ್ತಕದ ಮೊತ್ತ</p>
-                <div id="halfTotal" class="total-amount">₹0</div>
-
-                <p style="margin-top:17px">A4 ಪುಸ್ತಕದ ಮೊತ್ತ</p>
-                <div id="fullTotal" class="total-amount">₹0</div>
-
-                <p style="margin-top:17px">ಒಟ್ಟು ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆ</p>
-                <div id="totalQty" class="total-amount">0</div>
-
-                <p style="margin-top:17px">ಒಟ್ಟು ಹಣ</p>
-                <div id="grandTotal" class="total-amount">₹0</div>
-
-            </div>
-
-            <button type="submit" class="whatsapp-btn">
-                📲 WhatsApp ಮೂಲಕ ಆರ್ಡರ್ ಮಾಡಿ
-            </button>
-
-        </form>
-
+    <div class="book-detail">
+     ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ<br>
+     ಗಾತ್ರ: A4 Half<br>
+     ಪುಟಗಳ ಸಂಖ್ಯೆ: 100
     </div>
 
-</section>
+    <label for="halfBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ</label>
+    <select id="halfBinding">
+     <option value="rattu">ಪಿನ್ ಬೈಂಡಿಂಗ್ — ₹200</option>
+     <option value="gum">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹210</option>
+    </select>
 
+    <label for="halfQty">ಎಷ್ಟು ಪುಸ್ತಕ ಬೇಕು?</label>
+    <input id="halfQty" type="number" min="0" max="500" step="1" value="0">
+
+    <div class="product-price" id="halfPriceLabel">ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹200</div>
+    <p class="book-detail">ಗಮ್ ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ ಮಾಡಿದರೆ ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹10 ಹೆಚ್ಚುವರಿ.</p>
+   </div>
+
+   <div class="product-box">
+    <h3>📘 ಪುಸ್ತಕ 2 — A4</h3>
+
+    <div class="book-detail">
+     ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ<br>
+     ಗಾತ್ರ: A4<br>
+     ಪುಟಗಳ ಸಂಖ್ಯೆ: 100
+    </div>
+
+    <label for="fullBinding">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ</label>
+    <select id="fullBinding">
+     <option value="rattu">ಪಿನ್ ಬೈಂಡಿಂಗ್ — ₹300</option>
+     <option value="gum">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹310</option>
+    </select>
+
+    <label for="fullQty">ಎಷ್ಟು ಪುಸ್ತಕ ಬೇಕು?</label>
+    <input id="fullQty" type="number" min="0" max="500" step="1" value="0">
+
+    <div class="product-price" id="fullPriceLabel">ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹300</div>
+    <p class="book-detail">ಗಮ್ ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ ಮಾಡಿದರೆ ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹10 ಹೆಚ್ಚುವರಿ.</p>
+   </div>
+
+   <label for="notes">ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ</label>
+   <textarea id="notes" rows="3" placeholder="ಇಲ್ಲಿ ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ ಬರೆಯಬಹುದು"></textarea>
+
+   <div class="total-box">
+    <p>A4 Half ಪುಸ್ತಕದ ಮೊತ್ತ</p>
+    <div id="halfTotal" class="total-amount">₹0</div>
+
+    <p style="margin-top:17px">A4 ಪುಸ್ತಕದ ಮೊತ್ತ</p>
+    <div id="fullTotal" class="total-amount">₹0</div>
+
+    <p style="margin-top:17px">ಒಟ್ಟು ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆ</p>
+    <div id="totalQty" class="total-amount">0</div>
+
+    <p style="margin-top:17px">ಒಟ್ಟು ಹಣ</p>
+    <div id="grandTotal" class="total-amount">₹0</div>
+   </div>
+
+   <button type="submit" class="whatsapp-btn">
+    📲 WhatsApp ಮೂಲಕ ಆರ್ಡರ್ ಮಾಡಿ
+   </button>
+
+  </form>
+ </div>
+</section>
 </main>
 
 <footer>
-    <div><strong>BG OFFICIAL</strong></div>
-    <div>ಭಜನಾ ಪುಸ್ತಕ 2026–2027</div>
-    <div>🙏 ಧನ್ಯವಾದಗಳು 🙏</div>
+ <div><strong>BG OFFICIAL</strong></div>
+ <div>ಭಜನಾ ಪುಸ್ತಕ 2026–2027</div>
+ <div>🙏 ಧನ್ಯವಾದಗಳು 🙏</div>
 </footer>
 
-<script>
+<!-- PDF FLIPBOOK READER -->
 
-/* GOD PHOTO FALLBACK */
+<div id="bgoFlipModal">
+
+ <div class="bgo-reader-header">
+  <strong>BG OFFICIAL — ಭಜನಾ ಪುಸ್ತಕ</strong>
+  <button type="button" onclick="bgoCloseBook()">✕ ಮುಚ್ಚಿ</button>
+ </div>
+
+ <div id="bgoReaderStatus">📖 ಭಜನಾ ಪುಸ್ತಕ ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
+
+ <div id="bgoFlipBook"></div>
+
+ <div class="bgo-reader-controls">
+  <button type="button" onclick="bgoPrevious()">❮ ಹಿಂದಿನ ಪುಟ</button>
+  <span id="bgoPageNumber">ಪುಟ 1</span>
+  <button type="button" onclick="bgoNext()">ಮುಂದಿನ ಪುಟ ❯</button>
+ </div>
+
+ <p style="color:#cbb48b;font-size:12px;padding:10px;text-align:center">
+  © BG OFFICIAL
+ </p>
+</div>
+
+<script>
+/* GOD PHOTO */
 
 const godPhoto = document.getElementById("godPhoto");
 
 godPhoto.addEventListener("error", function() {
-    this.style.display = "none";
-    document.getElementById("photoPlaceholder").style.display = "flex";
+ this.style.display = "none";
+ document.getElementById("photoPlaceholder").style.display = "flex";
 });
 
-/* PRICES AND CALCULATIONS */
+/* PRICES */
 
 const halfBinding = document.getElementById("halfBinding");
 const fullBinding = document.getElementById("fullBinding");
@@ -823,42 +818,37 @@ const halfQty = document.getElementById("halfQty");
 const fullQty = document.getElementById("fullQty");
 
 function getHalfPrice() {
-    return halfBinding.value === "gum" ? 210 : 200;
+ return halfBinding.value === "gum" ? 210 : 200;
 }
 
 function getFullPrice() {
-    return fullBinding.value === "gum" ? 310 : 300;
+ return fullBinding.value === "gum" ? 310 : 300;
 }
 
 function updateTotal() {
+ const hq = Math.max(0, Math.floor(Number(halfQty.value) || 0));
+ const fq = Math.max(0, Math.floor(Number(fullQty.value) || 0));
 
-    const hq = Math.max(0, Math.floor(Number(halfQty.value) || 0));
-    const fq = Math.max(0, Math.floor(Number(fullQty.value) || 0));
+ const hp = getHalfPrice();
+ const fp = getFullPrice();
 
-    const hp = getHalfPrice();
-    const fp = getFullPrice();
+ const halfAmount = hq * hp;
+ const fullAmount = fq * fp;
 
-    const halfAmount = hq * hp;
-    const fullAmount = fq * fp;
-    const grandTotal = halfAmount + fullAmount;
+ document.getElementById("halfPriceLabel").textContent = "ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹" + hp;
+ document.getElementById("fullPriceLabel").textContent = "ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹" + fp;
 
-    document.getElementById("halfPriceLabel").textContent =
-        "ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹" + hp;
+ document.getElementById("halfTotal").textContent =
+  "₹" + halfAmount.toLocaleString("en-IN");
 
-    document.getElementById("fullPriceLabel").textContent =
-        "ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹" + fp;
+ document.getElementById("fullTotal").textContent =
+  "₹" + fullAmount.toLocaleString("en-IN");
 
-    document.getElementById("halfTotal").textContent =
-        "₹" + halfAmount.toLocaleString("en-IN");
+ document.getElementById("totalQty").textContent =
+  (hq + fq).toLocaleString("en-IN");
 
-    document.getElementById("fullTotal").textContent =
-        "₹" + fullAmount.toLocaleString("en-IN");
-
-    document.getElementById("totalQty").textContent =
-        (hq + fq).toLocaleString("en-IN");
-
-    document.getElementById("grandTotal").textContent =
-        "₹" + grandTotal.toLocaleString("en-IN");
+ document.getElementById("grandTotal").textContent =
+  "₹" + (halfAmount + fullAmount).toLocaleString("en-IN");
 }
 
 halfBinding.addEventListener("change", updateTotal);
@@ -869,137 +859,240 @@ fullQty.addEventListener("input", updateTotal);
 /* WHATSAPP ORDER */
 
 document.getElementById("orderForm").addEventListener("submit", function(event) {
+ event.preventDefault();
 
-    event.preventDefault();
+ const name = document.getElementById("customerName").value.trim();
+ const mobile = document.getElementById("mobile").value.trim();
+ const address = document.getElementById("address").value.trim();
+ const city = document.getElementById("city").value.trim();
+ const district = document.getElementById("district").value;
+ const notes = document.getElementById("notes").value.trim();
 
-    const name = document.getElementById("customerName").value.trim();
-    const mobile = document.getElementById("mobile").value.trim();
-    const address = document.getElementById("address").value.trim();
-    const city = document.getElementById("city").value.trim();
-    const district = document.getElementById("district").value;
-    const notes = document.getElementById("notes").value.trim();
+ const hq = Number(halfQty.value) || 0;
+ const fq = Number(fullQty.value) || 0;
 
-    const hq = Number(halfQty.value) || 0;
-    const fq = Number(fullQty.value) || 0;
+ if (!Number.isInteger(hq) || !Number.isInteger(fq) ||
+     hq < 0 || fq < 0 || hq > 500 || fq > 500) {
+  alert("ದಯವಿಟ್ಟು 0 ರಿಂದ 500 ಒಳಗಿನ ಸರಿಯಾದ ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.");
+  return;
+ }
 
-    if (
-        !Number.isInteger(hq) ||
-        !Number.isInteger(fq) ||
-        hq < 0 || fq < 0 ||
-        hq > 500 || fq > 500
-    ) {
-        alert("ದಯವಿಟ್ಟು 0 ರಿಂದ 500 ಒಳಗಿನ ಸರಿಯಾದ ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.");
-        return;
-    }
+ if (hq === 0 && fq === 0) {
+  alert("ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಪುಸ್ತಕವನ್ನಾದರೂ ಆಯ್ಕೆಮಾಡಿ.");
+  return;
+ }
 
-    if (hq === 0 && fq === 0) {
-        alert("ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಪುಸ್ತಕವನ್ನಾದರೂ ಆಯ್ಕೆಮಾಡಿ.");
-        return;
-    }
+ const hp = getHalfPrice();
+ const fp = getFullPrice();
+ const halfAmount = hq * hp;
+ const fullAmount = fq * fp;
+ const total = halfAmount + fullAmount;
 
-    const hp = getHalfPrice();
-    const fp = getFullPrice();
+ const halfBindingText = halfBinding.value === "gum" ? "ಗಮ್ ಬೈಂಡಿಂಗ್" : "ಪಿನ್ ಬೈಂಡಿಂಗ್";
+ const fullBindingText = fullBinding.value === "gum" ? "ಗಮ್ ಬೈಂಡಿಂಗ್" : "ಪಿನ್ ಬೈಂಡಿಂಗ್";
 
-    const halfAmount = hq * hp;
-    const fullAmount = fq * fp;
-    const total = halfAmount + fullAmount;
-    const totalBooks = hq + fq;
+ let message = "🙏 *BG OFFICIAL — ಭಜನಾ ಪುಸ್ತಕ ಆರ್ಡರ್* 🙏\n\n";
 
-    const halfBindingText =
-        halfBinding.value === "gum" ? "ಗಮ್ ಬೈಂಡಿಂಗ್" : "ಪಿನ್ ಬೈಂಡಿಂಗ್";
+ message += "*ಗ್ರಾಹಕರ ವಿವರಗಳು*\n";
+ message += "ಹೆಸರು: " + name + "\n";
+ message += "ಮೊಬೈಲ್: " + mobile + "\n";
+ message += "ವಿಳಾಸ: " + address + "\n";
+ message += "ಗ್ರಾಮ/ನಗರ: " + city + "\n";
+ message += "ಜಿಲ್ಲೆ: " + district + "\n\n";
+ message += "*ಪುಸ್ತಕದ ವಿವರಗಳು*\n";
 
-    const fullBindingText =
-        fullBinding.value === "gum" ? "ಗಮ್ ಬೈಂಡಿಂಗ್" : "ಪಿನ್ ಬೈಂಡಿಂಗ್";
+ if (hq > 0) {
+  message += "\nಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ\n";
+  message += "ಗಾತ್ರ: A4 Half\nಪುಟಗಳ ಸಂಖ್ಯೆ: 100\n";
+  message += "ಬೈಂಡಿಂಗ್: " + halfBindingText + "\n";
+  message += "ಒಂದು ಪುಸ್ತಕದ ಬೆಲೆ: ₹" + hp + "\n";
+  message += "ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆ: " + hq + "\n";
+  message += "A4 Half ಮೊತ್ತ: ₹" + halfAmount + "\n";
+ }
 
-    let message = "🙏 *BG OFFICIAL — ಭಜನಾ ಪುಸ್ತಕ ಆರ್ಡರ್* 🙏\n\n";
+ if (fq > 0) {
+  message += "\nಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ\n";
+  message += "ಗಾತ್ರ: A4\nಪುಟಗಳ ಸಂಖ್ಯೆ: 100\n";
+  message += "ಬೈಂಡಿಂಗ್: " + fullBindingText + "\n";
+  message += "ಒಂದು ಪುಸ್ತಕದ ಬೆಲೆ: ₹" + fp + "\n";
+  message += "ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆ: " + fq + "\n";
+  message += "A4 ಮೊತ್ತ: ₹" + fullAmount + "\n";
+ }
 
-    message += "*ಗ್ರಾಹಕರ ವಿವರಗಳು*\n";
-    message += "ಹೆಸರು: " + name + "\n";
-    message += "ಮೊಬೈಲ್: " + mobile + "\n";
-    message += "ವಿಳಾಸ: " + address + "\n";
-    message += "ಗ್ರಾಮ/ನಗರ: " + city + "\n";
-    message += "ಜಿಲ್ಲೆ: " + district + "\n\n";
+ message += "\nಒಟ್ಟು ಪುಸ್ತಕಗಳು: " + (hq + fq) + "\n";
+ message += "*ಒಟ್ಟು ಹಣ: ₹" + total + "*\n";
 
-    message += "*ಪುಸ್ತಕದ ವಿವರಗಳು*\n";
+ if (notes) message += "\nಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: " + notes + "\n";
 
-    if (hq > 0) {
-        message += "\nಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ\n";
-        message += "ಗಾತ್ರ: A4 Half\n";
-        message += "ಪುಟಗಳ ಸಂಖ್ಯೆ:100\n";
-        message += "ಬೈಂಡಿಂಗ್: " + halfBindingText + "\n";
-        message += "ಒಂದು ಪುಸ್ತಕದ ಬೆಲೆ: ₹" + hp + "\n";
-        message += "ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆ: " + hq + "\n";
-        message += "A4 Half ಮೊತ್ತ: ₹" + halfAmount + "\n";
-    }
+ message += "\nದಯವಿಟ್ಟು ನನ್ನ ಆರ್ಡರ್ ದೃಢೀಕರಿಸಿ. ಧನ್ಯವಾದಗಳು! 🙏";
 
-    if (fq > 0) {
-        message += "\nಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ\n";
-        message += "ಗಾತ್ರ: A4\n";
-        message += "ಪುಟಗಳ ಸಂಖ್ಯೆ: 100\n";
-        message += "ಬೈಂಡಿಂಗ್: " + fullBindingText + "\n";
-        message += "ಒಂದು ಪುಸ್ತಕದ ಬೆಲೆ: ₹" + fp + "\n";
-        message += "ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆ: " + fq + "\n";
-        message += "A4 ಮೊತ್ತ: ₹" + fullAmount + "\n";
-    }
+ const whatsappNumber = "918951630221";
+ const whatsappURL = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
 
-    message += "\nಒಟ್ಟು ಪುಸ್ತಕಗಳು: " + totalBooks + "\n";
-    message += "*ಒಟ್ಟು ಹಣ: ₹" + total + "*\n";
-
-    if (notes) {
-        message += "\nಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: " + notes + "\n";
-    }
-
-    message += "\nದಯವಿಟ್ಟು ನನ್ನ ಆರ್ಡರ್ ದೃಢೀಕರಿಸಿ. ಧನ್ಯವಾದಗಳು! 🙏";
-
-    const whatsappNumber = "918951630221";
-
-    const whatsappURL =
-        "https://wa.me/" + whatsappNumber +
-        "?text=" + encodeURIComponent(message);
-
-    window.location.href = whatsappURL;
+ window.location.href = whatsappURL;
 });
 
 updateTotal();
 
-/* DRAGGABLE 3D BOOK */
+/* DRAGGABLE 3D COVER */
 
 const book = document.getElementById("book");
-
 let dragging = false;
 let startX = 0;
 let rotateY = -20;
 
 book.addEventListener("pointerdown", function(event) {
-    dragging = true;
-    startX = event.clientX;
-    book.style.cursor = "grabbing";
+ dragging = true;
+ startX = event.clientX;
+ book.style.cursor = "grabbing";
 
-    if (book.setPointerCapture) {
-        book.setPointerCapture(event.pointerId);
-    }
+ if (book.setPointerCapture) book.setPointerCapture(event.pointerId);
 });
 
 book.addEventListener("pointermove", function(event) {
-    if (!dragging) return;
+ if (!dragging) return;
 
-    const difference = event.clientX - startX;
-
-    rotateY += difference * 0.7;
-    startX = event.clientX;
-
-    book.style.transform = "rotateY(" + rotateY + "deg)";
+ const difference = event.clientX - startX;
+ rotateY += difference * 0.7;
+ startX = event.clientX;
+ book.style.transform = "rotateY(" + rotateY + "deg)";
 });
 
 function stopDragging() {
-    dragging = false;
-    book.style.cursor = "grab";
+ dragging = false;
+ book.style.cursor = "grab";
 }
 
 book.addEventListener("pointerup", stopDragging);
 book.addEventListener("pointercancel", stopDragging);
 book.addEventListener("lostpointercapture", stopDragging);
 
+/* PDF FLIPBOOK */
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+ "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+/*
+ PDF ಅನ್ನು GitHub main branch ನಲ್ಲಿ ಇಟ್ಟಿದ್ದರೆ ಈ ಮಾರ್ಗ ಕೆಲಸ ಮಾಡುತ್ತದೆ.
+ ಫೈಲ್ ಹೆಸರಿನಲ್ಲಿ ಬದಲಾವಣೆ ಇದ್ದರೆ ಈ URL ಅನ್ನು ಸರಿಪಡಿಸಬೇಕು.
+*/
+
+const bgoPdfUrl =
+ "https://raw.githubusercontent.com/beatfreakbgm/bakthibhajane.bgofficial-/main/Untitled%20design_20261007_213328_0000_unlocked.pdf_20261014_171654_0000.pdf";
+
+let bgoFlipInstance = null;
+let bgoBookLoading = false;
+let bgoBookLoaded = false;
+
+async function bgoOpenBook() {
+ document.getElementById("bgoFlipModal").classList.add("open");
+
+ if (bgoBookLoaded || bgoBookLoading) return;
+
+ bgoBookLoading = true;
+
+ const status = document.getElementById("bgoReaderStatus");
+ status.style.display = "block";
+ status.textContent = "📖 PDF ಪುಸ್ತಕ ಲೋಡ್ ಆಗುತ್ತಿದೆ...";
+
+ try {
+  const pdf = await pdfjsLib.getDocument(bgoPdfUrl).promise;
+  const bookContainer = document.getElementById("bgoFlipBook");
+  bookContainer.innerHTML = "";
+
+  const pageWidth = 380;
+  const pageHeight = 540;
+
+  for (let i = 1; i <= pdf.numPages; i++) {
+   status.textContent = "ಪುಟಗಳನ್ನು ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ: " + i + " / " + pdf.numPages;
+
+   const pdfPage = await pdf.getPage(i);
+   const originalViewport = pdfPage.getViewport({scale:1});
+
+   const scale = Math.min(
+    1.4,
+    pageWidth * 1.4 / originalViewport.width,
+    pageHeight * 1.4 / originalViewport.height
+   );
+
+   const viewport = pdfPage.getViewport({scale});
+
+   const canvas = document.createElement("canvas");
+   canvas.width = Math.ceil(viewport.width);
+   canvas.height = Math.ceil(viewport.height);
+
+   await pdfPage.render({
+    canvasContext: canvas.getContext("2d"),
+    viewport: viewport
+   }).promise;
+
+   const pageElement = document.createElement("div");
+   pageElement.className = "page";
+   pageElement.appendChild(canvas);
+
+   const watermark = document.createElement("div");
+   watermark.className = "bgo-watermark";
+   watermark.textContent = "BG OFFICIAL";
+   pageElement.appendChild(watermark);
+
+   bookContainer.appendChild(pageElement);
+  }
+
+  bgoFlipInstance = new St.PageFlip(bookContainer, {
+   width: pageWidth,
+   height: pageHeight,
+   size: "stretch",
+   minWidth: 250,
+   maxWidth: 500,
+   minHeight: 350,
+   maxHeight: 700,
+   showCover: true,
+   usePortrait: true,
+   drawShadow: true,
+   flippingTime: 700,
+   mobileScrollSupport: false,
+   maxShadowOpacity: 0.5
+  });
+
+  bgoFlipInstance.loadFromHTML(bookContainer.querySelectorAll(".page"));
+
+  bgoFlipInstance.on("flip", function(event) {
+   document.getElementById("bgoPageNumber").textContent =
+    "ಪುಟ " + (event.data + 1) + " / " + pdf.numPages;
+  });
+
+  document.getElementById("bgoPageNumber").textContent =
+   "ಪುಟ 1 / " + pdf.numPages;
+
+  status.style.display = "none";
+  bgoBookLoaded = true;
+
+ } catch (error) {
+  console.error("BG OFFICIAL PDF error:", error);
+
+  status.style.display = "block";
+  status.textContent =
+   "PDF ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. GitHub PDF ಲಿಂಕ್ ಸರಿಯಾಗಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.";
+ } finally {
+  bgoBookLoading = false;
+ }
+}
+
+function bgoCloseBook() {
+ document.getElementById("bgoFlipModal").classList.remove("open");
+}
+
+function bgoNext() {
+ if (bgoFlipInstance) bgoFlipInstance.flipNext();
+}
+
+function bgoPrevious() {
+ if (bgoFlipInstance) bgoFlipInstance.flipPrev();
+}
+
+document.addEventListener("keydown", function(event) {
+ if (event.key === "Escape") bgoCloseBook();
+});
 </script>
 
 </body>
