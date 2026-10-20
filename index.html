@@ -8,7 +8,6 @@
 <meta name="theme-color" content="#100700">
 <meta name="description" content="BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ 2026–2027. ಪುಸ್ತಕದ ವಿವರಗಳು, PDF ಓದುವಿಕೆ ಮತ್ತು WhatsApp ಆರ್ಡರ್.">
 
-<!-- PDF ಮತ್ತು 3D PAGE FLIP LIBRARIES -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 
@@ -275,7 +274,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
  transform-origin:left center;
 }
 
-/* READ BOOK BUTTON */
+/* BUTTONS */
 
 .read-book-btn{
  display:block;
@@ -293,7 +292,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
 
 .read-book-btn:hover{transform:scale(1.03)}
 
-/* CONTENT AND PRICES */
+/* PRICES */
 
 .content{padding:42px 15px;text-align:center}
 
@@ -424,6 +423,8 @@ input:focus,select:focus,textarea:focus{
 
 .whatsapp-btn:hover{background:#43e681}
 
+/* FOOTER */
+
 footer{
  text-align:center;
  padding:25px 14px;
@@ -434,7 +435,96 @@ footer{
  font-size:13px;
 }
 
-/* PDF FLIPBOOK VIEWER */
+/* PIN LOCK */
+
+#bgoPinModal{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:200000;
+ background:rgba(0,0,0,.88);
+ padding:18px;
+ align-items:center;
+ justify-content:center;
+}
+
+#bgoPinModal.open{display:flex}
+
+.pin-card{
+ width:100%;
+ max-width:390px;
+ padding:25px 20px;
+ border:2px solid var(--gold);
+ border-radius:20px;
+ background:linear-gradient(145deg,#3a1900,#120700);
+ box-shadow:0 0 35px #ff980055;
+ text-align:center;
+}
+
+.pin-icon{font-size:42px;margin-bottom:10px}
+
+.pin-card h2{
+ color:var(--gold);
+ margin-bottom:12px;
+}
+
+.pin-card p{
+ color:#ffe8b6;
+ line-height:1.7;
+ font-size:14px;
+ margin:10px 0;
+}
+
+.pin-contact{
+ display:block;
+ margin:15px 0;
+ padding:12px;
+ color:#fff;
+ background:#146b38;
+ text-decoration:none;
+ border-radius:10px;
+ font-weight:bold;
+}
+
+#bgoPinInput{
+ text-align:center;
+ font-size:25px;
+ letter-spacing:12px;
+ font-weight:bold;
+ margin-top:10px;
+}
+
+.pin-submit{
+ width:100%;
+ padding:14px;
+ margin-top:14px;
+ border:1px solid var(--gold);
+ border-radius:10px;
+ background:linear-gradient(135deg,#9d3100,#e78b00);
+ color:white;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+.pin-cancel{
+ width:100%;
+ padding:12px;
+ margin-top:10px;
+ border:1px solid #8b6c45;
+ border-radius:10px;
+ background:#211000;
+ color:white;
+ cursor:pointer;
+}
+
+#bgoPinMessage{
+ min-height:22px;
+ color:#ff7777;
+ font-size:13px;
+ margin-top:12px;
+}
+
+/* PDF READER */
 
 #bgoFlipModal{
  display:none;
@@ -527,13 +617,14 @@ footer{
  .book-stage{transform:scale(.95)}
  #bgoFlipModal{padding:5px}
  .bgo-watermark{font-size:16px}
+ .pin-card{padding:22px 16px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO ANIMATION -->
+<!-- INTRO -->
 
 <div id="intro">
  <div class="intro-ring"></div>
@@ -702,7 +793,6 @@ footer{
 
    <div class="product-box">
     <h3>📗 ಪುಸ್ತಕ 1 — A4 Half</h3>
-
     <div class="book-detail">
      ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ<br>
      ಗಾತ್ರ: A4 Half<br>
@@ -724,7 +814,6 @@ footer{
 
    <div class="product-box">
     <h3>📘 ಪುಸ್ತಕ 2 — A4</h3>
-
     <div class="book-detail">
      ಪುಸ್ತಕದ ಹೆಸರು: BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ<br>
      ಗಾತ್ರ: A4<br>
@@ -775,6 +864,55 @@ footer{
  <div>ಭಜನಾ ಪುಸ್ತಕ 2026–2027</div>
  <div>🙏 ಧನ್ಯವಾದಗಳು 🙏</div>
 </footer>
+
+<!-- PIN LOCK MODAL -->
+
+<div id="bgoPinModal" role="dialog" aria-modal="true" aria-labelledby="bgoPinTitle">
+ <div class="pin-card">
+  <div class="pin-icon">🔐</div>
+
+  <h2 id="bgoPinTitle">PDF ಪುಸ್ತಕ ಲಾಕ್ ಆಗಿದೆ</h2>
+
+  <p>
+   PDF unlock ಮಾಡಲು ಈ ಸಂಖ್ಯೆಯನ್ನು
+   <strong>8951630221</strong>
+   ಸಂಪರ್ಕಿಸಿ.
+  </p>
+
+  <a class="pin-contact"
+     href="https://wa.me/918951630221?text=ನಮಸ್ಕಾರ%2C%20ಭಜನಾ%20ಪುಸ್ತಕದ%20PDF%20ಅನ್‌ಲಾಕ್%20PIN%20ಬೇಕಾಗಿದೆ."
+     target="_blank"
+     rel="noopener">
+   📲 WhatsApp: 8951630221
+  </a>
+
+  <form id="bgoPinForm">
+   <label for="bgoPinInput">6 ಅಂಕಿಗಳ PIN ನಮೂದಿಸಿ</label>
+
+   <input
+    id="bgoPinInput"
+    type="password"
+    inputmode="numeric"
+    pattern="[0-9]{6}"
+    maxlength="6"
+    autocomplete="off"
+    placeholder="••••••"
+    aria-describedby="bgoPinMessage"
+    required
+   >
+
+   <button class="pin-submit" type="submit">
+    🔓 PDF ತೆರೆಯಿರಿ
+   </button>
+
+   <div id="bgoPinMessage" role="status" aria-live="polite"></div>
+  </form>
+
+  <button type="button" class="pin-cancel" onclick="bgoClosePin()">
+   ✕ ರದ್ದುಮಾಡಿ
+  </button>
+ </div>
+</div>
 
 <!-- PDF FLIPBOOK READER -->
 
@@ -967,15 +1105,10 @@ book.addEventListener("pointerup", stopDragging);
 book.addEventListener("pointercancel", stopDragging);
 book.addEventListener("lostpointercapture", stopDragging);
 
-/* PDF FLIPBOOK */
+/* PDF CONFIGURATION */
 
 pdfjsLib.GlobalWorkerOptions.workerSrc =
  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-
-/*
- PDF ಅನ್ನು GitHub main branch ನಲ್ಲಿ ಇಟ್ಟಿದ್ದರೆ ಈ ಮಾರ್ಗ ಕೆಲಸ ಮಾಡುತ್ತದೆ.
- ಫೈಲ್ ಹೆಸರಿನಲ್ಲಿ ಬದಲಾವಣೆ ಇದ್ದರೆ ಈ URL ಅನ್ನು ಸರಿಪಡಿಸಬೇಕು.
-*/
 
 const bgoPdfUrl =
  "https://raw.githubusercontent.com/beatfreakbgm/bakthibhajane.bgofficial-/main/Untitled%20design_20261007_213328_0000_unlocked.pdf_20261014_171654_0000.pdf";
@@ -984,7 +1117,73 @@ let bgoFlipInstance = null;
 let bgoBookLoading = false;
 let bgoBookLoaded = false;
 
-async function bgoOpenBook() {
+/* PIN LOCK SETTINGS */
+
+const BGO_BOOK_PIN = "898397";
+let bgoPinUnlocked = false;
+
+/* PIN input: numbers only, maximum six digits */
+
+const bgoPinInput = document.getElementById("bgoPinInput");
+
+bgoPinInput.addEventListener("input", function() {
+ this.value = this.value.replace(/\D/g, "").slice(0, 6);
+ document.getElementById("bgoPinMessage").textContent = "";
+});
+
+/* OPEN PIN WINDOW */
+
+function bgoOpenBook() {
+ if (bgoPinUnlocked) {
+  bgoLoadBook();
+  return;
+ }
+
+ document.getElementById("bgoPinModal").classList.add("open");
+ document.getElementById("bgoPinMessage").textContent = "";
+ bgoPinInput.value = "";
+
+ setTimeout(function() {
+  bgoPinInput.focus();
+ }, 100);
+}
+
+/* CLOSE PIN WINDOW */
+
+function bgoClosePin() {
+ document.getElementById("bgoPinModal").classList.remove("open");
+ document.getElementById("bgoPinMessage").textContent = "";
+ bgoPinInput.value = "";
+}
+
+/* CHECK SIX-DIGIT PIN */
+
+document.getElementById("bgoPinForm").addEventListener("submit", function(event) {
+ event.preventDefault();
+
+ const enteredPin = bgoPinInput.value.replace(/\D/g, "").slice(0, 6);
+ const message = document.getElementById("bgoPinMessage");
+
+ if (enteredPin.length !== 6) {
+  message.textContent = "ದಯವಿಟ್ಟು 6 ಅಂಕಿಗಳ PIN ನಮೂದಿಸಿ.";
+  return;
+ }
+
+ if (enteredPin !== BGO_BOOK_PIN) {
+  message.textContent = "❌ ತಪ್ಪಾದ PIN. ಸರಿಯಾದ PIN ಪಡೆಯಲು 8951630221 ಸಂಪರ್ಕಿಸಿ.";
+  bgoPinInput.value = "";
+  bgoPinInput.focus();
+  return;
+ }
+
+ bgoPinUnlocked = true;
+ bgoClosePin();
+ bgoLoadBook();
+});
+
+/* LOAD PDF FLIPBOOK */
+
+async function bgoLoadBook() {
  document.getElementById("bgoFlipModal").classList.add("open");
 
  if (bgoBookLoaded || bgoBookLoading) return;
@@ -998,13 +1197,15 @@ async function bgoOpenBook() {
  try {
   const pdf = await pdfjsLib.getDocument(bgoPdfUrl).promise;
   const bookContainer = document.getElementById("bgoFlipBook");
+
   bookContainer.innerHTML = "";
 
   const pageWidth = 380;
   const pageHeight = 540;
 
   for (let i = 1; i <= pdf.numPages; i++) {
-   status.textContent = "ಪುಟಗಳನ್ನು ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ: " + i + " / " + pdf.numPages;
+   status.textContent =
+    "ಪುಟಗಳನ್ನು ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ: " + i + " / " + pdf.numPages;
 
    const pdfPage = await pdf.getPage(i);
    const originalViewport = pdfPage.getViewport({scale:1});
@@ -1072,11 +1273,13 @@ async function bgoOpenBook() {
 
   status.style.display = "block";
   status.textContent =
-   "PDF ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. GitHub PDF ಲಿಂಕ್ ಸರಿಯಾಗಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.";
+   "PDF ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. GitHub PDF ಲಿಂಕ್ ಸರಿಯಾಗಿದೆಯೇ ಮತ್ತು PDF ಫೈಲ್ ಲಭ್ಯವಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.";
  } finally {
   bgoBookLoading = false;
  }
 }
+
+/* CLOSE PDF VIEWER */
 
 function bgoCloseBook() {
  document.getElementById("bgoFlipModal").classList.remove("open");
@@ -1091,9 +1294,12 @@ function bgoPrevious() {
 }
 
 document.addEventListener("keydown", function(event) {
- if (event.key === "Escape") bgoCloseBook();
+ if (event.key === "Escape") {
+  bgoClosePin();
+  bgoCloseBook();
+ }
 });
 </script>
 
 </body>
-</html>
+    </html>
