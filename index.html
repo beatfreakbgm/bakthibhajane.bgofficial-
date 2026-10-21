@@ -7,6 +7,7 @@
 <title>BG OFFICIAL | ಭಜನಾ ಪುಸ್ತಕ 2026–2027</title>
 <meta name="theme-color" content="#100700">
 <meta name="description" content="BG OFFICIAL ಭಜನಾ ಪುಸ್ತಕ 2026–2027. ಪುಸ್ತಕದ ವಿವರಗಳು, PDF ಓದುವಿಕೆ ಮತ್ತು WhatsApp ಆರ್ಡರ್.">
+<link rel="canonical" href="https://beatfreakbgm.github.io/bakthibhajane.bgofficial-/">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
@@ -25,7 +26,10 @@ html{scroll-behavior:smooth}
 
 body{
  font-family:Arial,sans-serif;
- background:var(--dark);
+ background:
+  linear-gradient(rgba(16,7,0,.65),rgba(16,7,0,.72)),
+  url("YOUR_BACKGROUND_IMAGE.jpg") center center / cover fixed no-repeat;
+ background-color:var(--dark);
  color:white;
  overflow-x:hidden;
 }
@@ -129,7 +133,7 @@ button,input,select,textarea{font:inherit}
 header{
  text-align:center;
  padding:20px 12px;
- background:linear-gradient(135deg,#1b0b00,#482000,#160800);
+ background:linear-gradient(135deg,rgba(27,11,0,.88),rgba(72,32,0,.82),rgba(22,8,0,.88));
  border-bottom:2px solid var(--gold);
 }
 
@@ -148,8 +152,8 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
 .hero{
  text-align:center;
  padding:45px 15px;
- background:radial-gradient(ellipse at top,#633000,transparent 65%),
- linear-gradient(#1c0b00,#0a0400);
+ background:radial-gradient(ellipse at top,rgba(99,48,0,.65),transparent 65%),
+ linear-gradient(rgba(28,11,0,.70),rgba(10,4,0,.62));
 }
 
 .hero h1{
@@ -169,7 +173,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
  padding:12px;
  border:2px solid var(--gold);
  border-radius:20px;
- background:linear-gradient(145deg,#472000,#160800);
+ background:linear-gradient(145deg,rgba(71,32,0,.88),rgba(22,8,0,.88));
  box-shadow:0 0 25px #ff980044;
 }
 
@@ -294,7 +298,11 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
 
 /* PRICES */
 
-.content{padding:42px 15px;text-align:center}
+.content{
+ padding:42px 15px;
+ text-align:center;
+ background:rgba(16,7,0,.30);
+}
 
 .section-title{
  color:var(--gold);
@@ -314,7 +322,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
  padding:23px 17px;
  border:1px solid #a76c19;
  border-radius:17px;
- background:linear-gradient(145deg,#2e1700,#120900);
+ background:linear-gradient(145deg,rgba(46,23,0,.91),rgba(18,9,0,.91));
 }
 
 .price-card h3{color:var(--gold);margin-bottom:12px}
@@ -326,7 +334,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
 
 .order-section{
  padding:40px 14px;
- background:linear-gradient(180deg,#180a00,#291300);
+ background:linear-gradient(180deg,rgba(24,10,0,.76),rgba(41,19,0,.82));
 }
 
 .order-box{
@@ -335,7 +343,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
  padding:23px 17px;
  border:1px solid #a76c19;
  border-radius:20px;
- background:#160b02;
+ background:rgba(22,11,2,.93);
 }
 
 .order-box h2{
@@ -372,7 +380,7 @@ input:focus,select:focus,textarea:focus{
  padding:16px;
  margin-top:20px;
  border-radius:13px;
- background:#241202;
+ background:rgba(36,18,2,.94);
 }
 
 .product-box h3{color:var(--gold);margin-bottom:12px}
@@ -396,7 +404,7 @@ input:focus,select:focus,textarea:focus{
  padding:18px;
  border:1px solid var(--gold);
  border-radius:12px;
- background:#352000;
+ background:rgba(53,32,0,.94);
  text-align:center;
 }
 
@@ -429,7 +437,7 @@ footer{
  text-align:center;
  padding:25px 14px;
  color:#cbb48b;
- background:#090400;
+ background:rgba(9,4,0,.94);
  border-top:1px solid #5c390e;
  line-height:1.9;
  font-size:13px;
@@ -491,7 +499,6 @@ footer{
  font-size:25px;
  letter-spacing:12px;
  font-weight:bold;
- margin-top:10px;
 }
 
 .pin-submit{
@@ -618,6 +625,14 @@ footer{
  #bgoFlipModal{padding:5px}
  .bgo-watermark{font-size:16px}
  .pin-card{padding:22px 16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ #intro,.intro-ring,.intro-om,.intro-title,.intro-subtitle,.intro-line{
+  animation:none;
+ }
+ #intro{animation:introFade 1s ease 1s forwards}
 }
 </style>
 </head>
