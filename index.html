@@ -804,7 +804,7 @@ body.bgo-reader-open{
  <h1>🙏 ಭಜನಾ ಪುಸ್ತಕ 🙏</h1>
 
  <p>
-  ಭಕ್ತಿಯೇ ಜೀವನದ ಬೆಳಕು.<br>
+  ಸರ್ವೇ ಭವಂತು ಸುಖಿನಃ .<br>
   ನಿಮ್ಮ ಭಜನಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಸುಂದರವಾದ ಭಜನಾ ಪುಸ್ತಕ.
  </p>
 
@@ -1053,17 +1053,17 @@ body.bgo-reader-open{
 
  <div class="bgo-reader-header">
   <strong>BG OFFICIAL — ಭಜನಾ ಪುಸ್ತಕ</strong>
-  <button type="button" onclick="bgoCloseBook()">✕ ಮುಚ್ಚಿ</button>
+  <button type="button" onclick="bgoCloseBook()">✕ close </button>
  </div>
 
- <div id="bgoReaderStatus">📖 ಭಜನಾ ಪುಸ್ತಕ ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
+ <div id="bgoReaderStatus">📖 book is loading please wait⏳...</div>
 
  <div id="bgoFlipBook"></div>
 
  <div class="bgo-reader-controls">
-  <button type="button" onclick="bgoPrevious()">❮ ಹಿಂದಿನ ಪುಟ</button>
+  <button type="button" onclick="bgoPrevious()">❮ backpage </button>
   <span id="bgoPageNumber">ಪುಟ 1</span>
-  <button type="button" onclick="bgoNext()">ಮುಂದಿನ ಪುಟ ❯</button>
+  <button type="button" onclick="bgoNext()"> nextpage ❯</button>
  </div>
 
  <p style="color:#cbb48b;font-size:12px;padding:8px;text-align:center;flex:0 0 auto">
@@ -1090,7 +1090,7 @@ body.bgo-reader-open{
    </div>
 
    <div class="cinema-status" id="bgoLoadStatus">
-    ನಿಮ್ಮ ಭಜನಾ ಪುಸ್ತಕ ಸಿದ್ಧವಾಗುತ್ತಿದೆ...
+    your book is ready to read please wait...
    </div>
 
    <div class="cinema-bottom">A DEVOTIONAL EXPERIENCE</div>
@@ -1339,7 +1339,7 @@ document.getElementById("bgoPinForm").addEventListener("submit",function(event){
  const message=document.getElementById("bgoPinMessage");
 
  if(enteredPin.length!==6){
-  message.textContent="ದಯವಿಟ್ಟು 6 ಅಂಕಿಗಳ PIN ನಮೂದಿಸಿ.";
+  message.textContent=" please enter 6 digit pin.";
   return;
  }
 
@@ -1377,7 +1377,7 @@ async function bgoLoadBook(){
 
  try{
 
-  bgoUpdateLoader(2,"ಪುಸ್ತಕದ ಸಂಪರ್ಕ ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ...");
+  bgoUpdateLoader(2,"  book page loading...");
 
   const pdf=await pdfjsLib.getDocument({
    url:bgoPdfUrl
@@ -1486,7 +1486,7 @@ async function bgoLoadBook(){
 
   bgoFlipInstance.turnToPage(0);
 
-  bgoUpdateLoader(100,"ನಿಮ್ಮ ಭಜನಾ ಪುಸ್ತಕ ಸಿದ್ಧವಾಗಿದೆ!");
+  bgoUpdateLoader(100," your book is ready to read");
 
   bgoBookLoaded=true;
 
@@ -1501,7 +1501,7 @@ async function bgoLoadBook(){
   console.error("BG OFFICIAL PDF error:",error);
 
   bgoLoadStatus.textContent=
-   "PDF ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಅಥವಾ PDF ಲಿಂಕ್ ಪರಿಶೀಲಿಸಿ.";
+   "PDF is not open please check your internet connection and mobile data please try again later.";
 
   bgoLoadNumber.textContent="!";
   bgoLoadProgress.style.width="100%";
@@ -1510,7 +1510,7 @@ async function bgoLoadBook(){
    bgoHideLoader();
    status.style.display="block";
    status.textContent=
-    "PDF ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. GitHub PDF ಲಿಂಕ್ ಸರಿಯಾಗಿದೆಯೇ ಮತ್ತು PDF ಫೈಲ್ ಲಭ್ಯವಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.";
+    "PDF is not open please check your internet connection and mobile data or try again later";
   },2500);
 
  }finally{
