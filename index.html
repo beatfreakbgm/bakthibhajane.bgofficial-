@@ -191,6 +191,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
 }
 .god-note{color:#e7cfa1;font-size:12px;margin-top:7px}
 
+
 /* 3D BOOK */
 
 .book-stage{
@@ -202,6 +203,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
  align-items:center;
  justify-content:center;
  touch-action:pan-y;
+ filter:drop-shadow(12px 15px 12px #000);
 }
 
 .book{
@@ -213,7 +215,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
  transform:rotateY(-20deg);
  transition:transform .08s linear;
  cursor:grab;
- filter:drop-shadow(12px 15px 12px #000);
+ box-shadow:0 0 1px transparent;
 }
 
 .book:active{cursor:grabbing}
@@ -232,6 +234,7 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
  border-radius:4px 10px 10px 4px;
  transform:translateZ(2px);
 }
+
 .book-back{
  border-radius:10px 4px 4px 10px;
  transform:rotateY(180deg) translateZ(2px);
@@ -245,6 +248,8 @@ header p{color:var(--cream);margin-top:8px;font-size:14px}
  user-select:none;
  -webkit-user-drag:none;
  pointer-events:none;
+ backface-visibility:hidden;
+ -webkit-backface-visibility:hidden;
 }
 
 .book-spine{
