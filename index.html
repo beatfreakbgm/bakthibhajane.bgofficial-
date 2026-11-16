@@ -697,10 +697,10 @@
             </p>
 
             <div class="god-section">
-                <img class="god-photo" id="godPhoto" src="IMG-20260216-WA0026.jpg" alt="ದೇವರ ಫೋಟೋ">
+                <img class="god-photo" id="godPhoto" src="IMG-20260216-WA0026.jpg" alt="ದೇವರ ಫೋಟೋ" data-alt-kn="ದೇವರ ಫೋಟೋ" data-alt-en="Photo of the deity">
 
-                <div class="god-caption">🙏 ಶ್ರೀ ಮತ್ತೂರು ಪಂಚಲಿಂಗೇಶ್ವರಯ ನಮಃ 🙏</div>
-                <div class="god-note">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸೇವೆ</div>
+                <div class="god-caption">🙏 ಶ್ರೀ ಮತ್ತೂರು ಪಂಚಲಿಂಗೇಶ್ವರಾಯ ನಮಃ 🙏</div>
+                <div class="god-note" data-kn="ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸೇವೆ" data-en="Devotion • Faith • Service">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸೇವೆ</div>
             </div>
 
             <div class="book-stage">
@@ -751,7 +751,7 @@
                     <p data-kn="ಪಿನ್ ಬೈಂಡಿಂಗ್: ₹200" data-en="Pin binding: ₹200">ಪಿನ್ ಬೈಂಡಿಂಗ್: ₹200</p>
                     <p data-kn="ಗಮ್ ಬೈಂಡಿಂಗ್: ₹210" data-en="Gum binding: ₹210">ಗಮ್ ಬೈಂಡಿಂಗ್: ₹210</p>
 
-                    <div class="price">₹200 ರಿಂದ</div>
+                    <div class="price" data-kn="₹200 ರಿಂದ" data-en="From ₹200">₹200 ರಿಂದ</div>
 
                 </div>
 
@@ -770,7 +770,7 @@
                 <form id="orderForm">
 
                     <label data-kn="ನಿಮ್ಮ ಹೆಸರು *" data-en="Your Name *">ನಿಮ್ಮ ಹೆಸರು *</label>
-                    <input id="name" required placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು">
+                    <input id="name" required placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು" data-ph-kn="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು" data-ph-en="Your full name">
 
                     <label data-kn="ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *" data-en="Mobile Number *">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *</label>
                     <input
@@ -778,9 +778,9 @@
                         type="tel"
                         inputmode="numeric"
                         maxlength="10"
-                        pattern="[0-9]{10}"
+                        pattern="[6-9][0-9]{9}" title="10 ಅಂಕಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
                         required
-                        placeholder="10 DIGIT NUMBER ">
+                        placeholder="10 ಅಂಕಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ" data-ph-kn="10 ಅಂಕಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ" data-ph-en="10-digit mobile number">
 
                     <label data-kn="ಪೂರ್ಣ ವಿಳಾಸ *" data-en="Full Address *">ಪೂರ್ಣ ವಿಳಾಸ *</label>
                     <textarea id="address" rows="3" required></textarea>
@@ -791,7 +791,7 @@
                     <label data-kn="ಜಿಲ್ಲೆ *" data-en="District *">ಜಿಲ್ಲೆ *</label>
 
                     <select id="district" required>
-                        <option value="">ಜಿಲ್ಲೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</option>
+                        <option value="" data-kn="ಜಿಲ್ಲೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ" data-en="Select district">ಜಿಲ್ಲೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</option>
                         <option>Bagalkot</option>
                         <option>Ballari</option>
                         <option>Belagavi</option>
@@ -838,8 +838,8 @@
                         <label data-kn="ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ" data-en="Binding Type">ಬೈಂಡಿಂಗ್ ಆಯ್ಕೆ</label>
 
                         <select id="binding">
-                            <option value="200">ಪಿನ್ ಬೈಂಡಿಂಗ್ — ₹200</option>
-                            <option value="210">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹210</option>
+                            <option value="200" data-kn="ಪಿನ್ ಬೈಂಡಿಂಗ್ — ₹200" data-en="Pin binding — ₹200">ಪಿನ್ ಬೈಂಡಿಂಗ್ — ₹200</option>
+                            <option value="210" data-kn="ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹210" data-en="Gum binding — ₹210">ಗಮ್ ಬೈಂಡಿಂಗ್ — ₹210</option>
                         </select>
 
                         <label data-kn="ಎಷ್ಟು ಪುಸ್ತಕ ಬೇಕು?" data-en="Quantity">ಎಷ್ಟು ಪುಸ್ತಕ ಬೇಕು?</label>
@@ -898,7 +898,7 @@
 
             <form id="pinForm">
 
-                <label>6 digit PIN</label>
+                <label data-kn="6 ಅಂಕಿಗಳ PIN" data-en="6 digit PIN">6 digit PIN</label>
 
                 <input
                     id="pinInput"
@@ -923,18 +923,18 @@
     <div id="reader">
 
         <div class="reader-head">
-            <strong>BG OFFICIAL — ಭಜನಾ ಪುಸ್ತಕ</strong>
+            <strong data-kn="BG OFFICIAL — ಭಜನಾ ಪುಸ್ತಕ" data-en="BG OFFICIAL — Bhajana Book">BG OFFICIAL — ಭಜನಾ ಪುಸ್ತಕ</strong>
             <button onclick="closeBook()">✕ Close</button>
         </div>
 
-        <div id="readerStatus">ಪುಸ್ತಕ ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
+        <div id="readerStatus" data-kn="ಪುಸ್ತಕ ಲೋಡ್ ಆಗುತ್ತಿದೆ..." data-en="Loading book...">ಪುಸ್ತಕ ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
 
         <div id="flipBook"></div>
 
         <div class="reader-controls">
-            <button onclick="previousPage()">❮ ಹಿಂದಿನ ಪುಟ</button>
+            <button onclick="previousPage()" data-kn="❮ ಹಿಂದಿನ ಪುಟ" data-en="❮ Previous">❮ ಹಿಂದಿನ ಪುಟ</button>
             <span id="pageNumber">ಪುಟ 1</span>
-            <button onclick="nextPage()">ಮುಂದಿನ ಪುಟ ❯</button>
+            <button onclick="nextPage()" data-kn="ಮುಂದಿನ ಪುಟ ❯" data-en="Next ❯">ಮುಂದಿನ ಪುಟ ❯</button>
         </div>
 
         <div id="loader">
@@ -954,24 +954,69 @@
                 <div class="progress" id="progress"></div>
             </div>
 
-            <div id="loadStatus">ಪುಸ್ತಕ ಸಿದ್ಧವಾಗುತ್ತಿದೆ...</div>
+            <div id="loadStatus">...</div>
 
         </div>
 
     </div>
 
     <script>
-        const translations = {
-            kn: {},
-            en: {}
+        let lang = "kn";
+
+        const T = {
+            kn: {
+                perBook: "ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹",
+                badQty: "ಸರಿಯಾದ ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ",
+                wrongPin: t("wrongPin"),
+                page: "ಪುಟ ",
+                preparing: "ಪುಟಗಳನ್ನು ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ...",
+                assembling: "ಪುಸ್ತಕವನ್ನು ಜೋಡಿಸಲಾಗುತ್ತಿದೆ...",
+                ready: "ಓದಲು ಸಿದ್ಧವಾಗಿದೆ",
+                opening: "ಪುಸ್ತಕ ಸಿದ್ಧವಾಗುತ್ತಿದೆ...",
+                failLoader: "PDF ತೆರೆಯಲಾಗಲಿಲ್ಲ. ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ.",
+                failStatus: "PDF ಓದಲು ಇಂಟರ್ನೆಟ್ ಆನ್ ಮಾಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+                pin: "ಪುಸ್ತಕ ಲಾಕ್ ಆಗಿದೆ",
+                bindName: ["ಪಿನ್ ಬೈಂಡಿಂಗ್", "ಗಮ್ ಬೈಂಡಿಂಗ್"]
+            },
+            en: {
+                perBook: "Per book ₹",
+                badQty: "Please enter a valid number of books",
+                wrongPin: "Wrong PIN. Please try again.",
+                page: "Page ",
+                preparing: "Preparing pages...",
+                assembling: "Assembling the book...",
+                ready: "Ready to read",
+                opening: "Getting the book ready...",
+                failLoader: "Could not open the PDF. Check your internet connection.",
+                failStatus: "Turn on the internet and try again to read the PDF.",
+                pin: "Book is Locked",
+                bindName: ["Pin binding", "Gum binding"]
+            }
         };
 
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
+        function t(k) {
+            return T[lang][k];
+        }
+
+        function setLanguage(l) {
+            lang = l;
+            document.documentElement.lang = l;
 
             document.querySelectorAll("[data-kn][data-en]").forEach(el => {
-                el.innerHTML = el.dataset[lang];
+                el.innerHTML = el.dataset[l];
             });
+
+            document.querySelectorAll("[data-ph-kn]").forEach(el => {
+                el.placeholder = el.dataset["ph" + (l === "kn" ? "Kn" : "En")];
+            });
+
+            document.querySelectorAll("[data-alt-kn]").forEach(el => {
+                el.alt = el.dataset["alt" + (l === "kn" ? "Kn" : "En")];
+            });
+
+            updateTotal();
+
+            if (typeof flip !== "undefined" && flip && totalPages) updatePageLabel();
 
             document.getElementById("languageScreen").classList.remove("show");
         }
@@ -1012,7 +1057,7 @@
             let q = Math.max(1, Math.min(500, Math.floor(Number(qty.value) || 1))),
                 p = Number(binding.value);
 
-            document.getElementById("unitPrice").textContent = "ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹" + p;
+            document.getElementById("unitPrice").textContent = t("perBook") + p;
             document.getElementById("totalQty").textContent = q;
             document.getElementById("total").textContent = "₹" + (q * p).toLocaleString("en-IN");
         }
@@ -1029,11 +1074,11 @@
                 p = Number(binding.value);
 
             if (q < 1 || q > 500 || !Number.isInteger(q)) {
-                alert("ಸರಿಯಾದ ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ");
+                alert(t("badQty"));
                 return;
             }
 
-            let msg = `🙏 *BGOFFICIAL ಭಜನಾ ಪುಸ್ತಕ ಆರ್ಡರ್* 🙏\n\nಹೆಸರು: ${document.getElementById("name").value}\nಮೊಬೈಲ್: ${document.getElementById("mobile").value}\nವಿಳಾಸ: ${document.getElementById("address").value}\nಗ್ರಾಮ/ನಗರ: ${document.getElementById("city").value}\nಜಿಲ್ಲೆ: ${document.getElementById("district").value}\n\nಪುಸ್ತಕ: BGOFFICIAL ಭಜನಾ ಪುಸ್ತಕ\nಗಾತ್ರ: A4 Half\nಪುಟಗಳು: 100\nಬೈಂಡಿಂಗ್: ${p === 200 ? "ಪಿನ್ ಬೈಂಡಿಂಗ್" : "ಗಮ್ ಬೈಂಡಿಂಗ್"}\nಪ್ರತಿ ಪುಸ್ತಕ: ₹${p}\nಸಂಖ್ಯೆ: ${q}\n*ಒಟ್ಟು ಹಣ: ₹${q * p}*\nಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: ${document.getElementById("notes").value}\n\nದಯವಿಟ್ಟು ಆರ್ಡರ್ ದೃಢೀಕರಿಸಿ. ಧನ್ಯವಾದಗಳು 🙏`;
+            let msg = `🙏 *BGOFFICIAL ಭಜನಾ ಪುಸ್ತಕ ಆರ್ಡರ್* 🙏\n\nಹೆಸರು: ${document.getElementById("name").value.trim()}\nಮೊಬೈಲ್: ${document.getElementById("mobile").value}\nವಿಳಾಸ: ${document.getElementById("address").value.trim()}\nಗ್ರಾಮ/ನಗರ: ${document.getElementById("city").value.trim()}\nಜಿಲ್ಲೆ: ${document.getElementById("district").value}\n\nಪುಸ್ತಕ: BGOFFICIAL ಭಜನಾ ಪುಸ್ತಕ\nಗಾತ್ರ: A4 Half\nಪುಟಗಳು: 100\nಬೈಂಡಿಂಗ್: ${p === 200 ? "ಪಿನ್ ಬೈಂಡಿಂಗ್" : "ಗಮ್ ಬೈಂಡಿಂಗ್"}\nಪ್ರತಿ ಪುಸ್ತಕ: ₹${p}\nಸಂಖ್ಯೆ: ${q}\n*ಒಟ್ಟು ಹಣ: ₹${q * p}*\nಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: ${document.getElementById("notes").value.trim() || "-"}\n\nದಯವಿಟ್ಟು ಆರ್ಡರ್ ದೃಢೀಕರಿಸಿ. ಧನ್ಯವಾದಗಳು 🙏`;
 
             location.href = "https://wa.me/918951630221?text=" + encodeURIComponent(msg);
         });
@@ -1042,12 +1087,22 @@
 
         pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-        const BOOK_PIN = "898397";
+        const BOOK_PIN_HASH = "66cac412f59d0665e0bc96eba765150b95ba89b8034d3435cee120efd610b609";
+
+        async function sha256(text) {
+            const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+            return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+        }
 
         let unlocked = false,
             flip = null,
             loaded = false,
-            loading = false;
+            loading = false,
+            totalPages = 0,
+            pdfDoc = null;
+
+        const rendered = new Set(),
+            rendering = new Set();
 
         function openBook() {
             if (unlocked) {
@@ -1061,12 +1116,15 @@
             document.getElementById("pinModal").classList.remove("open");
         }
 
-        document.getElementById("pinForm").addEventListener("submit", e => {
+        document.getElementById("pinForm").addEventListener("submit", async e => {
             e.preventDefault();
 
-            let v = document.getElementById("pinInput").value;
+            let v = document.getElementById("pinInput").value,
+                h = await sha256(v);
 
-            if (v === BOOK_PIN) {
+            if (h === BOOK_PIN_HASH) {
+                document.getElementById("pinMessage").textContent = "";
+                document.getElementById("pinInput").value = "";
                 unlocked = true;
                 closePin();
                 loadBook();
@@ -1082,6 +1140,52 @@
             document.getElementById("loadStatus").textContent = s;
         }
 
+        function updatePageLabel() {
+            let i = flip.getCurrentPageIndex();
+            document.getElementById("pageNumber").textContent = t("page") + Math.min(i + 1, totalPages) + " / " + totalPages;
+        }
+
+        async function renderPage(i) {
+            if (rendered.has(i) || rendering.has(i) || i < 0 || i >= totalPages) return;
+
+            rendering.add(i);
+
+            try {
+                let page = await pdfDoc.getPage(i + 1),
+                    vp = page.getViewport({
+                        scale: 1
+                    }),
+                    scale = Math.min(1.35, 500 / vp.width, 700 / vp.height),
+                    view = page.getViewport({
+                        scale
+                    }),
+                    canvas = document.createElement("canvas");
+
+                canvas.width = Math.ceil(view.width);
+                canvas.height = Math.ceil(view.height);
+
+                await page.render({
+                    canvasContext: canvas.getContext("2d"),
+                    viewport: view
+                }).promise;
+
+                let holder = document.getElementById("flipBook").querySelectorAll(".page")[i];
+
+                if (holder) {
+                    holder.insertBefore(canvas, holder.firstChild);
+                    rendered.add(i);
+                }
+            } catch (err) {
+                console.error("Page render failed", i + 1, err);
+            } finally {
+                rendering.delete(i);
+            }
+        }
+
+        function renderAround(center) {
+            for (let k = -2; k <= 5; k++) renderPage(center + k);
+        }
+
         async function loadBook() {
             let reader = document.getElementById("reader");
 
@@ -1094,38 +1198,22 @@
 
             document.getElementById("loader").classList.add("show");
             document.getElementById("readerStatus").style.display = "none";
+            loader(2, t("opening"));
 
             try {
-                let pdf = await pdfjsLib.getDocument({
+                pdfDoc = await pdfjsLib.getDocument({
                     url: PDF_URL
-                }).promise,
-                    container = document.getElementById("flipBook");
+                }).promise;
 
+                let container = document.getElementById("flipBook");
+
+                totalPages = pdfDoc.numPages;
                 container.innerHTML = "";
 
-                for (let i = 1; i <= pdf.numPages; i++) {
-                    let page = await pdf.getPage(i),
-                        vp = page.getViewport({
-                            scale: 1
-                        }),
-                        scale = Math.min(1.35, 500 / vp.width, 700 / vp.height),
-                        view = page.getViewport({
-                            scale
-                        }),
-                        canvas = document.createElement("canvas");
-
-                    canvas.width = Math.ceil(view.width);
-                    canvas.height = Math.ceil(view.height);
-
-                    await page.render({
-                        canvasContext: canvas.getContext("2d"),
-                        viewport: view
-                    }).promise;
-
+                for (let i = 0; i < totalPages; i++) {
                     let el = document.createElement("div");
 
                     el.className = "page";
-                    el.appendChild(canvas);
 
                     let wm = document.createElement("div");
 
@@ -1134,11 +1222,19 @@
 
                     el.appendChild(wm);
                     container.appendChild(el);
-
-                    loader(5 + (i / pdf.numPages) * 88, "ಪುಟಗಳನ್ನು ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ...");
                 }
 
-                loader(96, "ಪುಸ್ತಕವನ್ನು ಜೋಡಿಸಲಾಗುತ್ತಿದೆ...");
+                loader(30, t("preparing"));
+
+                // First pages are rendered before showing the book; the rest load while reading.
+                let first = Math.min(6, totalPages);
+
+                for (let i = 0; i < first; i++) {
+                    await renderPage(i);
+                    loader(30 + ((i + 1) / first) * 60, t("preparing"));
+                }
+
+                loader(96, t("assembling"));
 
                 flip = new St.PageFlip(container, {
                     width: 380,
@@ -1159,12 +1255,14 @@
                 flip.loadFromHTML(container.querySelectorAll(".page"));
 
                 flip.on("flip", e => {
-                    document.getElementById("pageNumber").textContent = "ಪುಟ " + (e.data + 1) + " / " + pdf.numPages;
+                    updatePageLabel();
+                    renderAround(e.data);
                 });
 
-                document.getElementById("pageNumber").textContent = "ಪುಟ 1 / " + pdf.numPages;
+                updatePageLabel();
+                renderAround(0);
 
-                loader(100, "ಓದಲು ಸಿದ್ಧವಾಗಿದೆ");
+                loader(100, t("ready"));
 
                 loaded = true;
 
@@ -1175,11 +1273,11 @@
             } catch (err) {
                 console.error(err);
 
-                loader(0, "PDF ತೆರೆಯಲಾಗಲಿಲ್ಲ. ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ.");
+                loader(0, t("failLoader"));
 
+                document.getElementById("loader").classList.remove("show");
                 document.getElementById("readerStatus").style.display = "block";
-
-                document.getElementById("readerStatus").textContent = "PDF ಓದಲು ಇಂಟರ್ನೆಟ್ ಆನ್ ಮಾಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.";
+                document.getElementById("readerStatus").textContent = t("failStatus");
 
             } finally {
                 loading = false;
@@ -1213,10 +1311,10 @@
 
         // These browser measures discourage casual copying; browsers cannot block device screenshots.
 
-        document.addEventListener("contextmenu", e => e.preventDefault());
+        document.getElementById("reader").addEventListener("contextmenu", e => e.preventDefault());
 
         document.addEventListener("keydown", e => {
-            if ((e.ctrlKey || e.metaKey) && ["s", "p", "u"].includes(e.key.toLowerCase())) {
+            if (document.getElementById("reader").classList.contains("open") && (e.ctrlKey || e.metaKey) && ["s", "p"].includes(e.key.toLowerCase())) {
                 e.preventDefault();
             }
         });
@@ -1224,4 +1322,4 @@
 
 </body>
 
-  </html>
+</html>
