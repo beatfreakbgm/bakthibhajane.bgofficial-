@@ -898,14 +898,14 @@
 
             <form id="pinForm">
 
-                <label data-kn="6 ಅಂಕಿಗಳ PIN" data-en="6 digit PIN">6 digit PIN</label>
+                <label data-kn="PIN ಸಂಖ್ಯೆ" data-en="PIN">PIN</label>
 
                 <input
                     id="pinInput"
                     type="password"
                     inputmode="numeric"
-                    maxlength="6"
-                    pattern="[0-9]{6}"
+                    maxlength="8"
+                    pattern="[0-9]{6,8}"
                     required>
 
                 <div id="pinMessage" style="color:#ff7777;margin-top:8px"></div>
@@ -968,6 +968,13 @@
                 perBook: "ಪ್ರತಿ ಪುಸ್ತಕಕ್ಕೆ ₹",
                 badQty: "ಸರಿಯಾದ ಪುಸ್ತಕಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ",
                 wrongPin: "ತಪ್ಪಾದ PIN. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+                pinUsed: "ಈ PIN ಈಗಾಗಲೇ ಬಳಕೆಯಾಗಿದೆ. ಹೊಸ PIN ಗಾಗಿ ಸಂಪರ್ಕಿಸಿ.",
+                pinExpired: "ಈ PIN ಸಮಯ ಮುಗಿದಿದೆ.",
+                pinRevoked: "ಈ PIN ಅನ್ನು ರದ್ದುಪಡಿಸಲಾಗಿದೆ.",
+                tooMany: "ತುಂಬಾ ತಪ್ಪು ಪ್ರಯತ್ನಗಳು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.",
+                netErr: "ಸರ್ವರ್ ಸಂಪರ್ಕವಾಗಲಿಲ್ಲ. ಇಂಟರ್ನೆಟ್ ಪರಿಶೀಲಿಸಿ.",
+                timeUp: "ಓದುವ ಸಮಯ ಮುಗಿದಿದೆ. ಮತ್ತೆ ಓದಲು ಹೊಸ PIN ಬೇಕು.",
+                sessionEnded: "ಅವಧಿ ಮುಗಿದಿದೆ. ಹೊಸ PIN ಬೇಕು.",
                 page: "ಪುಟ ",
                 preparing: "ಪುಟಗಳನ್ನು ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ...",
                 assembling: "ಪುಸ್ತಕವನ್ನು ಜೋಡಿಸಲಾಗುತ್ತಿದೆ...",
@@ -982,6 +989,13 @@
                 perBook: "Per book ₹",
                 badQty: "Please enter a valid number of books",
                 wrongPin: "Wrong PIN. Please try again.",
+                pinUsed: "This PIN has already been used. Contact us for a new PIN.",
+                pinExpired: "This PIN has expired.",
+                pinRevoked: "This PIN has been cancelled.",
+                tooMany: "Too many wrong attempts. Please try again later.",
+                netErr: "Could not reach the server. Check your internet.",
+                timeUp: "Reading time is over. A new PIN is needed to read again.",
+                sessionEnded: "Session ended. A new PIN is needed.",
                 page: "Page ",
                 preparing: "Preparing pages...",
                 assembling: "Assembling the book...",
@@ -1083,77 +1097,20 @@
             location.href = "https://wa.me/918951630221?text=" + encodeURIComponent(msg);
         });
 
-        const PDF_URL = "https://raw.githubusercontent.com/beatfreakbgm/bakthibhajane.bgofficial-/main/Untitled%20design_20261007_213328_0000_unlocked.pdf_20261014_171654_0000.pdf";
+        // Address of your Cloudflare Worker (see SETUP-kn.md)
+        const API_BASE = "https://bgofficial-book.bhavithgowda8951.workers.dev";
 
         if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-
-        const BOOK_PIN_HASH = "66cac412f59d0665e0bc96eba765150b95ba89b8034d3435cee120efd610b609";
-
-        function sha256Fallback(str) {
-            function rr(v, n) { return (v >>> n) | (v << (32 - n)); }
-
-            var K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967, 0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85, 0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070, 0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3, 0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2];
-            var H = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-            var bytes = [], i, o, t;
-
-            for (i = 0; i < str.length; i++) bytes.push(str.charCodeAt(i) & 255);
-
-            var bitLen = bytes.length * 8;
-
-            bytes.push(0x80);
-            while (bytes.length % 64 !== 56) bytes.push(0);
-            for (i = 7; i >= 0; i--) bytes.push(i >= 4 ? 0 : (bitLen >>> (i * 8)) & 255);
-
-            for (o = 0; o < bytes.length; o += 64) {
-                var w = new Array(64);
-
-                for (t = 0; t < 16; t++) w[t] = (bytes[o + t * 4] << 24) | (bytes[o + t * 4 + 1] << 16) | (bytes[o + t * 4 + 2] << 8) | bytes[o + t * 4 + 3];
-
-                for (t = 16; t < 64; t++) {
-                    var s0 = rr(w[t - 15], 7) ^ rr(w[t - 15], 18) ^ (w[t - 15] >>> 3);
-                    var s1 = rr(w[t - 2], 17) ^ rr(w[t - 2], 19) ^ (w[t - 2] >>> 10);
-                    w[t] = (w[t - 16] + s0 + w[t - 7] + s1) | 0;
-                }
-
-                var a = H[0], b = H[1], c = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
-
-                for (t = 0; t < 64; t++) {
-                    var S1 = rr(e, 6) ^ rr(e, 11) ^ rr(e, 25);
-                    var ch = (e & f) ^ (~e & g);
-                    var t1 = (h + S1 + ch + K[t] + w[t]) | 0;
-                    var S0 = rr(a, 2) ^ rr(a, 13) ^ rr(a, 22);
-                    var maj = (a & b) ^ (a & c) ^ (b & c);
-                    var t2 = (S0 + maj) | 0;
-
-                    h = g; g = f; f = e; e = (d + t1) | 0; d = c; c = b; b = a; a = (t1 + t2) | 0;
-                }
-
-                H[0] = (H[0] + a) | 0; H[1] = (H[1] + b) | 0; H[2] = (H[2] + c) | 0; H[3] = (H[3] + d) | 0;
-                H[4] = (H[4] + e) | 0; H[5] = (H[5] + f) | 0; H[6] = (H[6] + g) | 0; H[7] = (H[7] + h) | 0;
-            }
-
-            return H.map(x => (x >>> 0).toString(16).padStart(8, "0")).join("");
-        }
-
-        async function sha256(text) {
-            try {
-                if (window.crypto && crypto.subtle) {
-                    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
-                    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
-                }
-            } catch (err) {
-                console.warn("crypto.subtle unavailable, using fallback", err);
-            }
-
-            return sha256Fallback(text);
-        }
 
         let unlocked = false,
             flip = null,
             loaded = false,
             loading = false,
             totalPages = 0,
-            pdfDoc = null;
+            pdfDoc = null,
+            sessionToken = null,
+            sessionTimer = null,
+            pinBusy = false;
 
         const rendered = new Set(),
             rendering = new Set();
@@ -1170,22 +1127,103 @@
             document.getElementById("pinModal").classList.remove("open");
         }
 
+        const PIN_MSG = {
+            invalid: "wrongPin",
+            used: "pinUsed",
+            expired: "pinExpired",
+            revoked: "pinRevoked",
+            too_many: "tooMany",
+            network: "netErr"
+        };
+
+        async function checkPin(pin) {
+            let r;
+
+            try {
+                r = await fetch(API_BASE + "/unlock", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ pin })
+                });
+            } catch (err) {
+                return { error: "network" };
+            }
+
+            let d = {};
+
+            try { d = await r.json(); } catch (err) { }
+
+            if (r.ok && d.token) return d;
+
+            return { error: d.error || "invalid" };
+        }
+
+        function startExpiryTimer(ms) {
+            clearTimeout(sessionTimer);
+            sessionTimer = setTimeout(() => lockBook("timeUp"), Math.max(0, ms));
+        }
+
+        // Closes the book for good: the PIN was single-use, so a new PIN is needed to read again.
+        function lockBook(messageKey) {
+            clearTimeout(sessionTimer);
+
+            sessionToken = null;
+            unlocked = false;
+
+            if (flip) {
+                try { flip.destroy(); } catch (err) { }
+                flip = null;
+            }
+
+            if (pdfDoc) {
+                try { pdfDoc.destroy(); } catch (err) { }
+            }
+
+            document.getElementById("flipBook").innerHTML = "";
+
+            loaded = false;
+            loading = false;
+            pdfDoc = null;
+            totalPages = 0;
+            rendered.clear();
+            rendering.clear();
+
+            closeBook();
+
+            document.getElementById("pinMessage").textContent = messageKey ? t(messageKey) : "";
+            document.getElementById("pinModal").classList.add("open");
+        }
+
         document.getElementById("pinForm").addEventListener("submit", async e => {
             e.preventDefault();
 
-            let v = document.getElementById("pinInput").value,
-                h = await sha256(v);
+            if (pinBusy) return;
 
-            if (h === BOOK_PIN_HASH) {
-                document.getElementById("pinMessage").textContent = "";
-                document.getElementById("pinInput").value = "";
+            pinBusy = true;
+
+            let input = document.getElementById("pinInput"),
+                btn = e.target.querySelector("button[type=submit]"),
+                msg = document.getElementById("pinMessage");
+
+            btn.disabled = true;
+            msg.textContent = "";
+
+            let res = await checkPin(input.value.trim());
+
+            input.value = "";
+
+            if (res.token) {
+                sessionToken = res.token;
                 unlocked = true;
+                startExpiryTimer((res.expires_at - res.now) * 1000);
                 closePin();
                 loadBook();
             } else {
-                document.getElementById("pinMessage").textContent = t("wrongPin");
-                document.getElementById("pinInput").value = "";
+                msg.textContent = t(PIN_MSG[res.error] || "wrongPin");
             }
+
+            btn.disabled = false;
+            pinBusy = false;
         });
 
         function loader(p, s) {
@@ -1258,7 +1296,10 @@
                 if (!window.pdfjsLib || !window.St) throw new Error("Reader libraries not loaded");
 
                 pdfDoc = await pdfjsLib.getDocument({
-                    url: PDF_URL
+                    url: API_BASE + "/book",
+                    httpHeaders: { Authorization: "Bearer " + sessionToken },
+                    disableRange: true,
+                    disableStream: true
                 }).promise;
 
                 let container = document.getElementById("flipBook");
@@ -1328,6 +1369,12 @@
 
             } catch (err) {
                 console.error(err);
+
+                if (err && (err.status === 401 || err.status === 403)) {
+                    document.getElementById("loader").classList.remove("show");
+                    lockBook("sessionEnded");
+                    return;
+                }
 
                 loader(0, t("failLoader"));
 
